@@ -4794,29 +4794,34 @@
         'use strict';
         return {
           restrict: 'AE',
-          replace: true,
-          link: function (scope, element, attrs, ngModelCtrl) {
+          require: 'ngModel',
+          link: function (scope, element, attrs, ngModelCtrl) { 
+            if (ngModelCtrl) {
+              scope.$watch(attrs.ngModel, function(newVal) {
+                if (newVal !== attrs.origin) {
+                  attrs.$set("origin", newVal == undefined ? attrs.origin : newVal);
+                  var modelGetter = $parse(attrs['ngModel']);
+                  var modelSetter = modelGetter.assign;
 
-            var component = element.find('.cronframe')[0];
-            $compile(component)(element.scope());
+                  var type = attrs.type;
+                  var origin = attrs.origin.replace("#", "./views").replace("/home", "");
+                  origin = origin.includes(".view.html") ? origin : origin.concat(".view.html");
+               
+                  var $templateDyn = "";
+                  if (type == 'include') {
+                    $templateDyn = $(`<div class="cronframeOption" ng-include="'${origin}'"></div>`);
+                  } else if (type == 'frame') {
+                    var url = $sce.trustAsResourceUrl(origin);
+                    $templateDyn = $(`<iframe class="cronframeOption" ng-src="${url}" width="100%" height="100%" loading="lazy"></iframe>`);
+                  }
 
-            var componentOptions = element.find('.cronframeOption')[0];
-            $compile(componentOptions)(element.scope());
+                  modelSetter(scope, attrs.origin);
 
-            var type = attrs.type-cronframe;
-            if (type) {
-              var $templateDyn = "";
-              if (type == 'WEB') {
-                $templateDyn = $(`<div class="cronframeOption" ng-include="'${attrs.ngModel}'"></div>`);
-              } else if (type == 'IFRAME') {
-                var url = $sce.trustAsResourceUrl(attrs.ngModel);
-                $templateDyn = $(`<iframe class="cronframeOption" ng-src="${url}" width="100%" height="100%" loading="lazy"></iframe>`);
-              }
-
-              element.html($templateDyn);
-              $compile($templateDyn)(element.scope());
+                  element.html($templateDyn);
+                  $compile($templateDyn)(element.scope());
+                }
+              })
             }
-            
           }
         }
       })

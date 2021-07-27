@@ -13,7 +13,7 @@
   "designTimeSelector": "cron-frame",
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/components/templates/cron-frame.template.html",
   "properties": {
-    "type-cronframe": {
+    "type": {
         "removable": false,
         "displayName_pt_BR": "Tipo",
         "displayName_en_US": "Type",
@@ -42,12 +42,23 @@
   },
   "childrenProperties": [
     {
-      "name": "src",
+      "name": "origin",
       "type": "projectResource",
       "displayName_pt_BR": "Origem",
       "displayName_en_US": "Origin",
       "resourceType": "text/html",
-      "order": 2
+      "selector": "cron-frame[origin]",
+      "mandatory": true,
+      "order": 1
+    },
+    {
+      "name": "ng-model",
+      "selector": "cron-frame",
+      "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
+      "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+      "type": "text",
+      "order": 2,
+      "mandatory": true
     }
   ],
   "styles": []
