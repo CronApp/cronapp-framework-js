@@ -6,7 +6,7 @@
   "description": "Campo para inserir data",
   "description_en_US": "Field to insert date",
   "category": [
-    "INPUTS"
+    "INPUTS", "FORMS"
   ],
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/date.template.html",
   "properties": {

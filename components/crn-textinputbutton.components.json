@@ -6,7 +6,7 @@
   "description": "Campo para inserir texto com botão",
   "description_en_US": "Field to enter text with button",
   "category": [
-    "INPUTS"
+    "BUTTONS", "INPUTS", "FORMS"
   ],
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/textinputbutton.template.html",
   "forcedGroupd": true,

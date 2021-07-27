@@ -6,7 +6,7 @@
   "description": "Verificação do Google para detectar robôs",
   "description_en_US": "Google scan for robot detection",
   "category": [
-    "COMBOS"
+    "BUTTONS", "FORMS"
   ],
   "designTimeDynamic": true,
   "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-captcha.designtime.html",

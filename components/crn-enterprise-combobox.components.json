@@ -8,7 +8,7 @@
   "description": "Campo de seleção com valores pré-definido",
   "description_en_US": "Selection field with predefined values",
   "category": [
-    "INPUTS"
+    "INPUTS", "FORMS", "COMBOS"
   ],
   "order": 9,
   "setRandomId": false,

@@ -8,7 +8,7 @@
   "description": "Caixa de seleção para selecionar mais de um item",
   "description_en_US": "Checkbox to select more than one item",
   "category": [
-    "INPUTS"
+    "INPUTS", "FORMS", "COMBOS"
   ],
   "order": 9,
   "designTimeDynamic": true,

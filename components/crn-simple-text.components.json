@@ -7,7 +7,7 @@
   "description": "Texto sem formatação",
   "description_en_US": "Text without formatting",
   "category": [
-    "TEXTS"
+    "TEXTS", "LAYOUTS"
   ],
   "order": 10,
   "template": "<p>Text</p>",

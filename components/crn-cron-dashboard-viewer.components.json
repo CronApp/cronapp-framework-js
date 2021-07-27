@@ -9,7 +9,7 @@
   "description": "Estrutura para criar painel com gráficos",
   "description_en_US": "Structure for creating dashboard with graphics",
   "category": [
-      "COMBOS"
+      "LAYOUTS"
   ],
   "designTimeSelector": "cron-dashboard-viewer",
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-dashboard-viewer.template.html",

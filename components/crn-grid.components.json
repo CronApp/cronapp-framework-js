@@ -6,7 +6,7 @@
   "description": "Tabela estilizada com cabeçalho e rodapé",
   "description_en_US": "Stylized table with header and footer",
   "category": [
-    "LAYOUTS"
+    "GRIDS"
   ],
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/grid.template.html",
   "properties": {

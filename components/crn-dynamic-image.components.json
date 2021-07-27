@@ -6,7 +6,7 @@
   "description": "Estrutura para armazenar imagem na fonte de dados",
   "description_en_US": "Structure for storing image in data source",
   "category": [
-      "INPUTS"
+      "INPUTS", "FORMS"
   ],
   "order": 8,
   "wrapper": false,

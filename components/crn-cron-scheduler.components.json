@@ -9,7 +9,7 @@
   "description": "Calendário com opção de agendar eventos",
   "description_en_US": "Calendar with option to schedule events",
   "category": [
-    "COMBOS"
+    "LAYOUTS"
   ],
   "designTimeDynamic": true,
   "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-scheduler.designtime.html",

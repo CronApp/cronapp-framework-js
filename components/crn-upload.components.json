@@ -8,7 +8,7 @@
   "description": "Botão com estrutura para armazenar arquivo na fonte de dados",
   "description_en_US": "Button with structure to store file in data source",
   "category": [
-      "INPUTS"
+      "INPUTS", "FORMS"
   ],
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/fileupload.template.html",
   "styles": [

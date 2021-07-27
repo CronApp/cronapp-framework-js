@@ -8,7 +8,7 @@
   "description": "Estrutura com botões de navegação",
   "description_en_US": "Structure with navigation buttons",
   "category": [
-    "COMBOS"
+    "LAYOUTS"
   ],
   "order": 11,
   "wrapper": false,

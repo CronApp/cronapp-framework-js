@@ -6,7 +6,7 @@
   "description": "Campo para inserir texto longo",
   "description_en_US": "Long text input field",
   "category": [
-    "INPUTS"
+    "INPUTS", "FORMS"
   ],
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/textarea.template.html",
   "properties": {

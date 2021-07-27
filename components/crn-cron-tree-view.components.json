@@ -9,7 +9,7 @@
   "description": "Lista que empilha dados iguais",
   "description_en_US": "List that stacks equal data",
   "category": [
-    "COMBOS"
+    "LAYOUTS"
   ],
   "designTimeDynamic": true,
   "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/components/templates/cron-tree-view.designtime.html",

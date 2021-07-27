@@ -6,7 +6,7 @@
   "description": "Caixa de checagem quadrada com texto",
   "description_en_US": "Square checkbox with text",
   "category": [
-    "INPUTS"
+    "INPUTS", "FORMS"
   ],
   "order": 7,
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-checkbox.template.html",

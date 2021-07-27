@@ -8,7 +8,7 @@
     "description": "Campo que apresenta valores fixos enquanto digita",
     "description_en_US": "Field that displays fixed values as you type",
     "category": [
-        "INPUTS"
+        "COMBOS", "INPUTS", "FORMS"
     ],
     "designTimeDynamic": true,
     "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-autocomplete.designtime.html",

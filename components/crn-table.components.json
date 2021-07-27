@@ -8,7 +8,7 @@
   "description": "Tabela com cabeçalho e rodapé",
   "description_en_US": "Table with header and footer",
   "category": [
-    "LAYOUTS"
+    "GRIDS"
   ],
   "template": "",
   "properties": {
