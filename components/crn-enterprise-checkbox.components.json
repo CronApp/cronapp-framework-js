@@ -107,5 +107,5 @@
       "onDisplay": "javascript:function() { return arguments[0].split('\\'').join('') }",
       "type": "text"
     }
-  ] 
+  ]
 }

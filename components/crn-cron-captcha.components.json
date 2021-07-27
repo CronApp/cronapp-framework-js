@@ -67,7 +67,7 @@
       "order": 3
     }
   },
-  "attributesForPreview": [],
+  "attributesForPreview": [ ],
   "childrenProperties": [
     {
       "name": "data-sitekey",

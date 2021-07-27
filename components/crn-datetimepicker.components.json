@@ -19,7 +19,7 @@
       "selector": "div#{id} input.form-control",
       "text_pt_BR": "Entrada de Dados",
       "text_en_US": "Input Style"
-    }   
+    }
   ],
   "properties": {
     "ng-model": {

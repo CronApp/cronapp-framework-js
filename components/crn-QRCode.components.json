@@ -23,7 +23,7 @@
       "removable": false,
       "displayName_pt_BR": "Código QR",
       "displayName_en_US": "QR Code",
-      "childrenProperty": true,
+      "childrenProperty": true,  
       "type": "logic",
       "order": 1
     },

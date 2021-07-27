@@ -47,7 +47,7 @@
       "text_pt_BR": "Aba Padrão",
       "text_en_US": "Default Tab"
     }
-  ],
+  ],  
   "childrenProperties": [
     {
       "name": "ng-init",
