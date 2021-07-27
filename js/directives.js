@@ -4790,33 +4790,38 @@
               }
           };
       })
-      .directive('cronVisualComponent', function($compile, $sce) {
+      .directive('cronFrame', function($compile, $sce) {
         'use strict';
         return {
           restrict: 'AE',
-          replace: true,
-          link: function (scope, element, attrs, ngModelCtrl) {
+          require: 'ngModel',
+          link: function (scope, element, attrs, ngModelCtrl) { 
+            if (ngModelCtrl) {
+              scope.$watch(attrs.ngModel, function(newVal) {
+                if (newVal !== attrs.origin) {
+                  attrs.$set("origin", newVal == undefined ? attrs.origin : newVal);
+                  var modelGetter = $parse(attrs['ngModel']);
+                  var modelSetter = modelGetter.assign;
 
-            var component = element.find('.cronVisualComponent')[0];
-            $compile(component)(element.scope());
+                  var type = attrs.type;
+                  var origin = attrs.origin.replace("#", "./views").replace("/home", "");
+                  origin = origin.includes(".view.html") ? origin : origin.concat(".view.html");
+               
+                  var $templateDyn = "";
+                  if (type == 'include') {
+                    $templateDyn = $(`<div class="cronframeOption" ng-include="'${origin}'"></div>`);
+                  } else if (type == 'frame') {
+                    var url = $sce.trustAsResourceUrl(origin);
+                    $templateDyn = $(`<iframe class="cronframeOption" ng-src="${url}" width="100%" height="100%" loading="lazy"></iframe>`);
+                  }
 
-            var componentOptions = element.find('.cronVisualOption')[0];
-            $compile(componentOptions)(element.scope());
+                  modelSetter(scope, attrs.origin);
 
-            var options = JSON.parse(attrs.options || "{}");
-            if (options.typeVisualComponent) {
-              var $templateDyn = "";
-              if (options.typeVisualComponent == 'WEB') {
-                $templateDyn = $(`<div class="cronVisualOption" ng-include="'${options.content}'"></div>`);
-              } else if (options.typeVisualComponent == 'IFRAME') {
-                var url = $sce.trustAsResourceUrl(options.content);
-                $templateDyn = $(`<iframe class="cronVisualOption" ng-src="${url}" width="100%" height="100%" loading="lazy"></iframe>`);
-              }
-
-              element.html($templateDyn);
-              $compile($templateDyn)(element.scope());
+                  element.html($templateDyn);
+                  $compile($templateDyn)(element.scope());
+                }
+              })
             }
-            
           }
         }
       })
