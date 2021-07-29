@@ -8,7 +8,7 @@
   "description": "Menu com logo e botões de navegação",
   "description_en_US": "Menu with logo and navigation buttons",
   "category": [
-    "COMBOS"
+    "LAYOUTS"
   ],
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/navbar.template.html",
   "properties": {

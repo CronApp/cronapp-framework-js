@@ -9,7 +9,7 @@
   "description": "Tabela com repetidor de valores da fonte de dados",
   "description_en_US": "Table with data source value repeater",
   "category": [
-    "COMBOS"
+    "GRIDS"
   ],
   "designTimeDynamic": true,
   "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/components/templates/cron-grid.designtime.html",

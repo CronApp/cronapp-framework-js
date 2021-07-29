@@ -5,6 +5,9 @@
   "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-icon.svg",
   "description": "Ícone",
   "description_en_US": "Icon",
+  "category": [
+    "LAYOUTS"
+  ],  
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/icon.template.html",
   "wrapper": false,
   "autoWrapper": false,

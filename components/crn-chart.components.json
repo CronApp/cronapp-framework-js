@@ -6,7 +6,7 @@
   "description": "Exibição de gráfico com valores da fonte de dados",
   "description_en_US": "Graph display with data source values",
   "category": [
-    "COMBOS"
+    "LAYOUTS", "FORMS"
   ],
   "wrapper": false,
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/chart.template.html",

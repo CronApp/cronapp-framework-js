@@ -6,7 +6,7 @@
   "description": "Estrutura completa para autenticação pelas redes sociais",
   "description_en_US": "Complete structure for authentication through social media",
   "category": [
-    "COMBOS"
+    "BUTTONS"
   ],
   "wrapper": false,
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/social-button-bar.template.html"

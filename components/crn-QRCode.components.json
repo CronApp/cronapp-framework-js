@@ -6,7 +6,7 @@
   "description": "Código de barras bidimensional lido por câmera",
   "description_en_US": "Two-dimensional barcode read by camera",
   "category": [
-    "COMBOS"
+    "LAYOUTS"
   ],
   "wrapper": false,
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/qrcode.template.html",

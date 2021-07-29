@@ -6,7 +6,7 @@
   "description": "Texto com vínculo a uma URL",
   "description_en_US": "Text linked to a URL",
   "category": [
-    "LAYOUTS"
+    "BUTTONS"
   ],
   "wrapper": false,
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/anchor.template.html",

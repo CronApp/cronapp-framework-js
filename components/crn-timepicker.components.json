@@ -6,7 +6,7 @@
   "description": "Campo para inserir hora",
   "description_en_US": "Hour input field",
   "category": [
-    "INPUTS"
+    "INPUTS", "FORMS"
   ],
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/time.template.html",
   "properties": {

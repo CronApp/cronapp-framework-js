@@ -6,7 +6,7 @@
   "description": "Campo para inserir data e hora",
   "description_en_US": "Field to enter date and time",
   "category": [
-    "INPUTS"
+    "INPUTS", "FORMS"
   ],
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/datetime.template.html",
   "styles": [

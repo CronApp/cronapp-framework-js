@@ -8,7 +8,7 @@
   "description": "Estrutura completa para inserção de texto longo",
   "description_en_US": "Complete structure for inserting long text",
   "category": [
-    "LAYOUTS"
+    "INPUTS", "FORMS"
   ],
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-rich-editor.template.html",
   "properties": {
