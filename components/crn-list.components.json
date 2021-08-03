@@ -18,23 +18,6 @@
       "type": "pageDatasource"
     }
   },
-  "styles": [
-    {
-      "selector": "div#{id}",
-      "text_pt_BR": "Plano de fundo",
-      "text_en_US": "Background"
-    },
-    {
-      "selector": "div#{id} h1",
-      "text_pt_BR": "Título",
-      "text_en_US": "Title"
-    },
-    {
-      "selector": "div#{id} h3",
-      "text_pt_BR": "Subtítulo",
-      "text_en_US": "Subtitle"
-    }
-  ],
   "childrenProperties": [
     {
       "editExpression": false,
@@ -46,6 +29,18 @@
       "onSave": "javascript:function() { var result = ''; var splited = arguments[0].split('+'); for (var i = 0; i<splited.length; i++) { if (splited[i].trim().startsWith(\"'\") || splited[i].trim().startsWith('\"')) result += splited[i].trim() + ' + '; else result += 'rowData.' + splited[i].trim() + ' + ';  } result = result.substr(0, result.length - 2); return '{{'+result.trim()+'}}'; }",
       "onDisplay": "javascript:function() { return arguments[0].replace(/rowData./g,'').replace('{{','').replace('}}','').replace(/\\$/g,''); }",
       "mandatory": true
+    }
+  ],
+  "styles": [
+    {
+      "selector": "div#{id} h1",
+      "text_pt_BR": "Título",
+      "text_en_US": "Title"
+    },
+    {
+      "selector": "div#{id} h3",
+      "text_pt_BR": "Subtítulo",
+      "text_en_US": "Subtitle"
     }
   ]
 }

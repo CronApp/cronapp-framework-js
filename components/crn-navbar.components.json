@@ -44,33 +44,6 @@
       ]
     }
   ],
-  "styles": [
-    {
-      "selector": "div#{id} .navbar",
-      "text_pt_BR": "Plano de Fundo",
-      "text_en_US": "Background"
-    },
-    {
-      "selector": "div#{id} .navbar-default .navbar-brand",
-      "text_pt_BR": "Menu Marca",
-      "text_en_US": "Brand Menu"
-    },
-    {
-      "selector": "div#{id} .navbar-default .navbar-nav>li>a",
-      "text_pt_BR": "Item Menu",
-      "text_en_US": "Menu Item"
-    },
-    {
-      "selector": "div#{id} .dropdown-menu",
-      "text_pt_BR": "Subitem",
-      "text_en_US": "Subitem"
-    },
-    {
-      "selector": "div#{id} .dropdown-menu > li > a:hover",
-      "text_pt_BR": "Subitem Hover",
-      "text_en_US": "Hover Subitem"
-    }
-  ],
   "handleRules": {
     "canIncrement": true,
     "rules": [
@@ -119,6 +92,33 @@
       "name": "ng-mousemove",
       "selector": "nav",
       "type": "event"
+    }
+  ],
+  "styles": [
+    {
+      "selector": "div#{id} .navbar",
+      "text_pt_BR": "Plano de Fundo",
+      "text_en_US": "Background"
+    },
+    {
+      "selector": "div#{id} .navbar-default .navbar-brand",
+      "text_pt_BR": "Menu Marca",
+      "text_en_US": "Brand Menu"
+    },
+    {
+      "selector": "div#{id} .navbar-default .navbar-nav li a",
+      "text_pt_BR": "Item Menu",
+      "text_en_US": "Menu Item"
+    },
+    {
+      "selector": "div#{id} .navbar-nav li.open a, div#{id} .navbar-nav li a:focus, div#{id} .navbar-nav li a:hover",
+      "text_pt_BR": "Item Selecionado",
+      "text_en_US": "Menu Item"
+    },
+    {
+      "selector": "div#{id} ul.dropdown-menu",
+      "text_pt_BR": "Subitem",
+      "text_en_US": "Subitem"
     }
   ]
 }
