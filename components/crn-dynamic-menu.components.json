@@ -28,28 +28,6 @@
       "displayName_en_US": "Alternative value"
     }
   },
-  "styles": [
-    {
-      "selector": "#{id} .crn-menu-item > a",
-      "text_pt_BR": "Item principal",
-      "text_en_US": "Main item"
-    },
-    {
-      "selector": "#{id} .nav .open>a, #{id} .nav .open > a:focus, #{id} .nav .open> a:hover",
-      "text_pt_BR": "Item principal aberto",
-      "text_en_US": "Open main item"
-    },
-    {
-      "selector": "#{id} .dropdown-menu > li > a",
-      "text_pt_BR": "Subitem",
-      "text_en_US": "Subitem"
-    },
-    {
-      "selector": "#{id} .crn-menu-item > .dropdown-menu",
-      "text_pt_BR": "Plano de fundo do Subitem",
-      "text_en_US": "Subitem Background"
-    }
-  ],
   "childrenProperties": [
     {
       "name": "options",
@@ -59,6 +37,28 @@
       "type": "text",
       "order": 1,
       "mandatory": true
+    }
+  ],
+  "styles": [
+    {
+      "selector": "#{id} .crn-menu-item a",
+      "text_pt_BR": "Geral",
+      "text_en_US": "General"
+    },
+    {
+      "selector": "#{id} .nav .open a, #{id} .nav .open a:focus, #{id} .nav .open a:hover",
+      "text_pt_BR": "Item aberto",
+      "text_en_US": "Open item"
+    },
+    {
+      "selector": "#{id} .dropdown-menu li a",
+      "text_pt_BR": "Subitem",
+      "text_en_US": "Subitem"
+    },
+    {
+      "selector": "#{id} .crn-menu-item .dropdown-menu",
+      "text_pt_BR": "Plano de fundo do Subitem",
+      "text_en_US": "Subitem Background"
     }
   ]
 }

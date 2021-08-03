@@ -8,18 +8,29 @@
     "description_en_US": "Button",
     "category": [
         "BUTTONS", "FORMS"
-      ],
+    ],
     "wrapper": true,
     "autoWrapper": false,
     "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/button.template.html",
     "properties": {
         "xattr-fullsize": {
-            "displayName_en_US": "Width",
-            "displayName_pt_BR": "Largura"
+            "displayName_pt_BR": "Largura",
+            "displayName_en_US": "Width"
         },
         "xattr-theme": {
-            "displayName_en_US": "Button theme",
-            "displayName_pt_BR": "Tema do botão"
+            "displayName_pt_BR": "Cor do botão",
+            "displayName_en_US": "Button color",
+            "order": 4
+        },
+        "icon-theme": {
+            "displayName_pt_BR": "Cor do ícone",
+            "displayName_en_US": "Icon color",
+            "order": 3
+        },
+        "text-theme": {
+            "displayName_pt_BR": "Cor do texto",
+            "displayName_en_US": "Text color",
+            "order": 3
         },
         "xattr-disabled": {
             "displayName_en_US": "Disabled",
@@ -32,23 +43,6 @@
             "order": 5
         }
     },
-    "styles": [
-        {
-            "selector": "div#{id} button",
-            "text_pt_BR": "Plano de fundo do botão",
-            "text_en_US": "Button background"
-        },
-        {
-            "selector": "div#{id} button i",
-            "text_pt_BR": "Ícone",
-            "text_en_US": "Icon"
-        },
-        {
-            "selector": "div#{id} button span",
-            "text_pt_BR": "Título",
-            "text_en_US": "Title"
-        }
-    ],
     "attributesForPreview": [
         {
             "name": "xattr-fullsize",
@@ -64,6 +58,23 @@
                     "key": "",
                     "value_pt_BR": "Embutido",
                     "value_en_US": "Inline"
+                }
+            ]
+        },
+        {
+            "name": "xattr-disabled",
+            "type": "options",
+            "target": "class",
+            "values": [
+                {
+                    "key": "",
+                    "value_pt_BR": "Falso",
+                    "value_en_US": "False"
+                },
+                {
+                    "key": "disabled",
+                    "value_pt_BR": "Verdadeiro",
+                    "value_en_US": "True"
                 }
             ]
         },
@@ -114,19 +125,268 @@
             ]
         },
         {
-            "name": "xattr-disabled",
+            "name": "icon-theme",
             "type": "options",
             "target": "class",
             "values": [
                 {
-                    "key": "",
-                    "value_pt_BR": "Falso",
-                    "value_en_US": "False"
+                    "key": "color-white",
+                    "value_pt_BR": "Branco",
+                    "value_en_US": "White",
+                    "color": "#fff"
                 },
                 {
-                    "key": "disabled",
-                    "value_pt_BR": "Verdadeiro",
-                    "value_en_US": "True"
+                    "key": "color-gray",
+                    "value_pt_BR": "Cinza",
+                    "value_en_US": "Gray",
+                    "color": "#333"
+                },
+                {
+                    "key": "color-black",
+                    "value_pt_BR": "Preto",
+                    "value_en_US": "Black",
+                    "color": "#000"
+                },
+                {
+                    "key": "color-blue",
+                    "value_pt_BR": "Azul",
+                    "value_en_US": "Blue",
+                    "color": "#0247FE"
+                },
+                {
+                    "key": "color-light-blue",
+                    "value_pt_BR": "Azul claro",
+                    "value_en_US": "Light blue",
+                    "color": "#85A5FF"
+                },
+                {
+                    "key": "color-dark-blue",
+                    "value_pt_BR": "Azul escuro",
+                    "value_en_US": "Dark blue",
+                    "color": "#00217A"
+                },
+                {
+                    "key": "color-purple",
+                    "value_pt_BR": "Roxo",
+                    "value_en_US": "Purple",
+                    "color": "#3D01A4"
+                },
+                {
+                    "key": "color-light-purple",
+                    "value_pt_BR": "Roxo claro",
+                    "value_en_US": "Light purple",
+                    "color": "#B285FF"
+                },
+                {
+                    "key": "color-dark-purple",
+                    "value_pt_BR": "Roxo escuro",
+                    "value_en_US": "Dark purple",
+                    "color": "#2D007A"
+                },
+                {
+                    "key": "color-red",
+                    "value_pt_BR": "Vermelho",
+                    "value_en_US": "Red",
+                    "color": "#FE2712"
+                },
+                {
+                    "key": "color-light-red",
+                    "value_pt_BR": "Vermelho claro",
+                    "value_en_US": "Light red",
+                    "color": "#FE8F84"
+                },
+                {
+                    "key": "color-dark-red",
+                    "value_pt_BR": "Vermelho escuro",
+                    "value_en_US": "Dark red",
+                    "color": "#7A0B00"
+                },
+                {
+                    "key": "color-orange",
+                    "value_pt_BR": "Laranja",
+                    "value_en_US": "Orange",
+                    "color": "#FB9B02"
+                },
+                {
+                    "key": "color-light-orange",
+                    "value_pt_BR": "Laranja claro",
+                    "value_en_US": "Light orange",
+                    "color": "#FFD085"
+                },
+                {
+                    "key": "color-dark-orange",
+                    "value_pt_BR": "Laranja escuro",
+                    "value_en_US": "Dark orange",
+                    "color": "#7A4B00"
+                },
+                {
+                    "key": "color-yellow",
+                    "value_pt_BR": "Amarelo",
+                    "value_en_US": "Yellow",
+                    "color": "#FFFF33"
+                },
+                {
+                    "key": "color-light-yellow",
+                    "value_pt_BR": "Amarelo claro",
+                    "value_en_US": "Light yellow",
+                    "color": "#FFFF85"
+                },
+                {
+                    "key": "color-dark-yellow",
+                    "value_pt_BR": "Amarelo escuro",
+                    "value_en_US": "Dark Yellow",
+                    "color": "#7A7A00"
+                },
+                {
+                    "key": "color-green",
+                    "value_pt_BR": "Verde",
+                    "value_en_US": "Green",
+                    "color": "#66B032"
+                },
+                {
+                    "key": "color-light-green",
+                    "value_pt_BR": "Verde claro",
+                    "value_en_US": "Light green",
+                    "color": "#B7FF85"
+                },
+                {
+                    "key": "color-dark-green",
+                    "value_pt_BR": "Verde escuro",
+                    "value_en_US": "Dark green",
+                    "color": "#337A00"
+                }
+            ]
+        },
+        {
+            "name": "text-theme",
+            "type": "options",
+            "target": "class",
+            "values": [
+                {
+                    "key": "color-white",
+                    "value_pt_BR": "Branco",
+                    "value_en_US": "White",
+                    "color": "#fff"
+                },
+                {
+                    "key": "color-gray",
+                    "value_pt_BR": "Cinza",
+                    "value_en_US": "Gray",
+                    "color": "#333"
+                },
+                {
+                    "key": "color-black",
+                    "value_pt_BR": "Preto",
+                    "value_en_US": "Black",
+                    "color": "#000"
+                },
+                {
+                    "key": "color-blue",
+                    "value_pt_BR": "Azul",
+                    "value_en_US": "Blue",
+                    "color": "#0247FE"
+                },
+                {
+                    "key": "color-light-blue",
+                    "value_pt_BR": "Azul claro",
+                    "value_en_US": "Light blue",
+                    "color": "#85A5FF"
+                },
+                {
+                    "key": "color-dark-blue",
+                    "value_pt_BR": "Azul escuro",
+                    "value_en_US": "Dark blue",
+                    "color": "#00217A"
+                },
+                {
+                    "key": "color-purple",
+                    "value_pt_BR": "Roxo",
+                    "value_en_US": "Purple",
+                    "color": "#3D01A4"
+                },
+                {
+                    "key": "color-light-purple",
+                    "value_pt_BR": "Roxo claro",
+                    "value_en_US": "Light purple",
+                    "color": "#B285FF"
+                },
+                {
+                    "key": "color-dark-purple",
+                    "value_pt_BR": "Roxo escuro",
+                    "value_en_US": "Dark purple",
+                    "color": "#2D007A"
+                },
+                {
+                    "key": "color-red",
+                    "value_pt_BR": "Vermelho",
+                    "value_en_US": "Red",
+                    "color": "#FE2712"
+                },
+                {
+                    "key": "color-light-red",
+                    "value_pt_BR": "Vermelho claro",
+                    "value_en_US": "Light red",
+                    "color": "#FE8F84"
+                },
+                {
+                    "key": "color-dark-red",
+                    "value_pt_BR": "Vermelho escuro",
+                    "value_en_US": "Dark red",
+                    "color": "#7A0B00"
+                },
+                {
+                    "key": "color-orange",
+                    "value_pt_BR": "Laranja",
+                    "value_en_US": "Orange",
+                    "color": "#FB9B02"
+                },
+                {
+                    "key": "color-light-orange",
+                    "value_pt_BR": "Laranja claro",
+                    "value_en_US": "Light orange",
+                    "color": "#FFD085"
+                },
+                {
+                    "key": "color-dark-orange",
+                    "value_pt_BR": "Laranja escuro",
+                    "value_en_US": "Dark orange",
+                    "color": "#7A4B00"
+                },
+                {
+                    "key": "color-yellow",
+                    "value_pt_BR": "Amarelo",
+                    "value_en_US": "Yellow",
+                    "color": "#FFFF33"
+                },
+                {
+                    "key": "color-light-yellow",
+                    "value_pt_BR": "Amarelo claro",
+                    "value_en_US": "Light yellow",
+                    "color": "#FFFF85"
+                },
+                {
+                    "key": "color-dark-yellow",
+                    "value_pt_BR": "Amarelo escuro",
+                    "value_en_US": "Dark Yellow",
+                    "color": "#7A7A00"
+                },
+                {
+                    "key": "color-green",
+                    "value_pt_BR": "Verde",
+                    "value_en_US": "Green",
+                    "color": "#66B032"
+                },
+                {
+                    "key": "color-light-green",
+                    "value_pt_BR": "Verde claro",
+                    "value_en_US": "Light green",
+                    "color": "#B7FF85"
+                },
+                {
+                    "key": "color-dark-green",
+                    "value_pt_BR": "Verde escuro",
+                    "value_en_US": "Dark green",
+                    "color": "#337A00"
                 }
             ]
         }
@@ -141,27 +401,37 @@
             "order": 1
         },
         {
+            "name": "icon-theme",
+            "selector": "i",
+            "order": 2
+        },
+        {
             "name": "content",
             "selector": "span",
             "type": "text",
             "displayName_pt_BR": "Título",
             "displayName_en_US": "Title",
-            "order": 2
+            "order": 3
+        },
+        {
+            "name": "text-theme",
+            "selector": "span",
+            "order": 4
         },
         {
             "name": "xattr-theme",
             "selector": "button",
-            "order": 3
+            "order": 5
         },
         {
             "name": "xattr-fullsize",
             "selector": "button",
-            "order": 4
+            "order": 6
         },
         {
             "name": "xattr-disabled",
             "selector": "button",
-            "order": 5
+            "order": 7
         },
         {
             "name": "ng-init",
@@ -192,6 +462,23 @@
             "name": "ng-mousemove",
             "selector": "button",
             "type": "event"
+        }
+    ],
+    "styles": [
+        {
+            "selector": "div#{id} button",
+            "text_pt_BR": "Plano de fundo do botão",
+            "text_en_US": "Button background"
+        },
+        {
+            "selector": "div#{id} button i",
+            "text_pt_BR": "Ícone",
+            "text_en_US": "Icon"
+        },
+        {
+            "selector": "div#{id} button span",
+            "text_pt_BR": "Título",
+            "text_en_US": "Title"
         }
     ]
 }
