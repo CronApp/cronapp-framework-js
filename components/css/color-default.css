@@ -1,3 +1,7 @@
+@import 'checkbox-color.css';
+@import 'combobox-color.css';
+@import 'option-color.css';
+
 :root {
     --white: #ffffff;
     --gray: #333333;
@@ -21,10 +25,6 @@
     --light-green: #B7FF85;
     --dark-green: #337A00;
 }
-
-@import 'checkbox-color.css';
-@import 'combobox-color.css';
-@import 'option-color.css';
 
 .color-white {
     color: var(--white);
