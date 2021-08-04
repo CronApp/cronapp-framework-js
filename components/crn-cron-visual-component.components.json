@@ -11,9 +11,9 @@
   ],
   "class": "adjust-icon mdi mdi-web",
   "designTimeDynamic": true,
-  "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/components/templates/cron-visual-component.designtime.html",
+  "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-visual-component.designtime.html",
   "designTimeSelector": "cron-visual-component",
-  "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/components/templates/cron-visual-component.template.html",
+  "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-visual-component.template.html",
   "properties": {
     "class": {
       "order": 9999

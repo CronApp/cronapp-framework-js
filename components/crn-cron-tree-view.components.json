@@ -12,9 +12,9 @@
     "LAYOUTS"
   ],
   "designTimeDynamic": true,
-  "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/components/templates/cron-tree-view.designtime.html",
+  "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-tree-view.designtime.html",
   "designTimeSelector": "cron-tree-view",
-  "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/components/templates/cron-tree-view.template.html",
+  "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-tree-view.template.html",
   "properties": {
     "class": {
       "order": 9999

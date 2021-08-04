@@ -35,18 +35,6 @@
       }
     ]
   },
-  "styles": [
-    {
-      "selector": "div#{id} .panel-default>.panel-heading",
-      "text_pt_BR": "Cabeçalho do acordeão",
-      "text_en_US": "Accordion Heading"
-    },
-    {
-      "selector": "div#{id} .panel-collapse>.panel-body",
-      "text_pt_BR": "Corpo do acordeão",
-      "text_en_US": "Accordion Body"
-    }
-  ],
   "childrenProperties": [
     {
       "name": "ng-init",
@@ -77,6 +65,18 @@
       "name": "ng-mousemove",
       "selector": "div.panel-heading",
       "type": "event"
+    }
+  ],
+  "styles": [
+    {
+      "selector": "div#{id} .panel-default>.panel-heading",
+      "text_pt_BR": "Cabeçalho do acordeão",
+      "text_en_US": "Accordion Heading"
+    },
+    {
+      "selector": "div#{id} .panel-collapse>.panel-body",
+      "text_pt_BR": "Corpo do acordeão",
+      "text_en_US": "Accordion Body"
     }
   ]
 }

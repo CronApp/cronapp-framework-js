@@ -24,43 +24,6 @@
       "order": 1
     }
   },
-  "styles": [
-    {
-      "selector": "input#{id}",
-      "text_pt_BR": "Caixa de seleção",
-      "text_en_US": "Combobox"
-    },
-    {
-      "selector": ".cronSelect span .k-select",
-      "text_pt_BR": "Seta",
-      "text_en_US": "Dropdown"
-    },
-    {
-      "selector": "#{id}_label",
-      "text_pt_BR": "Título",
-      "text_en_US": "Title"
-    },
-    {
-      "selector": "#{id}_listbox .k-state-selected",
-      "text_pt_BR": "Item Selecionado", 
-      "text_en_US": "Selected Item"
-    },
-    {
-      "selector": "#{id}-list",
-      "text_pt_BR": "Lista de Itens",
-      "text_en_US": "Item List"
-    },
-    {
-      "selector": "#{id}_listbox .k-state-hover",
-      "text_pt_BR": "Item da Lista Hover",
-      "text_en_US": "Item List Hover"
-    },
-    {
-      "selector": "#{id}_listbox .k-state-focused",
-      "text_pt_BR": "Item Selecionado",
-      "text_en_US": "Selected Item"
-    }
-  ],
   "childrenProperties": [
     {
       "name": "ng-change",
@@ -133,6 +96,43 @@
       "selector": "cron-select",
       "type": "text",
       "onSave": "javascript:(value)=> {this.currentObject.parent().find('label').attr('for', arguments[0]); return arguments[0];}"
+    }
+  ],
+  "styles": [
+    {
+      "selector": "div#{id}.form-group label",
+      "text_pt_BR": "Título",
+      "text_en_US": "Title"
+    },
+    {
+      "selector": "input#{id}",
+      "text_pt_BR": "Caixa de seleção",
+      "text_en_US": "Combobox"
+    },
+    {
+      "selector": "input#{id}::placeholder",
+      "text_pt_BR": "Sugestão",
+      "text_en_US": "Placeholder"
+    },
+    {
+      "selector": "div#{id} .k-widget .k-dropdown-wrap .k-select",
+      "text_pt_BR": "Seta",
+      "text_en_US": "Dropdown"
+    },
+    {
+      "selector": "#{id}_listbox .k-state-selected",
+      "text_pt_BR": "Item Selecionado",
+      "text_en_US": "Selected Item"
+    },
+    {
+      "selector": "#{id}-list",
+      "text_pt_BR": "Lista de Itens",
+      "text_en_US": "Item List"
+    },
+    {
+      "selector": "#{id}_listbox .k-state-hover",
+      "text_pt_BR": "Item da Lista Hover",
+      "text_en_US": "Item List Hover"
     }
   ]
 }

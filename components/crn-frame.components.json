@@ -9,9 +9,9 @@
     "LAYOUTS"
   ],
   "designTimeDynamic": true,
-  "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/components/templates/cron-frame.designtime.html",
+  "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-frame.designtime.html",
   "designTimeSelector": "cron-frame",
-  "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/components/templates/cron-frame.template.html",
+  "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-frame.template.html",
   "properties": {
     "type": {
         "removable": false,
