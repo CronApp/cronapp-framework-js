@@ -3,6 +3,7 @@
 @import 'modalTemplate.css';
 @import 'animate.css';
 @import './privacy/privacy.css';
+@import '../components/css/color-default.css';
 
 /* Directive crn-input-password */
 @import '../components/css/crn-input-password.css';
@@ -256,11 +257,6 @@ a {
 
 .k-treeview .k-in{
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-}
-
-/* crn-enterprise-combobox-multiple maintenance */
-.k-multiselect-wrap .k-button{
-    font-size: 1em;
 }
 
 .page-header{

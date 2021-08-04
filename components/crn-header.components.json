@@ -15,12 +15,5 @@
     "id": {
       "order": 3
     }
-  },
-  "styles": [
-    {
-      "selector": "div#{id}",
-      "text_pt_BR": "Plano de fundo",
-      "text_en_US": "Background"
-    }
-  ]
+  }
 }

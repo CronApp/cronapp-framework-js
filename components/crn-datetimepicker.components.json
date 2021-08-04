@@ -9,18 +9,6 @@
     "INPUTS", "FORMS"
   ],
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/datetime.template.html",
-  "styles": [
-    {
-      "selector": "div#{id} label",
-      "text_pt_BR": "Título",
-      "text_en_US": "Title"
-    },
-    {
-      "selector": "div#{id} input.form-control",
-      "text_pt_BR": "Entrada de Dados",
-      "text_en_US": "Input Style"
-    }
-  ],
   "properties": {
     "ng-model": {
       "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
@@ -109,6 +97,18 @@
       "name": "ng-paste",
       "selector": "input",
       "type": "event"
+    }
+  ],
+  "styles": [
+    {
+      "selector": "div#{id} label",
+      "text_pt_BR": "Título",
+      "text_en_US": "Title"
+    },
+    {
+      "selector": "div#{id} input.form-control",
+      "text_pt_BR": "Entrada de Dados",
+      "text_en_US": "Input"
     }
   ]
 }

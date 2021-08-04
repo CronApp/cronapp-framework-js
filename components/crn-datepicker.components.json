@@ -17,18 +17,6 @@
       "order": 1
     }
   },
-  "styles": [
-    {
-      "selector": "div#{id} input.form-control",
-      "text_pt_BR": "Entrada de Dados",
-      "text_en_US": "Input"
-    },
-    {
-      "selector": "div#{id} label",
-      "text_pt_BR": "Título",
-      "text_en_US": "Title"
-    }
-  ],
   "childrenProperties": [
     {
       "name": "content",
@@ -121,5 +109,17 @@
   ],
   "type": {
     "displayName": "Type"
-  }
+  },
+  "styles": [
+    {
+      "selector": "div#{id} label",
+      "text_pt_BR": "Título",
+      "text_en_US": "Title"
+    },
+    {
+      "selector": "div#{id} input.form-control",
+      "text_pt_BR": "Entrada de Dados",
+      "text_en_US": "Input"
+    }
+  ]
 }

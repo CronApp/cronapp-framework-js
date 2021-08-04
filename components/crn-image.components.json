@@ -117,13 +117,6 @@
       "order": 7
     }
   },
-  "styles": [
-    {
-      "selector": "img#{id}",
-      "text_pt_BR": "Imagem",
-      "text_en_US": "Image"
-    }
-  ],
   "attributesForPreview": [
     {
       "name": "object-fit",

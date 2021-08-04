@@ -27,6 +27,11 @@
       "selector": "div#{id} input.form-control",
       "text_pt_BR": "Entrada de Dados",
       "text_en_US": "Input"
+    },
+    {
+      "selector": "div#{id} input::placeholder",
+      "text_pt_BR": "Sugestão",
+      "text_en_US": "Placeholder"
     }
   ],
   "childrenProperties": [
