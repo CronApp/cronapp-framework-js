@@ -62,14 +62,14 @@
   });
 
   app.controller('SignupController' , function($controller, $scope, $stateParams, $location, $http, $rootScope, $translate, Notification, UploadService, $timeout, $state, ReportService) {
-    
+
     app.registerEventsCronapi($scope, $translate);
 
     $scope.cronapi.screen.changeValueOfField('vars.signupEmail','');
     $scope.cronapi.screen.changeValueOfField('vars.signupUsername','');
     $scope.cronapi.screen.changeValueOfField('vars.signupPassword','');
     $scope.cronapi.screen.changeValueOfField('vars.signupConfirmPassword','');
-    
+
   });
 
   app.controller('LoginController', function($controller, $scope, $http, $rootScope, $window, $state, $translate, Notification, ReportService, UploadService, $location, $stateParams, $timeout, $cookies, $templateCache, DashboardService) {
@@ -332,12 +332,18 @@
         }
       }).success(clean).error(clean);
 
-      function clean() {
+      function clean(result) {
         $rootScope.session = {};
         if(typeof (Storage) !== "undefined") {
           localStorage.removeItem("_u");
         }
-        window.location.href = "";
+
+        // In case a logoutUri is defined, after Cronapp logout user is redirected to the logoutUri
+        if (result && result.logoutUri) {
+          window.location.href = result.logoutUri;
+        } else {
+          window.location.href = "";
+        }
       }
     };
 
@@ -499,6 +505,14 @@
       if (queryStringParams.hasOwnProperty(key)) {
         params[key] = queryStringParams[key];
       }
+    }
+
+    let logoutUri = params["logoutUri"];
+
+    if (logoutUri) {
+      window.localStorage.setItem("logoutUri", logoutUri);
+    } else {
+      window.localStorage.removeItem("logoutUri");
     }
 
     $scope.login("#OAUTH#", "#OAUTH#", params["_ctk"]);
