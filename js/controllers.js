@@ -313,12 +313,18 @@
         }
       }).success(clean).error(clean);
 
-      function clean() {
+      function clean(result) {
         $rootScope.session = {};
         if(typeof (Storage) !== "undefined") {
           localStorage.removeItem("_u");
         }
-        window.location.href = "";
+
+        // In case a logoutUri is defined, after Cronapp logout user is redirected to the logoutUri
+        if (result && result.logoutUri) {
+          window.location.href = result.logoutUri;
+        } else {
+          window.location.href = "";
+        }
       }
     };
 
