@@ -9,7 +9,7 @@
     "category": [
       "GRIDS", "FORMS"
     ],
-    "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/components/templates/cron-crud.template.html",
+    "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-crud.template.html",
     "properties": {
       "class": {
         "order": 9999
