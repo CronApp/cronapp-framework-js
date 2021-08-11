@@ -2759,13 +2759,10 @@
               scope.safeApply(function() {
                 var trs = $(toCompile);
                 var x = angular.element(trs);
-                //setTimeout apenas para sair da thread
-                setTimeout(()=> {
-                  $compile(x)(scope);
-                  if (options.refComponent) {
-                    helperDirective.resizeGridUsingWidthForDevice(options.refComponent);
-                  }
-                },100);
+                $compile(x)(scope);
+                if (options.refComponent) {
+                  helperDirective.resizeGridUsingWidthForDevice(options.refComponent);
+                }
               });
             }
           };
