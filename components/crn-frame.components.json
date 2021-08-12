@@ -5,10 +5,10 @@
   "description": "Componente visual que pode ser utilizado dentro de uma página",
   "description_en_US": "Visual component that can be used within a page",
   "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-frame.svg",
+  "forcedGroup": true,
   "category": [
     "LAYOUTS"
   ],
-  "designTimeDynamic": true,
   "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-frame.designtime.html",
   "designTimeSelector": "cron-frame",
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-frame.template.html",
@@ -49,6 +49,9 @@
       "resourceType": "text/html",
       "selector": "cron-frame[origin]",
       "mandatory": true,
+      "removable": false,
+      "underViewsFolder" : true,
+      "webPath" : true,
       "order": 1
     },
     {

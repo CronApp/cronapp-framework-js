@@ -4800,25 +4800,18 @@
               scope.$watch(attrs.ngModel, function(newVal) {
                 if (newVal !== attrs.origin) {
                   attrs.$set("origin", newVal == undefined ? attrs.origin : newVal);
-                  var modelGetter = $parse(attrs['ngModel']);
-                  var modelSetter = modelGetter.assign;
-
-                  var type = attrs.type;
-                  var origin = attrs.origin.replace("#", "./views").replace("/home", "");
-                  origin = origin.includes(".view.html") ? origin : origin.concat(".view.html");
-               
-                  var $templateDyn = "";
-                  if (type == 'include') {
-                    $templateDyn = $(`<div class="cronframeOption" ng-include="'${origin}'"></div>`);
-                  } else if (type == 'frame') {
-                    var url = $sce.trustAsResourceUrl(origin);
-                    $templateDyn = $(`<iframe class="cronframeOption" ng-src="${url}" width="100%" height="100%" loading="lazy"></iframe>`);
+                  const modelGetter = $parse(attrs['ngModel']);
+                  let modelSetter = modelGetter.assign;   
+                  let template = "";
+                  if (attrs.type == 'include') {
+                    template = $(`<div class="cronframeOption" ng-include="'${attrs.origin}'"></div>`);
+                  } else if (attrs.type == 'frame') {
+                    var url = $sce.trustAsResourceUrl(attrs.origin);
+                    template = $(`<iframe class="cronframeOption" ng-src="${url}" width="100%" height="100%" loading="lazy"></iframe>`);
                   }
-
                   modelSetter(scope, attrs.origin);
-
-                  element.html($templateDyn);
-                  $compile($templateDyn)(element.scope());
+                  element.html(template);
+                  $compile(template)(scope);
                 }
               })
             }
