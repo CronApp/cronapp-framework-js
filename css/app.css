@@ -322,11 +322,6 @@ fieldset[disabled] .btn-default:hover {
     width: 8%;
 }
 
-
-
-
-
-
 img.user-avatar {
     width: 22px;
     height: 22px;
@@ -598,4 +593,13 @@ img.user-avatar {
     height: 100vh;
     display: flex;
     align-items: center;
+}
+
+@font-face {
+    font-family: 'Arial-Report';
+    src: url('../../../node_modules/cronapp-lib-js/dist/js/kendo-ui/styles/fonts/arial-report/arial-report.ttf');
+}
+
+.k-pdf-export, .k-pdf-export * {
+    font-family: 'Arial-Report';
 }
