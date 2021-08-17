@@ -5,6 +5,7 @@
   "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-vertical-container.svg",
   "description": "Dois recipiente ao lado para inserir componentes",
   "description_en_US": "Two container on the side for inserting components",
+  "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/components/templates/grid-horizontal.template.html",
   "properties": {
     "class": {
       "order": 9999
@@ -34,12 +35,23 @@
       "type": "event"
     }
   },
+  "forcedGroup": false,
+  "wrapper": false,
+  "autoWrapper": true,
+  "handleRules": {
+    "canIncrement": true,
+    "rules": [
+      {
+        "sourceHTML": "<div class=\"col-layout-horizontal\" data-container=\"true\" data-replace=\"true\">Content goes here</div> ",
+        "targetSelector": ":self"
+      }
+    ]
+  },
   "styles": [
     {
-      "selector": "div#{id} div",
+      "selector": "div#{id} div.col-layout-horizontal",
       "text_pt_BR": "Geral",
       "text_en_US": "General"
     }
-  ],
-  "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/grid-horizontal.template.html"
+  ]
 }
