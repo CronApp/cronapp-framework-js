@@ -341,3 +341,11 @@ fieldset[disabled] .btn-default:hover {
 .k-pdf-export * {
     font-family: 'Arial-Report';
 }
+
+.layout-horizontal {
+    display: flex;
+}
+
+.col-layout-horizontal {
+    width: 100%;
+}
