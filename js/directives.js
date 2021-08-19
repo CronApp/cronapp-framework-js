@@ -4787,7 +4787,7 @@
               }
           };
       })
-      .directive('cronFrame', function($compile, $sce) {
+      .directive('cronFrame', function($compile, $sce, $parse) {
         'use strict';
         return {
           restrict: 'AE',
