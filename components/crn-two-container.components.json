@@ -1,14 +1,16 @@
 {
-    "name": "crn-horizontal-container",
-    "text_pt_BR": "Layout horizontal",
-    "text_en_US": "Horizontal Layout",
+    "name": "crn-two-container",
+    "text_pt_BR": "2 Colunas",
+    "text_en_US": "2 Columns",
     "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-vertical-container.svg",
     "description": "Dois recipiente ao lado para inserir componentes",
     "description_en_US": "Two container on the side for inserting components",
     "category": [
         "LAYOUTS"
     ],
-    "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/grid-horizontal.template.html",
+    "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/Component_Container/crn-two-container.template.html",
+    "wrapper": false,
+    "autoWrapper": true,
     "properties": {
         "class": {
             "order": 9999
@@ -37,17 +39,5 @@
             "removable": true,
             "type": "event"
         }
-    },
-    "forcedGroup": false,
-    "wrapper": false,
-    "autoWrapper": true,
-    "handleRules": {
-        "canIncrement": true,
-        "rules": [
-            {
-                "sourceHTML": "<div class=\"col-md-6\" data-container=\"true\" data-replace=\"true\">Content goes here</div> ",
-                "targetSelector": ":self"
-            }
-        ]
     }
 }
