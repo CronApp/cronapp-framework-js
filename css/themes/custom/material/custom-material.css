@@ -258,6 +258,15 @@ div .messages {
     border-color: #f31700;
 }
 
+.dropdown-menu li a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    white-space: nowrap;
+}
+
 .crn-navigator-horizontal .navbar-default .navbar-nav ul.dropdown-menu a i,
 .crn-navigator-horizontal .navbar-default .navbar-nav ul.dropdown-menu li a {
     color: #393939;
@@ -268,17 +277,8 @@ div .messages {
     color: #ffffff;
 }
 
+.crn-navigator-vertical .navbar-default .navbar-nav ul.dropdown-menu li a,
 .crn-navigator-vertical .navbar-default .navbar-nav ul.dropdown-menu a:hover i,
 .crn-navigator-vertical .navbar-default .navbar-nav ul.dropdown-menu li a:hover {
     color: #ffffff;
-}
-
-.dropdown-menu li a {
-    display: block;
-    padding: 3px 20px;
-    clear: both;
-    font-weight: 400;
-    line-height: 1.42857143;
-    color: #393939;
-    white-space: nowrap;
 }
