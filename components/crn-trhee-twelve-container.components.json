@@ -2,9 +2,9 @@
     "name": "crn-three-twelve-container",
     "text_pt_BR": "3/12 Colunas",
     "text_en_US": "3/12 Columns",
-    "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-vertical-container.svg",
-    "description": "Três recipientes diferentes ao lado para inserir componentes",
-    "description_en_US": "Three different containers on the side for inserting components",
+    "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-three-twelve-container.svg",
+    "description": "Três recipiente ao lado para inserir componentes",
+    "description_en_US": "Three container on the side for inserting components",
     "category": [
         "LAYOUTS"
     ],
