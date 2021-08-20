@@ -4711,7 +4711,7 @@
         };
       })
 
-      .directive("ngModel", () => {
+      .directive("fromGrid", () => {
         return {
           restrict: 'A',
           priority: -999999,
