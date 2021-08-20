@@ -6,9 +6,7 @@
 @import '../components/css/color-default.css';
 
 /* Directive crn-input-password */
-
 @import '../components/css/crn-input-password.css';
-
 /* END - Directive crn-input-password */
 
 .table.table-borderless>thead>tr>td,
@@ -225,10 +223,12 @@ a {
         margin: 7.5px 0;
         width: 100%;
     }
+
     .crn-navigator-horizontal #navbar,
     .float-left-desktop {
         float: none;
     }
+
     img.user-avatar {
         margin-left: 0;
     }
@@ -243,16 +243,12 @@ a {
     display: none;
 }
 
-
 /* Dynamic file maintenance */
-
 .dynamic-image-container {
     width: fit-content;
 }
 
-
 /* Treeview maintenance */
-
 .k-treeview .k-i-collapse,
 .k-treeview .k-i-expand {
     height: auto;
@@ -261,6 +257,7 @@ a {
 .k-treeview .k-in {
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
+
 
 .page-header {
     border-bottom: 1px solid #eee;
@@ -276,9 +273,7 @@ img.crn-image {
     max-width: 100%;
 }
 
-
 /* Botão desativado */
-
 .btn-default.disabled,
 .btn-default.disabled.active,
 .btn-default.disabled.focus,
@@ -333,9 +328,7 @@ img.user-avatar {
     object-fit: contain;
 }
 
-
 /* Horizontal menu - 3 */
-
 .crn-navigator-horizontal #navbar-3 .navbar-nav .nav-button {
     /* font-size: 13px; */
     text-decoration: none;
@@ -360,7 +353,6 @@ img.user-avatar {
 
 
 /* Vertical menu - 3 */
-
 .crn-navigator-vertical .navbar-default-vertical {
     display: flex;
     justify-content: space-between;
@@ -413,9 +405,7 @@ img.user-avatar {
     content: none;
 }
 
-
 /* Login */
-
 .bg-login #crn-botao-cadastre {
     margin-top: -4px;
     margin-bottom: 20px;
@@ -582,14 +572,18 @@ img.user-avatar {
     border-radius: 14px 0px 0px 14px;
 }
 
+
 @media screen and (max-width: 540px) {
+
     .bg-login2,
     .bg-login1 {
         grid-template-columns: repeat(1, 1fr);
     }
+
     .bg-login #container-first {
         border-radius: 14px !important;
     }
+
     .bg-login #container-second {
         display: none;
     }
@@ -606,11 +600,9 @@ img.user-avatar {
     src: url('../../../node_modules/cronapp-lib-js/dist/js/kendo-ui/styles/fonts/arial-report/arial-report.ttf');
 }
 
-.k-pdf-export,
-.k-pdf-export * {
+.k-pdf-export, .k-pdf-export * {
     font-family: 'Arial-Report';
 }
-
 
 /* cronDynamicMenu */
 
@@ -624,17 +616,13 @@ img.user-avatar {
     left: 100%;
 }
 
-.crn-navigator-vertical .nav.navbar-nav .dropdown-submenu>.dropdown-menu {
-    margin-left: 20px;
-}
-
-.nav.navbar-nav .caret {
+.nav.navbar-nav .caret{
     margin-left: 9px;
     border-top: 5px dashed;
     border-right: 5px solid transparent;
     border-left: 5px solid transparent;
 }
 
-.crn-navigator-horizontal .nav.navbar-nav .caret.submenu {
+.nav.navbar-nav .caret.submenu {    
     transform: rotate(272deg);
 }
