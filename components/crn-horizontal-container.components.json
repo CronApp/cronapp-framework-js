@@ -1,57 +1,57 @@
 {
-  "name": "crn-horizontal-container",
-  "text_pt_BR": "Layout horizontal",
-  "text_en_US": "Horizontal Layout",
-  "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-vertical-container.svg",
-  "description": "Dois recipiente ao lado para inserir componentes",
-  "description_en_US": "Two container on the side for inserting components",
-  "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/components/templates/grid-horizontal.template.html",
-  "properties": {
-    "class": {
-      "order": 9999
+    "name": "crn-horizontal-container",
+    "text_pt_BR": "Layout horizontal",
+    "text_en_US": "Horizontal Layout",
+    "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-vertical-container.svg",
+    "description": "Dois recipiente ao lado para inserir componentes",
+    "description_en_US": "Two container on the side for inserting components",
+    "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/components/templates/grid-horizontal.template.html",
+    "properties": {
+        "class": {
+            "order": 9999
+        },
+        "ng-init": {
+            "removable": true,
+            "type": "event"
+        },
+        "ng-click": {
+            "removable": true,
+            "type": "event"
+        },
+        "ng-dblclick": {
+            "removable": true,
+            "type": "event"
+        },
+        "ng-mouseenter": {
+            "removable": true,
+            "type": "event"
+        },
+        "ng-mouseleave": {
+            "removable": true,
+            "type": "event"
+        },
+        "ng-mousemove": {
+            "removable": true,
+            "type": "event"
+        }
     },
-    "ng-init": {
-      "removable": true,
-      "type": "event"
+    "forcedGroup": false,
+    "wrapper": false,
+    "autoWrapper": true,
+    "handleRules": {
+        "canIncrement": true,
+        "rules": [
+            {
+                "sourceHTML": "<div class=\"col-md-6\" data-container=\"true\" data-replace=\"true\">Content goes here</div> ",
+                "targetSelector": ":self"
+            }
+        ]
     },
-    "ng-click": {
-      "removable": true,
-      "type": "event"
-    },
-    "ng-dblclick": {
-      "removable": true,
-      "type": "event"
-    },
-    "ng-mouseenter": {
-      "removable": true,
-      "type": "event"
-    },
-    "ng-mouseleave": {
-      "removable": true,
-      "type": "event"
-    },
-    "ng-mousemove": {
-      "removable": true,
-      "type": "event"
-    }
-  },
-  "forcedGroup": false,
-  "wrapper": false,
-  "autoWrapper": true,
-  "handleRules": {
-    "canIncrement": true,
-    "rules": [
-      {
-        "sourceHTML": "<div class=\"col-layout-horizontal\" data-container=\"true\" data-replace=\"true\">Content goes here</div> ",
-        "targetSelector": ":self"
-      }
+    "styles": [
+        {
+            "selector": "div#{id} div",
+            "text_pt_BR": "Geral",
+            "text_en_US": "General"
+        }
     ]
-  },
-  "styles": [
-    {
-      "selector": "div#{id} div.col-layout-horizontal",
-      "text_pt_BR": "Geral",
-      "text_en_US": "General"
-    }
-  ]
 }
