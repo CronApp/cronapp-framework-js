@@ -4523,8 +4523,6 @@
               titleSubitem = '<span>' + $translate.instant(subitem.title) + '</span>';
             }
   
-            console.log("subitem", subitem)
-  
             if (subitem.menuItems.length > 0) {
               template = '<ul class="dropdown-menu" >\
               <li class="dropdown-submenu">\
@@ -4549,7 +4547,7 @@
         const populateItems = (items) => {
           var template = '';
   
-          if (items && items != null && items.length > 0 && Array.isArray(items)) {
+          if (items && items.length > 0 && Array.isArray(items)) {
             items.forEach(function (item) {
   
               var security = (item.security && item.security != null) ? ' cronapp-security="' + item.security + '" ' : '';
