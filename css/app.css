@@ -332,6 +332,7 @@ fieldset[disabled] .btn-default:hover {
     width: 8%;
 }
 
+
 @font-face {
     font-family: 'Arial-Report';
     src: url('../../../node_modules/cronapp-lib-js/dist/js/kendo-ui/styles/fonts/arial-report/arial-report.ttf');
@@ -340,12 +341,4 @@ fieldset[disabled] .btn-default:hover {
 .k-pdf-export,
 .k-pdf-export * {
     font-family: 'Arial-Report';
-}
-
-.layout-horizontal {
-    display: flex;
-}
-
-.col-layout-horizontal {
-    width: 100%;
 }
