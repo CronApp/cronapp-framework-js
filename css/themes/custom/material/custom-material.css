@@ -259,12 +259,12 @@ div .messages {
 }
 
 .navbar-default .navbar-nav ul.dropdown-menu a i,
-.navbar-default .navbar-nav ul.dropdown-menu li a{
+.navbar-default .navbar-nav ul.dropdown-menu li a {
     color: #393939;
 }
 
 .navbar-default .navbar-nav ul.dropdown-menu a:hover i,
-.navbar-default .navbar-nav ul.dropdown-menu li a:hover{
+.navbar-default .navbar-nav ul.dropdown-menu li a:hover {
     color: #ffffff;
 }
 
