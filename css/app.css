@@ -6,7 +6,9 @@
 @import '../components/css/color-default.css';
 
 /* Directive crn-input-password */
+
 @import '../components/css/crn-input-password.css';
+
 /* END - Directive crn-input-password */
 
 .table.table-borderless>thead>tr>td,
@@ -31,17 +33,17 @@
 }
 
 .login-panel {
-    margin: 11% auto  0 auto;
+    margin: 11% auto 0 auto;
 }
 
 .social-button-face:hover {
     background-color: #3b5998!important;
-    color:#ffffff;
+    color: #ffffff;
 }
 
 .social-button-google:hover {
     background-color: #d81c1c!important;
-    color:#ffffff;
+    color: #ffffff;
 }
 
 .upload-image-component {
@@ -152,15 +154,16 @@
     margin-right: auto;
 }
 
-li[data-component="crn-menu-item"] ul li a.bg-primary{
+li[data-component="crn-menu-item"] ul li a.bg-primary {
     color: white !important;
 }
 
-li[data-component="crn-menu-item"] ul li a.bg-primary:hover{
+li[data-component="crn-menu-item"] ul li a.bg-primary:hover {
     color: #333 !important;
 }
 
-.k-grid-header .k-header, .k-grid-header .k-header a.k-link {
+.k-grid-header .k-header,
+.k-grid-header .k-header a.k-link {
     text-transform: uppercase;
     font-weight: normal;
     font-size: 12px;
@@ -172,7 +175,7 @@ img.user-avatar {
     max-width: 1.572em !important;
 }
 
-.modal{
+.modal {
     z-index: 10020;
 }
 
@@ -199,7 +202,8 @@ a {
     border: 0;
 }
 
-.main-nav-link:focus, .main-nav-link:active {
+.main-nav-link:focus,
+.main-nav-link:active {
     width: auto;
     height: auto;
     overflow: visible;
@@ -218,7 +222,7 @@ a {
 }
 
 .float-left-desktop {
-    float:left;
+    float: left;
 }
 
 @media only screen and (max-width: 767px) {
@@ -226,11 +230,10 @@ a {
         margin: 7.5px 0;
         width: 100%;
     }
-    
-    .crn-navigator-horizontal #navbar, .float-left-desktop {
+    .crn-navigator-horizontal #navbar,
+    .float-left-desktop {
         float: none;
     }
-    
     img.user-avatar {
         margin-left: 0;
     }
@@ -241,39 +244,46 @@ a {
     opacity: 1;
 }
 
-#crn-button-846239{
-	display:none;
+#crn-button-846239 {
+    display: none;
 }
 
+
 /* Dynamic file maintenance */
-.dynamic-image-container{
+
+.dynamic-image-container {
     width: fit-content;
 }
 
+
 /* Treeview maintenance */
-.k-treeview .k-i-collapse, .k-treeview .k-i-expand{
+
+.k-treeview .k-i-collapse,
+.k-treeview .k-i-expand {
     height: auto;
 }
 
-.k-treeview .k-in{
+.k-treeview .k-in {
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
-.page-header{
+.page-header {
     border-bottom: 1px solid #eee;
     display: flex;
     align-items: center;
 }
 
-.crn-radiogroup .k-content{
+.crn-radiogroup .k-content {
     background-color: transparent;
 }
 
-img.crn-image{
+img.crn-image {
     max-width: 100%;
 }
 
+
 /* Botão desativado */
+
 .btn-default.disabled,
 .btn-default.disabled.active,
 .btn-default.disabled.focus,
@@ -296,37 +306,62 @@ fieldset[disabled] .btn-default:hover {
     color: #454545;
 }
 
-.header{
+.header {
     background-color: rgb(209, 209, 209);
 }
 
-.k-list .k-item.k-state-selected, 
-.k-list-container .k-button.k-state-active, 
-.k-list-container .k-button:active, 
-.k-list-optionlabel.k-state-selected, 
-.k-menu-group .k-item.k-state-selected, 
-.k-menu.k-context-menu .k-item.k-state-selected, 
-.k-spreadsheet-popup .k-button.k-state-active, 
-.k-spreadsheet-popup .k-button.k-state-selected, 
-.k-spreadsheet-popup .k-button:active{
+.k-list .k-item.k-state-selected,
+.k-list-container .k-button.k-state-active,
+.k-list-container .k-button:active,
+.k-list-optionlabel.k-state-selected,
+.k-menu-group .k-item.k-state-selected,
+.k-menu.k-context-menu .k-item.k-state-selected,
+.k-spreadsheet-popup .k-button.k-state-active,
+.k-spreadsheet-popup .k-button.k-state-selected,
+.k-spreadsheet-popup .k-button:active {
     color: #000;
 }
 
-.carousel-caption{
+.carousel-caption {
     right: 9%;
     left: 9%;
 }
 
 .carousel-control.left,
-.carousel-control.right{
+.carousel-control.right {
     width: 8%;
 }
+
 
 @font-face {
     font-family: 'Arial-Report';
     src: url('../../../node_modules/cronapp-lib-js/dist/js/kendo-ui/styles/fonts/arial-report/arial-report.ttf');
 }
 
-.k-pdf-export, .k-pdf-export * {
+.k-pdf-export,
+.k-pdf-export * {
     font-family: 'Arial-Report';
+}
+
+/* cronDynamicMenu */
+
+.nav.navbar-nav .dropdown-submenu:hover>ul.dropdown-menu {
+    display: block;
+}
+
+.nav.navbar-nav .dropdown-submenu>.dropdown-menu {
+    margin-top: -31px;
+    top: unset;
+    left: 100%;
+}
+
+.nav.navbar-nav .caret{
+    margin-left: 9px;
+    border-top: 5px dashed;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+}
+
+.nav.navbar-nav .caret.submenu {    
+    transform: rotate(272deg);
 }
