@@ -610,3 +610,26 @@ img.user-avatar {
 .k-pdf-export * {
     font-family: 'Arial-Report';
 }
+
+/* cronDynamicMenu */
+
+.nav.navbar-nav .dropdown-submenu:hover>ul.dropdown-menu {
+    display: block;
+}
+
+.nav.navbar-nav .dropdown-submenu>.dropdown-menu {
+    margin-top: -31px;
+    top: unset;
+    left: 100%;
+}
+
+.nav.navbar-nav .caret{
+    margin-left: 9px;
+    border-top: 5px dashed;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+}
+
+.nav.navbar-nav .caret.submenu {    
+    transform: rotate(272deg);
+}
