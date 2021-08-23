@@ -4986,6 +4986,9 @@ function maskDirective($compile, $translate, $parse, attrName) {
           useUTC = false;
         }
 
+        $element.data('mask', mask);
+        $element.data('useUTC', useUTC);
+
         if ($element.attr('from-grid')) {
           var openPopup = function() {
             var popup = $(this).offset();
@@ -5050,8 +5053,6 @@ function maskDirective($compile, $translate, $parse, attrName) {
           $element.wrap("<div style=\"position:relative\"></div>");
         }
         $element.datetimepicker(options);
-        $element.data('mask', mask);
-        $element.data('useUTC', useUTC);
         if (attrs.fromGrid !== "true") {
           $element.on('dp.change', function () {
             if ($(this).is(":visible")) {
