@@ -6197,6 +6197,9 @@ window.useMask = function(value, format, type) {
 };
 
 window.formatWithMomentAs = function (mask, useUTC, value, as) {
+
+  if (!value) return;
+
   let momentDate = null;
 
   if (value instanceof Date || value.startsWith('/Date')) {
