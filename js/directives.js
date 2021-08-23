@@ -4516,10 +4516,9 @@
 
       .directive('cronDynamicMenu', ['$compile', '$translate', function ($compile, $translate) {
         'use strict';
-
         const populateSubitems = (item) => {
           var subitem = item.menuItems;
-          var template = '';
+          var templateSubitens = '';           
 
           subitem.forEach((subitem) => {
             var securitySubitem = (subitem.security && subitem.security != null) ? ' cronapp-security="' + subitem.security + '" ' : '';
@@ -4534,28 +4533,27 @@
             }
 
             if (subitem.menuItems.length > 0) {
-              template = '<ul class="dropdown-menu" >\
-              <li class="dropdown-submenu">\
+              templateSubitens = templateSubitens + '<li class="dropdown-submenu">\
                   <a  role="button" aria-haspopup="true" aria-expanded="false" href=""' + securitySubitem + actionSubitem + '>' + iconClassSubitem + titleSubitem + caretSubitem + '</a>\
                   ' + populateItems(subitem.menuItems) + '\
-                </li>\
-            </ul>';
+                </li>';
+
             } else {
-              template = '<ul class="dropdown-menu" >\
-              <li class="dropdown-submenu">\
+              templateSubitens = templateSubitens + '<li class="dropdown-submenu">\
                   <a  role="button" aria-haspopup="true" aria-expanded="false" href=""' + securitySubitem + actionSubitem + '>' + iconClassSubitem + titleSubitem + caretSubitem + '</a>\
-                </li>\
-            </ul>';
+                </li>';
             }
-
-
           });
 
-          return template;
+          if (templateSubitens != '') {
+            templateSubitens = '<ul class="dropdown-menu">' + templateSubitens + '</ul>';
+          }
+          
+          return templateSubitens;
         };
 
         const populateItems = (items) => {
-          var template = '';
+            var templateItens = '';
 
           if (items && items.length > 0 && Array.isArray(items)) {
             items.forEach(function (item) {
@@ -4572,13 +4570,13 @@
               }
 
               if (item.menuItems.length > 0) {
-                template = template + '\
+                templateItens = templateItens + '\
                     <li class="dropdown-submenu" ' + hide + '> \
                       <a  href="" ' + action + ' class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">' + iconClass + title + caret + ' </a> \
                         ' + populateSubitems(item) + '\
                     </li>';
               } else {
-                template = template + '\
+                templateItens = templateItens + '\
                     <li class="dropdown-submenu" ' + hide + '> \
                       <a  href="" ' + action + ' class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">' + iconClass + title + caret + ' </a> \
                     </li>';
@@ -4586,12 +4584,12 @@
 
             });
 
-            if (template != '') {
-              template = '<ul class="dropdown-menu">' + template + '</ul>';
+            if (templateItens != '') {
+              templateItens = '<ul class="dropdown-menu">' + templateItens + '</ul>';
             }
           }
 
-          return template;
+          return templateItens;
         }
         return {
           restrict: 'EA',
@@ -4623,7 +4621,7 @@
 
               })
             }
-
+            
             return template;
           },
           link: function (scope, element, attrs) {
