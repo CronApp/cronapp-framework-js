@@ -2577,11 +2577,7 @@ i.component-holder.fa.fa-star {
 
 .dynamic-image-container {
     border: 2px dashed;
-    text-align: center;
-    height: 75px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
+    padding: 20px;
 }
 
 .dynamic-image-container button.btn {
