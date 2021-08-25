@@ -163,7 +163,7 @@
 
 @media only screen and (min-width: 768px) {
     .crn-navigator-vertical>.navbar>.container-fluid>.navbar-collapse>.navbar-nav .dropdown-menu {
-        /* margin-left: -11px; */
+        margin-left: 11px;
     }
 }
 
