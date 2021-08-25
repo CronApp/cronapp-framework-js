@@ -138,5 +138,6 @@
   "Editing": "Editing",
   "TimezoneEvent": "Event Timezone",
   "exportExcel": "Export to Excel",
-  "exportPDF": "Export to PDF"
+  "exportPDF": "Export to PDF",
+  "clear": "Clear"
 }

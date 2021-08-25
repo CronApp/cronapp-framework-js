@@ -138,5 +138,6 @@
   "Editing": "Editando",
   "TimezoneEvent": "Fuso Horário do Evento",
   "exportExcel": "Exportar para Excel",
-  "exportPDF": "Exportar para PDF"
+  "exportPDF": "Exportar para PDF",
+  "clear": "Limpar"
 }

@@ -101,6 +101,12 @@
       "script": "node_modules/cronapp-framework-js/dist/js/stateProvider.js",
       "type": "script",
       "onTop": true
+    },
+    {
+      "file": "index.html",
+      "script": "node_modules/cronapp-framework-js/node_modules/signature_pad/dist/signature_pad.umd.min.js",
+      "type": "script",
+      "onTop": true
     }
   ],
   "removes": [
