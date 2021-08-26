@@ -109,7 +109,7 @@
     },
     {
       "file": "index.html",
-      "script": "node_modules/cronapp-framework-js/node_modules/signature_pad/dist/signature_pad.umd.min.js",
+      "script": "node_modules/signature_pad/dist/signature_pad.umd.min.js",
       "type": "script",
       "onTop": true
     }
