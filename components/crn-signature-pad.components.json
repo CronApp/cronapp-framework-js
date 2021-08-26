@@ -9,7 +9,7 @@
   "description": "Painel de assinatura",
   "description_en_US": "Signature Pad",
   "category": [
-      "LAYOUTS"
+      "INPUTS"
   ],
   "designTimeSelector": "signature-pad",
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/crn-signature-pad.template.html",
@@ -32,12 +32,5 @@
       "order": 2,
       "mandatory": true
     }
-  ],
-  "styles": [
-    {
-      "selector": "div#{id} .clear",
-      "text_pt_BR": "Limpar(2)",
-      "text_en_US": "Clear(2)"
-    }
-  ]
+  ] 
 }

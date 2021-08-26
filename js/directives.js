@@ -4766,7 +4766,7 @@
             restrict: 'E',
             replace: true,
             template:             
-                '<div id="signaturepad">' 
+                '<div>' 
               + '<canvas style="width:100%" ng-click="mouseup()" ng-mouseup="mouseup()"></canvas>'
               + '<div>'
               + '<button type="button" class="btn btn-warning" style="margin-right:5px;margin-bottom:5px;" ng-click="clear()">{{"clear"|translate}}</button>'
