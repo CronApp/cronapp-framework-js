@@ -2231,6 +2231,7 @@
                   $input.attr('valid', column.format === '999.999.999-99;0' ? 'cpf' : 'cnpj');
                   $input.attr('data-' + column.field.toLocaleLowerCase() + 'validation-msg', $translate.instant('invalid.' + $input.attr('valid')));
                 }
+                $input.css('text-align', column.alignment);
                 $input.attr('class', 'k-input k-textbox');
                 $input.data('initial-value', opt.model[opt.field]);
                 $input.appendTo(container);
@@ -2238,6 +2239,7 @@
 
               compileAfterRender(buttonId).then((resultId) => {
                 $(`#${resultId}`).data('alreadycompiled', true);
+                $(`#${resultId}`).data('ref-component', options.refComponent)
               });
 
             }
@@ -2751,7 +2753,7 @@
             };
 
             var compileListing = function(e) {
-              if (e.sender.tbody && e.sender.tbody.length) {
+              if (e.sender.tbody && e.sender.tbody.length && !$(e.sender.tbody).find('.k-grid-edit-row').length) {
 
                 var toCompile = e.sender.tbody;
                 if (toCompile.parent() && toCompile.parent().parent() && toCompile.parent().parent().parent() )
@@ -4827,7 +4829,7 @@
         }
       })
 
-      .directive("fromGrid", () => {
+      .directive("fromGrid", ($compile) => {
         return {
           restrict: 'A',
           priority: -999999,
@@ -4863,11 +4865,25 @@
               kendoObj.value(value);
             }
           },
+          compileGridListing: function(element, scope) {
+            let sender = element.data('ref-component');
+            if (sender && sender.tbody && sender.tbody.length && !$(sender.tbody).find('.k-grid-edit-row').length) {
+              var toCompile = sender.tbody;
+              setTimeout(() => {
+                scope.safeApply(() => {
+                  var trs = $(toCompile);
+                  var x = angular.element(trs);
+                  $compile(x)(scope);
+                });
+              });
+            }
+          },
           link: function (scope, element, attr) {
             scope.$watch(attr.ngModel, (value) => {
               if (this.isFromGrid(attr) && this.exist(element) && this.isCompiled(element)) {
                 value = this.prepareValue(element, value);
                 this.formatComponent(element, value);
+                this.compileGridListing(element, scope);
                 call = element.data('change-grid-model');
                 call && call(value);
               }
@@ -5180,27 +5196,18 @@ function maskDirective($compile, $translate, $parse, attrName) {
         $(element).inputmask(inputmaskType, ipOptions);
         useInputMaskPlugin(element, ngModelCtrl, scope, modelSetter, mask);
       }
-      else if (type == 'text' || type == 'tel') {
+      else if (type == 'text' || type == 'tel' || type == 'string') {
         if(!attrs.maskPlaceholder){
           $element.mask(mask);
           useMaskPlugin(element, ngModelCtrl, scope, modelSetter, removeMask);
         }
         else{
           options = {};
-          options['placeholder'] = attrs.maskPlaceholder
+          options['placeholder'] = attrs.maskPlaceholder;
           $(element).inputmask(mask, options);
           if(removeMask){
             useInputMaskPlugin(element, ngModelCtrl, scope, modelSetter, mask);
           }
-        }
-      }
-      else {
-        if ($element.attr('from-grid')) {
-          var unmaskedvalue = function() {
-            $(this).data('rawvalue',$(this).val());
-          }
-          $(element).on('keydown', unmaskedvalue).on('keyup', unmaskedvalue);
-          $element.mask(mask);
         }
       }
     }
