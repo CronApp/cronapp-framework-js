@@ -1445,7 +1445,105 @@
           }
         };
       })
+      .directive('cronTimeline', ['$compile', '$parse', function($compile, $parse){
+        'use strict';
+    
+       var defaultAdvancedTemplate = "<ul class=\"timeline\">\r\n   <timeline-event side=\"\" class=\"ng-scope\" ng-repeat=\"rowData in datasource\">\r\n      <li class=\"timeline-event {{rowData[options.fields.field4] == '2' ? 'timeline-inverted' : ''}}\">\r\n         <timeline-badge class=\"{{$odd ? 'info' : 'warning'}} bounce-in\">\r\n            <div class=\"timeline-badge\">\r\n               <i class=\"glyphicon {{rowData[options.fields.field3] ? rowData[options.fields.field3] : 'glyphicon-check'}}\"><\/i>\r\n            <\/div>\r\n         <\/timeline-badge>\r\n         <timeline-panel class=\"info bounce-in\">\r\n            <div class=\"timeline-panel\">\r\n               <timeline-heading class=\"ng-scope\">\r\n                  <div class=\"timeline-heading\">\r\n                     <h4 class=\"ng-binding ng-scope\">{{rowData[options.fields.field0]}}<\/h4>\r\n                     <p class=\"ng-scope\">\r\n                        <small class=\"text-muted ng-binding\"><i class=\"glyphicon glyphicon-time\"><\/i>{{rowData[options.fields.field1]|mask:options.fields.mask2:options.fields.type1}}<\/small>\r\n                     <\/p>\r\n                  <\/div>\r\n               <\/timeline-heading>\r\n               <p ng-if=\"rowData[options.fields.field2]\" class=\"ng-binding ng-scope\">{{rowData[options.fields.field2]}}<\/p>\r\n            <\/div>\r\n         <\/timeline-panel>\r\n      <\/li>\r\n   <\/timeline-event>\r\n<\/ul>";
 
+        var getExpression = function(dataSourceName) {
+          return 'rowData in '.concat(dataSourceName).concat('.data');
+        }
+
+        return {
+          restrict: 'E',
+          require: '?ngModel',
+          scope: true,
+          priority: 9999998,
+          terminal: true,
+          link: function(scope, element, attrs, ngModelCtrl) {
+
+            scope.hasValue = value => value !== null && value !== undefined;
+            var optionsList = {};
+            var dataSourceName = '';
+    
+            try {
+              optionsList = JSON.parse(attrs.options);
+              dataSourceName = optionsList.dataSourceScreen.name;
+              var dataSource = eval(optionsList.dataSourceScreen.name);
+
+              scope.options = optionsList;
+    
+              if(attrs['ngModel']){
+                scope.changeRowDataField = function(rowData){
+                  rowData = dataSource.getKeyValues(rowData);
+                  var keys = Object.keys(rowData);
+                  if(keys.length === 1){
+                    rowData = rowData[keys];
+                  }
+                  return rowData;
+                }
+              }
+
+              scope.options = optionsList;
+              scope.options.fields = {};
+              scope.options.randomModel = Math.floor(Math.random() * (9000)) + 1000;
+
+              var visibleColumns = [];
+    
+              for (var i = 0; i < optionsList.columns.length; i++) {
+                var column = optionsList.columns[i];
+                if (column.visible) {
+                  visibleColumns.push(optionsList.columns[i]);
+                }
+              }
+
+              for (var i = 0; i < visibleColumns.length; i++) {
+                var column = visibleColumns[i];
+                if (column.field && column.dataType == 'Database') {
+                  scope.options.fields["security" + i] = column.security;
+                  scope.options.fields["field" + i] = column.field;
+                  scope.options.fields["type" + i] = column.type;
+                  scope.options.fields["mask" + i] = column.format;
+                }
+              }
+            } catch(err) {
+              console.log('CronTimeline invalid configuration! ' + err);
+            }
+    
+            if(scope.options.fields.image && scope.options.imageType != 'do-not-show'){
+              scope.options.imageClassPosition = "item-" + scope.options.imageType + '-' + scope.options.imagePosition;
+            }
+
+            if(!scope.options.advancedTemplate){
+              scope.options.advancedTemplate = defaultAdvancedTemplate;
+            }
+           
+            var templateDyn = scope.options.advancedTemplate;
+    
+            for (let index = 0; index < visibleColumns.length; index++) {
+              let column = visibleColumns[index];
+              if (column.field && column.dataType === 'Database' && scope.options.fields[`security${index}`]) {
+                let find = `ng-if="rowData[options.fields.field${index}]"`;
+                let toReplace = `${find} cronapp-security="${scope.options.fields['security' + index]}"`;
+                templateDyn = templateDyn.replace(find, toReplace);
+              }
+            }
+            templateDyn = $(templateDyn);
+    
+            scope.options.xattrTextPosition = attrs.xattrTextPosition;
+
+            $(element).replaceWith(templateDyn);
+            var $element = templateDyn;
+
+            var eventItem = $element.find('timeline-event');
+            if($(eventItem).attr('ng-repeat') === "rowData in datasource"){
+                eventItem.attr('ng-repeat', getExpression(dataSourceName));
+            }
+    
+            $compile(templateDyn, null, 9999998)(scope);
+          }
+        }
+      }])
       .directive('cronScheduler', ['$compile', '$translate', function($compile, $translate) {
         return {
           estrict: 'E',
