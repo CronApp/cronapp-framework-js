@@ -25,6 +25,8 @@ if (window.customModules) {
   cronappModules = cronappModules.concat(window.customModules);
 }
 
+angular.lowercase = angular.$$lowercase;
+
 var onloadCallback = function() {
   window.grecaptcha.render('loginRecaptcha');
   window.grecaptcha.reset();
@@ -408,17 +410,19 @@ app.factory('customTranslateLoader', function ($http, $q) {
 
       var deferred = $q.defer();
 
-      $http(angular.extend({
-        url: [
-          file.prefix,
-          options.key,
-          file.suffix
-        ].join(''),
-        method: 'GET',
-        params: ''
-      }, options.$http)).success(function (data) {
+      $http(
+        angular.extend({
+          url: [
+            file.prefix,
+            options.key,
+            file.suffix
+          ].join(''),
+          method: 'GET',
+          params: ''
+        }, options.$http)
+      ).then(function (data) {
         deferred.resolve(data);
-      }).error(function () {
+      }, function errorCallback(response) {
         deferred.resolve({});
       });
 
