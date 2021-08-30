@@ -603,7 +603,7 @@ img.user-avatar {
 
 @font-face {
     font-family: 'Arial-Report';
-    src: url('../../../../node_modules/cronapp-lib-js/dist/js/kendo-ui/styles/fonts/arial-report/arial-report.ttf');
+    src: url('../../../node_modules/cronapp-lib-js/dist/js/kendo-ui/styles/fonts/arial-report/arial-report.ttf');
 }
 
 .k-pdf-export,
@@ -632,4 +632,11 @@ img.user-avatar {
 
 .nav.navbar-nav .caret.submenu {    
     transform: rotate(272deg);
+}
+
+/* Timeline */
+.crn-timeline-container{
+    margin: 30px;
+    overflow: hidden;
+    overflow-y: auto;
 }

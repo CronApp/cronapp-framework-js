@@ -267,8 +267,23 @@
     },
     {
       "file": "index.html",
-      "script": "plugins/angular-justgage/ng-justgage.js",
-      "type": "script"
+      "script": "node_modules/angular-timeline/dist/angular-timeline.css",
+      "type": "style"
+    },
+    {
+        "file": "index.html",
+        "script": "node_modules/angular-timeline/dist/angular-timeline-bootstrap.css",
+        "type": "style"
+    },
+    {
+        "file": "index.html",
+        "script": "node_modules/angular-timeline/dist/angular-timeline-animations.css",
+        "type": "style"
+    },
+    {
+        "file": "index.html",
+        "script": "node_modules/angular-timeline/dist/angular-timeline.js",
+        "type": "script"
     }
   ],
   "replaces": [
