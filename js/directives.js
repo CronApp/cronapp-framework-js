@@ -4622,9 +4622,9 @@
               element.attr('id', null);
               $compile(newElement)(scope);
   
-              var multinivelAction = attrs.multinivelAction;
+              var multilevelAction = attrs.multilevelAction;
   
-              if (multinivelAction === 'hover') {
+              if (multilevelAction === 'hover') {
                 $('.dropdown-menu .dropdown-submenu').on('mouseover', function () {
                   var subMenu = $(this).children('ul.dropdown-menu');
                   subMenu.addClass('displayBlock');
@@ -4635,7 +4635,7 @@
                   subMenu.removeClass('displayBlock');
                 });
               }
-              if (multinivelAction === 'click') {
+              if (multilevelAction === 'click') {
                 $('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
                   if (!$(this).next().hasClass('show')) {
                     $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
