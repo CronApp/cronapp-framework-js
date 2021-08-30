@@ -6,7 +6,7 @@
     $http({
       method: 'GET',
       url: 'auth/refresh'
-    }).success(function (data, status, headers, config) {
+    }).then(function (data, status, headers, config) {
       //Keeping the user information, the auth/refresh only has name and username info
       if (localStorage.getItem("_u")) {
         let currentSession = JSON.parse(localStorage.getItem("_u"));
@@ -21,9 +21,10 @@
         // refresh time
       }, (1800 * 1000));
       success();
-    }).error(function () {
+    }, function () {
       error();
     });
+
   };
 
   app.controller('ResetPasswordController', function($scope, $translate, Notification, $location, $http, $state) {
@@ -51,13 +52,16 @@
           'Content-Type': 'application/x-www-form-urlencoded',
           'X-AUTH-TOKEN': $location.search().token
         }
-      }).success(() => {
+      }).then(() =>{
         Notification.info($translate.instant('ResetPasswordSuccess'));
         passwordNew.value = "";
         passwordConfirmation.value = "";
         $state.go('login');
-      }).error(data => Notification.error(data));
-      //
+
+      }, function errorCallback() {
+        data => Notification.error(data)
+      });
+
     }
   });
 
@@ -170,12 +174,22 @@
         headerValues["X-AUTH-TOKEN"] = token;
       }
 
+      // $http({
+      //   method : 'POST',
+      //   url : 'auth',
+      //   data : $.param(user),
+      //   headers : headerValues
+      // }).success(handleSuccess).error(handleError);
+
       $http({
         method : 'POST',
         url : 'auth',
         data : $.param(user),
         headers : headerValues
-      }).success(handleSuccess).error(handleError);
+      }).then(handleSuccess).catch(handleError);
+
+
+
     };
 
     $scope.forgotPassword = function () {
