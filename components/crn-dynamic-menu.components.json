@@ -27,7 +27,7 @@
       "displayName_pt_BR": "Valor alternativo",
       "displayName_en_US": "Alternative value"
     },
-    "multinivel-action": {
+    "multilevel-action": {
       "removable": false,
       "selector": "cron-dynamic-menu",
       "displayName_pt_BR": "Ação do multinível",
