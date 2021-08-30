@@ -26,6 +26,27 @@
     "content": {
       "displayName_pt_BR": "Valor alternativo",
       "displayName_en_US": "Alternative value"
+    },
+    "multilevel-action": {
+      "removable": false,
+      "selector": "cron-dynamic-menu",
+      "displayName_pt_BR": "Ação do multinível",
+      "displayName_en_US": "Multilevel action",
+      "childrenProperty": true,
+      "type": "list",
+      "options": [
+        {
+          "key": "hover",
+          "value_pt_BR": "Ao passar o mouse",
+          "value_en_US": "Hover"
+        },
+        {
+          "key": "click",
+          "value_pt_BR": "Clique",
+          "value_en_US": "Click"
+        }
+      ],
+      "order": 2
     }
   },
   "childrenProperties": [
