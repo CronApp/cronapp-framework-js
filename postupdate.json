@@ -112,6 +112,29 @@
       "script": "node_modules/signature_pad/dist/signature_pad.umd.min.js",
       "type": "script",
       "onTop": true
+    },
+    {
+      "file": "index.html",
+      "script": "node_modules/angular-timeline/dist/angular-timeline.css",
+      "type": "style"
+    },
+    {
+      "file": "index.html",
+      "script": "node_modules/angular-timeline/dist/angular-timeline-bootstrap.css",
+      "type": "style",
+      "onTop": true
+    },
+    {
+      "file": "index.html",
+      "script": "node_modules/angular-timeline/dist/angular-timeline-animations.css",
+      "type": "style",
+      "onTop": true
+    },
+    {
+      "file": "index.html",
+      "script": "node_modules/angular-timeline/dist/angular-timeline.js",
+      "type": "script",
+      "onTop": true
     }
   ],
   "removes": [
@@ -264,26 +287,6 @@
       "file": "index.html",
       "script": "node_modules/angular-justgage/ng-justgage.js",
       "type": "script"
-    },
-    {
-      "file": "index.html",
-      "script": "node_modules/angular-timeline/dist/angular-timeline.css",
-      "type": "style"
-    },
-    {
-        "file": "index.html",
-        "script": "node_modules/angular-timeline/dist/angular-timeline-bootstrap.css",
-        "type": "style"
-    },
-    {
-        "file": "index.html",
-        "script": "node_modules/angular-timeline/dist/angular-timeline-animations.css",
-        "type": "style"
-    },
-    {
-        "file": "index.html",
-        "script": "node_modules/angular-timeline/dist/angular-timeline.js",
-        "type": "script"
     }
   ],
   "replaces": [
