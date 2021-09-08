@@ -213,6 +213,10 @@ a {
 }
 
 .nav.nav-tabs li.active {
+    background-color: transparent;
+}
+
+.nav.nav-tabs li.active a{
     background-color: #3b448e;
 }
 
