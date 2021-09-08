@@ -21,9 +21,7 @@
         // refresh time
       }, (1800 * 1000));
       success();
-    }, function () {
-      error();
-    });
+    }).catch(error());
 
   };
 
@@ -58,9 +56,7 @@
         passwordConfirmation.value = "";
         $state.go('login');
 
-      }, function errorCallback() {
-        data => Notification.error(data)
-      });
+      }).catch(data => Notification.error(data));
 
     }
   });
@@ -174,21 +170,12 @@
         headerValues["X-AUTH-TOKEN"] = token;
       }
 
-      // $http({
-      //   method : 'POST',
-      //   url : 'auth',
-      //   data : $.param(user),
-      //   headers : headerValues
-      // }).success(handleSuccess).error(handleError);
-
       $http({
         method : 'POST',
         url : 'auth',
         data : $.param(user),
         headers : headerValues
       }).then(handleSuccess).catch(handleError);
-
-
 
     };
 

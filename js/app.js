@@ -25,6 +25,7 @@ if (window.customModules) {
   cronappModules = cronappModules.concat(window.customModules);
 }
 
+// Added to migrate 1.5.9 to 1.8.2
 angular.lowercase = angular.$$lowercase;
 
 var onloadCallback = function() {
@@ -66,6 +67,10 @@ var app = (function() {
           $httpProvider.interceptors.push(interceptor);
         }
       ])
+      .config(['$qProvider', function ($qProvider) {
+        // Added to migrate 1.5.9 to 1.8.2
+        $qProvider.errorOnUnhandledRejections(false);
+      }])
       .config( [
         '$compileProvider',
         function( $compileProvider )
@@ -422,9 +427,7 @@ app.factory('customTranslateLoader', function ($http, $q) {
         }, options.$http)
       ).then(function (data) {
         deferred.resolve(data);
-      }, function errorCallback(response) {
-        deferred.resolve({});
-      });
+      }).catch(deferred.resolve({}));
 
       return deferred.promise;
     };
@@ -453,7 +456,7 @@ app.factory('customTranslateLoader', function ($http, $q) {
 
       deferred.resolve(mergedData);
 
-    }, function (data) {
+    }).catch( function (data) {
       deferred.reject(data);
     });
 
