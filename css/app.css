@@ -642,19 +642,19 @@ img.user-avatar {
 }
 
 /* Accordion */
-.panel-group .panel-heading {
+.panel-group .panel-heading.heading-arrow {
     display: grid;
     grid-template-columns: auto 33px;
     align-items: center;
 }
 
-.panel-group .panel-heading::after {
+.panel-group .heading-arrow.panel-heading::after {
     font-family: FontAwesome;
     content: "\f077";
     float: right;
     color: #FFFFFF;
 }
 
-.panel-group .collapsed.panel-heading::after{
+.panel-group .heading-arrow.collapsed.panel-heading::after{
     content: "\f078";
 }
