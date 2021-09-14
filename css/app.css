@@ -640,3 +640,21 @@ img.user-avatar {
     overflow: hidden;
     overflow-y: auto;
 }
+
+/* Accordion */
+.panel-group .panel-heading {
+    display: grid;
+    grid-template-columns: auto 33px;
+    align-items: center;
+}
+
+.panel-group .panel-heading::after {
+    font-family: FontAwesome;
+    content: "\f077";
+    float: right;
+    color: #FFFFFF;
+}
+
+.panel-group .collapsed.panel-heading::after{
+    content: "\f078";
+}
