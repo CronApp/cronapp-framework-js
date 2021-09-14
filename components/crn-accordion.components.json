@@ -12,6 +12,10 @@
   "properties": {
     "class": {
       "order": 9999
+    },
+    "heading-arrow": {
+      "displayName_pt_BR": "Seta",
+      "displayName_en_US": "Arrow"
     }
   },
   "forcedGroup": true,
@@ -25,7 +29,7 @@
         "activeSelector": "div.panel-collapse.collapse.in",
         "activeClass": "in",
         "sourceHTML": "<div class=\"panel panel-default\"> <div class=\"panel-heading\" role=\"tab\" id=\"heading${RANDOM}\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse${RANDOM}\" aria-expanded=\"true\" aria-controls=\"collapse${RANDOM}\"> <div class=\"lead text-center\" data-component=\"crn-title\" xattr-position=\"text-center\"> <h1 class=\"text-center title component-holder h3\" xattr-position=\"h1 text-center\" xattr-type=\"h3\" data-component=\"crn-text-component\">Ungroup and change the component</h1> </div> </div> <div id=\"collapse${RANDOM}\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"heading${RANDOM}\"> <div class=\"panel-body\" data-container=\"true\"> <div class=\"lead text-center\" data-component=\"crn-subtitle\" xattr-position=\"text-center\"> <h1 class=\"text-center title component-holder h3\" xattr-position=\"h3 text-center\" xattr-type=\"h3\" data-component=\"crn-text-component\">Ungroup and insert component</h1> </div> </div> </div> </div>",
-          "targetSelector": "div.panel-group"
+        "targetSelector": "div.panel-group"
       },
       {
         "accordionTabClicked": "div.panel-collapse.collapse",
@@ -35,7 +39,31 @@
       }
     ]
   },
+  "attributesForPreview": [
+    {
+      "name": "heading-arrow",
+      "type": "options",
+      "target": "class",
+      "values": [
+        {
+          "key": "heading-arrow",
+          "value_pt_BR": "Sim",
+          "value_en_US": "Yes"
+        },
+        {
+          "key": "heading-not-arrow",
+          "value_pt_BR": "Não",
+          "value_en_US": "No"
+        }
+      ]
+    }
+  ],
   "childrenProperties": [
+    {
+      "name": "heading-arrow",
+      "selector": ".panel .panel-heading",
+      "order": 3
+    },
     {
       "name": "ng-init",
       "selector": "div.panel-heading",
