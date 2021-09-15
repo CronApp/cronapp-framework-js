@@ -12,6 +12,10 @@
   "properties": {
     "class": {
       "order": 9999
+    },
+    "heading-arrow": {
+      "displayName_pt_BR": "Seta",
+      "displayName_en_US": "Arrow"
     }
   },
   "forcedGroup": true,
@@ -35,7 +39,31 @@
       }
     ]
   },
+  "attributesForPreview": [
+    {
+      "name": "heading-arrow",
+      "type": "options",
+      "target": "class",
+      "values": [
+        {
+          "key": "heading-arrow",
+          "value_pt_BR": "Sim",
+          "value_en_US": "Yes"
+        },
+        {
+          "key": "heading-not-arrow",
+          "value_pt_BR": "Não",
+          "value_en_US": "No"
+        }
+      ]
+    }
+  ],
   "childrenProperties": [
+    {
+      "name": "heading-arrow",
+      "selector": ".panel .panel-heading",
+      "order": 3
+    },
     {
       "name": "ng-init",
       "selector": "div.panel-heading",
