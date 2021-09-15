@@ -1,0 +1,26 @@
+{
+    "name": "crn-context-menu",
+    "text_pt_BR": "Menu de contexto",
+    "text_en_US": "Context menu",
+    "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-navbar.svg",
+    "description": "Menu para ser executado ao clicar com o botão direito do mouse",
+    "description_en_US": "Menu to run on right-click",
+    "category": [
+        "LAYOUTS"
+    ],
+    "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/components/templates/crn-context-menu.template.html",
+    "autoWrapper": true,
+    "wrapper": false,
+    "properties": {
+       "id":{
+           "order": 1
+       },
+       "class":{
+        "order": 9999
+    }
+    },
+    "childrenProperties": [
+  
+        
+    ]
+}
