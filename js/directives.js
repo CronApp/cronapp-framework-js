@@ -2207,6 +2207,7 @@
 
               compileAfterRender(buttonId).then((resultId) => {
                 $(`#${resultId}`).data('alreadycompiled', true);
+                $(`#${resultId}`).data('$compile', $compile);
                 $(`#${resultId}`).data('ref-component', options.refComponent)
               });
 
@@ -4148,6 +4149,7 @@
             if ($element.data('alreadycompiled'))
               return;
             $element.data('alreadycompiled',true);
+            $element.data('$compile', $compile);
 
             if (attrs.fromGrid) {
               $element = $(element);
@@ -4886,6 +4888,7 @@ function maskDirective($compile, $translate, $parse, attrName) {
       if ($element.data('alreadycompiled'))
         return;
       $element.data('alreadycompiled', true);
+      $element.data('$compile', $compile);
 
       var type = $element.attr("type");
 
