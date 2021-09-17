@@ -21,10 +21,6 @@
     },
     "class": {
       "order": 9999
-    },
-    "icon-theme": {
-      "displayName_pt_BR": "Cor do ícone",
-      "displayName_en_US": "Icon color"
     }
   },
   "styles": [
@@ -232,7 +228,9 @@
     },
     {
       "name": "icon-theme",
-      "selector": "i"
+      "selector": "i",
+      "displayName_pt_BR": "Cor do ícone",
+      "displayName_en_US": "Icon color"
     },
     {
       "name": "icon-size",
