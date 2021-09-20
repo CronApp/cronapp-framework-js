@@ -4832,24 +4832,26 @@
           link: function (scope, el, attrs, ctrl) {
             ctrl.$formatters = [];
             ctrl.$parsers = [];
-            let falseValue = attrs.ngFalseValue ? attrs.ngFalseValue.split("'").join("") : "false";
-            let trueValue = attrs.ngTrueValue ? attrs.ngTrueValue.split("'").join("") : "true";
+
+            let falseValue = attrs.ngFalseValue ? attrs.ngFalseValue.split("'").join("") : false;
+            let trueValue = attrs.ngTrueValue ? attrs.ngTrueValue.split("'").join("") : true;
 
             if (attrs.crnAllowNullValues == 'true') {
               ctrl.$render = function () {
                 let viewValue = ctrl.$viewValue;
                 el.data('checked', viewValue);
-                viewValue =  '' + viewValue;
                 switch (viewValue) {
                   case true:
                   case trueValue:
                     el.prop('indeterminate', false);
                     el.prop('checked', true);
+                    viewValue = trueValue;
                     break;
                   case false:
                   case falseValue:
                     el.prop('indeterminate', false);
                     el.prop('checked', false);
+                    viewValue = falseValue;
                     break;
                   default:
                     viewValue = null;
@@ -4860,7 +4862,6 @@
             } else if (attrs.crnAllowNullValues == 'false') {
               ctrl.$render = function () {
                 let viewValue = ctrl.$viewValue;
-                viewValue =  '' + viewValue;
                 if (ctrl.$viewValue === undefined || ctrl.$viewValue === null) {
                   ctrl.$setViewValue(false);
                   viewValue = false;
@@ -4875,15 +4876,30 @@
                   case trueValue:
                     el.prop('indeterminate', false);
                     el.prop('checked', true);
+                    viewValue = trueValue;
                     break;
                   default:
                     el.prop('indeterminate', false);
                     el.prop('checked', false);
+                    viewValue = falseValue;
                     break;
                 }
                 ctrl.$setViewValue(viewValue);
               };
             }
+            el.bind('click', function () {
+              let checked;
+              switch (el.data('checked')) {
+                case false:
+                case falseValue:
+                  checked = attrs.ngTrueValue ? trueValue : true;
+                  break;
+                default:
+                  checked = attrs.ngFalseValue ? falseValue : false;
+              }
+              ctrl.$setViewValue(checked);
+              scope.$apply(ctrl.$render);
+            });
           }
         };
       }])
