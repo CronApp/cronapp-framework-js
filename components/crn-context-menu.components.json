@@ -1,5 +1,7 @@
 {
     "name": "crn-context-menu",
+    "onDrop": "openEditor",
+    "onDoubleClick": "openEditor",
     "text_pt_BR": "Menu de contexto",
     "text_en_US": "Context menu",
     "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-navbar.svg",
@@ -12,15 +14,21 @@
     "autoWrapper": true,
     "wrapper": false,
     "properties": {
-       "id":{
-           "order": 1
-       },
-       "class":{
-        "order": 9999
-    }
+        "id": {
+            "order": 1
+        },
+        "class": {
+            "order": 9999
+        }
     },
     "childrenProperties": [
-  
-        
+        {
+            "name": "options",
+            "selector": "ul",
+            "displayName_pt_BR": "Configuração",
+            "displayName_en_US": "Configuration",
+            "order": 1,
+            "mandatory": true
+        }
     ]
 }
