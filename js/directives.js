@@ -3134,10 +3134,10 @@
 
               var options = JSON.parse(attrs.options || "{}");
 
-              scope[options.dataSourceScreen.entityDataSource.name].batchPost = false;
+              app.kendoHelper.getCorrectlyDS(options.dataSourceScreen.entityDataSource.name, scope).batchPost = false;
               var batchMode = options.batchMode == undefined || options.batchMode;
-              if (batchMode && options.editable != 'datasource' && scope[options.dataSourceScreen.entityDataSource.name] && !scope[options.dataSourceScreen.entityDataSource.name].dependentLazyPost) {
-                scope[options.dataSourceScreen.entityDataSource.name].batchPost = true;
+              if (batchMode && options.editable != 'datasource' && app.kendoHelper.getCorrectlyDS(options.dataSourceScreen.entityDataSource.name, scope) && !app.kendoHelper.getCorrectlyDS(options.dataSourceScreen.entityDataSource.name, scope).dependentLazyPost) {
+                app.kendoHelper.getCorrectlyDS(options.dataSourceScreen.entityDataSource.name, scope).batchPost = true;
 
                 options.toolBarButtons = options.toolBarButtons || [];
                 options.toolBarButtons.push({
@@ -3168,7 +3168,7 @@
               helperDirective.setTooltips($templateDyn, tooltips);
 
               scope.safeApply(function() {
-                if (scope[options.dataSourceScreen.entityDataSource.name]) {
+                if (app.kendoHelper.getCorrectlyDS(options.dataSourceScreen.entityDataSource.name, scope)) {
 
                   $templateDyn.find('.k-filter-row').show();
                   $templateDyn.find('.k-pager-sizes').show();
@@ -3177,7 +3177,7 @@
                   $templateDyn.find('.k-pager-refresh.k-link').show();
                   $templateDyn.find('.saveorcancelchanges').hide();
 
-                  scope[options.dataSourceScreen.entityDataSource.name].addDataSourceEvents(
+                  app.kendoHelper.getCorrectlyDS(options.dataSourceScreen.entityDataSource.name, scope).addDataSourceEvents(
                       {
                         "pendingchanges": function(value) {
                           if (value) {
@@ -3199,7 +3199,7 @@
                       }
                   );
 
-                  scope[options.dataSourceScreen.entityDataSource.name].addDataSourceEvents(
+                  app.kendoHelper.getCorrectlyDS(options.dataSourceScreen.entityDataSource.name, scope).addDataSourceEvents(
                       {
                         "afterchanges": function(value) {
                           //QAIBT-610
@@ -3431,7 +3431,7 @@
                 },
                 options: {
                   fromRead: false,
-                  cronappDatasource: scope[options.dataSourceScreen.name]
+                  cronappDatasource: app.kendoHelper.getCorrectlyDS(options.dataSourceScreen.name, scope)
                 }
               },
               schema: schema
@@ -5601,6 +5601,16 @@ function transformText() {
 
 
 app.kendoHelper = {
+  getCorrectlyDS: (name, scope) => {
+    if (scope[name].apiVersion) {
+      return scope[name];
+    }
+    else {
+      let ds = scope.$parent[name];
+      scope[name] = ds;
+      return ds;
+    }
+  },
   receivePushData: comp => !comp || !comp.dataSource || (comp.dataSource.transport.options.refComponent = comp),
   getSchema: function(dataSource) {
     var parseAttribute = [
@@ -5698,8 +5708,8 @@ app.kendoHelper = {
     };
 
     var pageSize = 10;
-    if (scope[dataSource.name])
-      pageSize = scope[dataSource.name].rowsPerPage;
+    if (app.kendoHelper.getCorrectlyDS(dataSource.name, scope))
+      pageSize = app.kendoHelper.getCorrectlyDS(dataSource.name, scope).rowsPerPage;
 
     //Quando não for data UTC
     var offsetMiliseconds = new Date().getTimezoneOffset() * 60000;
@@ -5984,7 +5994,7 @@ app.kendoHelper = {
               return callback;
             return component;
           },
-          cronappDatasource: scope[dataSource.name]
+          cronappDatasource: app.kendoHelper.getCorrectlyDS(dataSource.name, scope)
         }
       },
       pageSize: pageSize,
