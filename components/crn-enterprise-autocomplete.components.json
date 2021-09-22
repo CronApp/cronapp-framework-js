@@ -50,6 +50,33 @@
             "order": 2
         },
         {
+            "name": "auto-expand",
+            "selector": "cron-auto-complete",
+            "displayName_pt_BR": "Expandir automaticamente",
+            "displayName_en_US": "Auto expand",
+            "type": "logic",
+            "order": 4,
+            "mandatory": false
+        },
+        {
+            "name": "first-option-on-blur",
+            "selector": "cron-auto-complete",
+            "displayName_pt_BR": "Selecionar primeira opção ao sair",
+            "displayName_en_US": "Select first option on blur",
+            "type": "logic",
+            "order": 5,
+            "mandatory": false
+        },
+        {
+            "name": "no-results-message",
+            "selector": "cron-auto-complete",
+            "displayName_pt_BR": "Texto quando não tem resultados",
+            "displayName_en_US": "Text when there are no results",
+            "type": "text",
+            "order": 6,
+            "mandatory": false
+        },
+        {
             "name": "ng-select",
             "selector": "cron-auto-complete",
             "displayName_pt_BR": "Ao Selecionar",

@@ -4091,6 +4091,20 @@
               });
             }
 
+            if(attrs.autoExpand == "true"){
+                $element.on('focus', function (e) {
+                    autoComplete.search();
+                });
+              }
+
+            options.messages =  {
+                noData: attrs.noResultsMessage ? attrs.noResultsMessage : "NO DATA FOUND"
+            };
+
+            if(attrs.firstOptionOnBlur == "false"){
+                options.suggest = false;
+            }
+
             var autoComplete = $element.kendoAutoComplete(options).data('kendoAutoComplete');
             autoComplete.enable(true);
 
