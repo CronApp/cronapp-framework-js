@@ -12,8 +12,8 @@
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/anchor.template.html",
   "properties": {
     "target": {
-      "displayName_pt_BR": "Ação pós clique",
-      "displayName_en_US": "Post click action",
+      "displayName_pt_BR": "Onde abrir",
+      "displayName_en_US": "Where to open",
       "removable": false,
       "type": "list",
       "options": [
