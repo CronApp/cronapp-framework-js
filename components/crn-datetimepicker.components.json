@@ -39,6 +39,21 @@
       "mandatory": true
     },
     {
+      "name": "placeholder",
+      "selector": "input",
+      "type": "text"
+    },
+    {
+      "name": "mask",
+      "selector": "input",
+      "type": "mask"
+    },
+    {
+      "name": "mask-placeholder",
+      "selector": "input",
+      "type": "text"
+    },
+    {
       "name": "ng-init",
       "selector": "input",
       "type": "event"
