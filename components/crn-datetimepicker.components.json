@@ -59,6 +59,11 @@
       "type": "text"
     },
     {
+      "name": "ng-required",
+      "selector": "input",
+      "type": "logic"
+    },
+    {
       "name": "ng-init",
       "selector": "input",
       "type": "event"
