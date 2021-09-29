@@ -39,6 +39,11 @@
       "mandatory": true
     },
     {
+      "name": "type",
+      "selector": "input",
+      "type": "type"
+    },
+    {
       "name": "placeholder",
       "selector": "input",
       "type": "text"
