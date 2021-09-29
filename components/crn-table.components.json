@@ -50,8 +50,6 @@
     {
       "name": "crn-datasource",
       "selector": "div[crn-datasource]",
-      "displayName_pt_BR": "Configurações",
-      "displayName_en_US": "Configuration",
       "global": true,
       "type": "pageDatasource"
     },
