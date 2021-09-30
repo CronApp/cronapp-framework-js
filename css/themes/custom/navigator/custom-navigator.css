@@ -18,7 +18,7 @@
     .crn-navigator-vertical {
         height: 100%;
         width: 19vw;
-        display: fixed;
+        position: fixed;
         float: left;
     }
 }
