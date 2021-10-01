@@ -26,6 +26,13 @@
   },
   "childrenProperties": [
     {
+      "name": "no-results-message",
+      "selector": "cron-dynamic-select",
+      "displayName_pt_BR": "Texto quando não tem resultados",
+      "displayName_en_US": "Text when there are no results",
+      "type": "text"
+    },
+    {
       "name": "ng-change",
       "selector": "cron-dynamic-select",
       "displayName_pt_BR": "Ao Alterar",

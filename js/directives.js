@@ -3610,6 +3610,10 @@
               };
             }
 
+            options.messages =  {
+              noData: attrs.noResultsMessage ? attrs.noResultsMessage : "NO DATA FOUND"
+            };
+
             options.change = attrs.ngChange ? function (){scope.$eval(attrs.ngChange)}: undefined;
             options.close = attrs.ngClose ? function (){scope.$eval(attrs.ngClose)}: undefined;
             options.dataBound = attrs.ngDataBound ? function (){scope.$eval(attrs.ngDataBound)}: undefined;
