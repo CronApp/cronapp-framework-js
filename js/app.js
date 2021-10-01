@@ -17,7 +17,8 @@ var cronappModules = [
   'report.services',
   'upload.services',
   'ui.tinymce',
-  'ngCookies'
+  'ngCookies',
+  'kendo.directives'
 ];
 
 if (window.customModules) {
@@ -199,6 +200,13 @@ var app = (function() {
         $scope.$state = $state;
 
         app.registerEventsCronapi($scope, $translate);
+
+        $("form").kendoValidator({
+            errorTemplate: '<span class="k-widget k-tooltip-validation k-x-invalid-msg-block">#=message#</span>',
+            messages:{
+                required: ''
+            }
+        });
 
         $rootScope.getReport = function(reportName, params, config) {
           ReportService.openReport(reportName, params, config);

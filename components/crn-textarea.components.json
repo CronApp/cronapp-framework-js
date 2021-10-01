@@ -60,6 +60,15 @@
       "order": 5
     },
     {
+      "name": "validationMessage",
+      "selector": "textarea",
+      "displayName_pt_BR": "Texto quando requerido",
+      "displayName_en_US": "Text when required",
+      "type": "text",
+      "mandatory": false,
+      "order": 6
+    },
+    {
       "name": "placeholder",
       "displayName_pt_BR": "Sugestão",
       "displayName_en_US": "Placeholder",

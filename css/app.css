@@ -343,6 +343,12 @@ fieldset[disabled] .btn-default:hover {
     font-family: 'Arial-Report';
 }
 
+.k-invalid-msg{
+    color: red!important;
+    border: none!important;
+}
+
+
 /* cronDynamicMenu */
 
 .displayBlock{
