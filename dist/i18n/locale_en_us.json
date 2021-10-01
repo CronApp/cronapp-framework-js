@@ -147,5 +147,6 @@
   "PasswordCanNotBeEmpty": "The new password cannot be empty",
   "PasswordConfirmationCanNotBeEmpty": "The confirm password cannot be empty",
   "PasswordDoesNotMatch": "The new password and confirm password doesn't match",
-  "clear": "Clear"
+  "clear": "Clear",
+  "noDataFound": "No data found"
 }
