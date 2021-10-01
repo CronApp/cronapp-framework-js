@@ -64,11 +64,7 @@
       "type": "mask",
       "order": 3
     },
-    {
-      "name": "ng-required",
-      "selector": "input",
-      "type": "logic"
-    },
+
     {
       "name": "placeholder",
       "displayName_pt_BR": "Sugestão",
@@ -76,6 +72,21 @@
       "selector": "input",
       "type": "text",
       "order": 4
+    },
+    {
+      "name": "ng-required",
+      "selector": "input",
+      "type": "logic",
+      "order": 5
+    },
+    {
+      "name": "validationMessage",
+      "selector": "input",
+      "displayName_pt_BR": "Texto quando requerido",
+      "displayName_en_US": "Text when required",
+      "type": "text",
+      "mandatory": false,
+      "order": 6
     },
     {
       "name": "mask-placeholder",

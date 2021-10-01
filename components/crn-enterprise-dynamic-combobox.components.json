@@ -94,7 +94,17 @@
     {
       "name": "ng-required",
       "selector": "cron-dynamic-select",
-      "type": "logic"
+      "type": "logic",
+      "order": 4
+    },
+    {
+      "name": "validationMessage",
+      "selector": "cron-dynamic-select",
+      "displayName_pt_BR": "Texto quando requerido",
+      "displayName_en_US": "Text when required",
+      "type": "text",
+      "mandatory": false,
+      "order": 5
     },
     {
       "name": "id",
