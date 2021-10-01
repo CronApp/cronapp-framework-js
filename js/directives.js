@@ -3527,6 +3527,7 @@
                   internalInput.attr("required", "required");
                 internalInput.attr("ng-model", attrs.ngModel);
                 internalInput.attr("id", attrs.id);
+                internalInput.attr("validationmessage", attrs.validationmessage);
                 let $parent = internalInput.parent();
                 internalInput.on('change',() => {
                   if (attrs.ngRequired === "true") {
@@ -3759,7 +3760,8 @@
             var parent = element.parent();
             var id = attrs.id ? ' id="' + attrs.id + '"' : '';
             var name = attrs.name ? ' name="' + attrs.name + '"' : '';
-            var inputSelect = $('<input style="width: 100%;"' + id + name + ' class="cronDynamicSelect" ng-model="' + attrs.ngModel + '"/>');
+            var validationmessage = attrs.validationmessage ? ' validationmessage="' + attrs.validationmessage + '"' : '';
+            var inputSelect = $('<input style="width: 100%;"' + id + name + validationmessage + ' class="cronDynamicSelect" ng-model="' + attrs.ngModel + '"/>');
 
             //https://stackoverflow.com/questions/21948067/issues-with-ng-required-directive-angular-js
             attrs.$observe('required', function(value) {
@@ -3780,6 +3782,8 @@
               $(combobox.element[0]).attr('style','');
               $(combobox.element[0]).attr('class','cron-select-offscreen');
             }
+
+            $(combobox.wrapper).children('.k-dropdown-wrap').children('.k-select').before(inputSelect);
 
             var forceChangeModel = function(value) {
               if (combobox.isEvaluating) {
@@ -4207,6 +4211,7 @@
             var parent = element.parent();
             var id = attrs.id ? ' id="' + attrs.id + '"' : '';
             var name = attrs.name ? ' name="' + attrs.name + '"' : '';
+            var validationmessage = attrs.validationmessage ? ' validationmessage="' + attrs.validationmessage + '"' : '';
             var required = '';
             if (attrs.ngRequired || attrs.required) {
               required = ' required ';
