@@ -114,7 +114,17 @@
     {
       "name": "ng-required",
       "selector": "cron-auto-complete",
-      "type": "logic"
+      "type": "logic",
+      "order": 7
+    },
+    {
+      "name": "validationMessage",
+      "selector": "cron-auto-complete",
+      "displayName_pt_BR": "Texto quando requerido",
+      "displayName_en_US": "Text when required",
+      "type": "text",
+      "mandatory": false,
+      "order": 8
     }
   ],
   "styles": [
