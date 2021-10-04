@@ -1,6 +1,7 @@
 @import 'checkbox-color.css';
 @import 'combobox-color.css';
 @import 'option-color.css';
+@import 'image.css';
 
 :root {
     --white: #ffffff;
