@@ -420,7 +420,11 @@ app.factory('customTranslateLoader', function ($http, $q) {
         method: 'GET',
         params: ''
       }, options.$http)).then(function (data) {
-        deferred.resolve(data);
+        let result = data || {};
+        if (data.data && typeof data.data === 'object') {
+          result = data.data;
+        }
+        deferred.resolve(result);
       }).catch(function () {
         deferred.resolve({});
       });
