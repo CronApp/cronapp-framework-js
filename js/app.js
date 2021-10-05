@@ -49,6 +49,9 @@ var app = (function() {
         'preferredLocale': 'pt_br',
         'urlPrefix': ''
       })
+      .config(['$locationProvider', function($locationProvider) {
+        $locationProvider.hashPrefix('');
+      }])
       .config([
         '$httpProvider',
         function($httpProvider) {
