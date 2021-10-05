@@ -7,6 +7,7 @@
       method: 'GET',
       url: 'auth/refresh'
     }).then(function (data, status, headers, config) {
+      data = getRequestData(data);
       //Keeping the user information, the auth/refresh only has name and username info
       if (localStorage.getItem("_u")) {
         let currentSession = JSON.parse(localStorage.getItem("_u"));
@@ -189,6 +190,7 @@
     };
 
     function handleSuccess(data, status, headers, config) {
+      data = getRequestData(data);
       // Store data response on session storage
       // The local storage will be cleaned when the browser window is closed
       if(typeof (Storage) !== "undefined") {
@@ -212,6 +214,8 @@
     }
 
     function handleError(data, status, headers, config) {
+      status = status || data.status;
+      data = getRequestData(data);
       let error;
       if (data !== null && data.message) {
         let message = JSON.parse(data.message);
@@ -314,6 +318,7 @@
       }).then(clean).catch(clean);
 
       function clean(result) {
+        result = getRequestData(result);
         $rootScope.session = {};
         if(typeof (Storage) !== "undefined") {
           localStorage.removeItem("_u");
@@ -352,6 +357,8 @@
       }
 
       function changeError(data, status, headers, config) {
+        status = status || data.status;
+        data = getRequestData(data);
         var error;
 
         if (status === 422) {
@@ -448,7 +455,7 @@
         }
 
         function changeError(data, status, headers, config) {
-          var error = data;
+          var error = getRequestData(data);
           Notification.error(error);
         }
       }

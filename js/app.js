@@ -30,6 +30,14 @@ var onloadCallback = function() {
   window.grecaptcha.reset();
 };
 
+var getRequestData = data => {
+  let result = data || {};
+  if (data.data && typeof data.data === 'object') {
+    result = data.data;
+  }
+  return result;
+};
+
 var app = (function() {
 
   return angular.module('MyApp', cronappModules)
@@ -422,11 +430,7 @@ app.factory('customTranslateLoader', function ($http, $q) {
         method: 'GET',
         params: ''
       }, options.$http)).then(function (data) {
-        let result = data || {};
-        if (data.data && typeof data.data === 'object') {
-          result = data.data;
-        }
-        deferred.resolve(result);
+        deferred.resolve(getRequestData(data));
       }).catch(function () {
         deferred.resolve({});
       });
