@@ -12,7 +12,7 @@
   ],
   "designTimeDynamic": true,
   "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-autocomplete.designtime.html",
-  "designTimeSelector": "cron-auto-complete",
+  "designTimeSelector": ":self",
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-dynamic-autocomplete.template.html",
   "properties": {
     "class": {
