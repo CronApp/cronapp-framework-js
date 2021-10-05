@@ -419,9 +419,9 @@ app.factory('customTranslateLoader', function ($http, $q) {
         ].join(''),
         method: 'GET',
         params: ''
-      }, options.$http)).success(function (data) {
+      }, options.$http)).then(function (data) {
         deferred.resolve(data);
-      }).error(function () {
+      }).catch(function () {
         deferred.resolve({});
       });
 

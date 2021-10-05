@@ -6,7 +6,7 @@
     $http({
       method: 'GET',
       url: 'auth/refresh'
-    }).success(function (data, status, headers, config) {
+    }).then(function (data, status, headers, config) {
       //Keeping the user information, the auth/refresh only has name and username info
       if (localStorage.getItem("_u")) {
         let currentSession = JSON.parse(localStorage.getItem("_u"));
@@ -21,7 +21,7 @@
         // refresh time
       }, (1800 * 1000));
       success();
-    }).error(function () {
+    }).catch(function () {
       error();
     });
   };
@@ -51,12 +51,12 @@
           'Content-Type': 'application/x-www-form-urlencoded',
           'X-AUTH-TOKEN': $location.search().token
         }
-      }).success(() => {
+      }).then(() => {
         Notification.info($translate.instant('ResetPasswordSuccess'));
         passwordNew.value = "";
         passwordConfirmation.value = "";
         $state.go('login');
-      }).error(data => Notification.error(data));
+      }).catch(data => Notification.error(data));
       //
     }
   });
@@ -160,7 +160,7 @@
         url : 'auth',
         data : $.param(user),
         headers : headerValues
-      }).success(handleSuccess).error(handleError);
+      }).then(handleSuccess).catch(handleError);
     };
 
     $scope.forgotPassword = function () {
@@ -181,11 +181,11 @@
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
-      }).success(() => {
+      }).then(() => {
         Notification.info($translate.instant('ForgotPasswordSent'));
         forgotPasswordEmail.value = "";
         $("#forgotPasswordModal").modal("hide");
-      }).error(data => Notification.error(data));
+      }).catch(data => Notification.error(data));
     };
 
     function handleSuccess(data, status, headers, config) {
@@ -311,7 +311,7 @@
         headers : {
           'Content-Type' : 'application/json'
         }
-      }).success(clean).error(clean);
+      }).then(clean).catch(clean);
 
       function clean(result) {
         $rootScope.session = {};
@@ -343,7 +343,7 @@
           headers : {
             'Content-Type' : 'application/x-www-form-urlencoded'
           }
-        }).success(changeSuccess).error(changeError);
+        }).then(changeSuccess).catch(changeError);
       }
 
       function changeSuccess(data, status, headers, config) {
@@ -439,7 +439,7 @@
           headers : {
             'Content-Type' : 'application/x-www-form-urlencoded'
           }
-        }).success(changeSuccess).error(changeError);
+        }).then(changeSuccess).catch(changeError);
 
         function changeSuccess(data, status, headers, config) {
           $rootScope.session.theme = theme;
