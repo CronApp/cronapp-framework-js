@@ -128,6 +128,8 @@ var app = (function() {
 
         var locale = (window.navigator.userLanguage || window.navigator.language).replace('-', '_').toLowerCase();
         $translateProvider.use(locale);
+        $translateProvider.preferredLanguage(locale);
+        $translateProvider.fallbackLanguage('en_us');
 
         $translateProvider.useSanitizeValueStrategy('escaped');
 
