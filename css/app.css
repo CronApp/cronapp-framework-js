@@ -389,3 +389,7 @@ fieldset[disabled] .btn-default:hover {
 .panel-group .heading-arrow.collapsed.panel-heading::after{
     content: "\f078";
 }
+
+.form-group div{
+    display: contents;
+}
