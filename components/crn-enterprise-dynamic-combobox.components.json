@@ -12,6 +12,7 @@
   ],
   "order": 3,
   "setRandomId": false,
+  "wrapper": false,
   "designTimeDynamic": true,
   "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-dynamic-combobox.designtime.html",
   "designTimeSelector": "cron-dynamic-select",
@@ -103,7 +104,6 @@
       "displayName_pt_BR": "Texto quando requerido",
       "displayName_en_US": "Text when required",
       "type": "text",
-      "mandatory": false,
       "order": 5
     },
     {
