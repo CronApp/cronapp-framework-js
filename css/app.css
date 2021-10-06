@@ -668,3 +668,26 @@ img.user-avatar {
 .form-group div{
     display: contents;
 }
+
+/* Form - Sub Form */
+.form .tool-bar,
+form .active-bar,
+form .tool-bar {
+    display: flex;
+    flex-direction: initial;
+    gap: 2px;
+}
+
+.form .tool-bar,
+.form .active-bar{
+    display: inline-flex;
+    flex-direction: initial;
+    gap: 2px;
+}
+
+.form .tool-bar > div,
+.form .active-bar > div,
+form .active-bar > div,
+form .tool-bar > div{
+    width: auto;
+}
