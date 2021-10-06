@@ -4466,11 +4466,15 @@
           require: 'ngModel',
           link: function(scope, elem, attrs, ngModelCtrl) {
 
-            // attrs.theme = $(elem).find('i').attr('xattr-theme');
-            // attrs.iconOn = $(elem).find('i').attr('class');
-
             var $elem = $(elem);
             var starArray = [];
+
+            var icon = $elem.find('i');
+
+            attrs.iconSize = icon[0].dataset.size;
+            attrs.iconTheme = icon[0].dataset.theme;
+            attrs.iconOn = icon[0].className;            
+            attrs.iconOn = attrs.iconOn.replace(attrs.iconSize).replace(attrs.iconTheme);            
 
             if (attrs.xattrDefaultValue) {
               ngModelCtrl.$viewValue = 0; //set new view value
@@ -4479,6 +4483,7 @@
 
             for (var i=1;i<=5;i++) {
               starArray.push($(elem).find('i').get(i - 1));
+              $(starArray[i-1]).removeClass(attrs.iconOn);
               $(starArray[i-1]).addClass(attrs.iconOff || "fa fa-star-o");
             }
 
@@ -4507,13 +4512,16 @@
               for (var i=1;i<=5;i++) {
                 stars[i-1].removeClass(attrs.iconOff || 'fa fa-star-o');
                 stars[i-1].removeClass(attrs.iconOn);
-                // stars[i-1].removeClass(attrs.theme);
+                stars[i-1].removeClass(attrs.iconSize);
+                stars[i-1].removeClass(attrs.iconTheme);
                 if (i <= value) {
                   stars[i-1].addClass(attrs.iconOn);
-                  stars[i-1].addClass(attrs.theme);
+                  stars[i-1].addClass(attrs.iconSize);
+                stars[i-1].addClass(attrs.iconTheme);
                 } else {
                   stars[i-1].addClass(attrs.iconOff || 'fa fa-star-o');
-                  // stars[i-1].addClass(attrs.theme);
+                  stars[i-1].addClass(attrs.iconSize);
+                stars[i-1].addClass(attrs.iconTheme);
                 }
               }
               return value;
