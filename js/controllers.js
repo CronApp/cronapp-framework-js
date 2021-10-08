@@ -6,7 +6,8 @@
     $http({
       method: 'GET',
       url: 'auth/refresh'
-    }).success(function (data, status, headers, config) {
+    }).then(function (data, status, headers, config) {
+      data = getRequestData(data);
       //Keeping the user information, the auth/refresh only has name and username info
       if (localStorage.getItem("_u")) {
         let currentSession = JSON.parse(localStorage.getItem("_u"));
@@ -21,7 +22,7 @@
         // refresh time
       }, (1800 * 1000));
       success();
-    }).error(function () {
+    }).catch(function () {
       error();
     });
   };
@@ -51,12 +52,12 @@
           'Content-Type': 'application/x-www-form-urlencoded',
           'X-AUTH-TOKEN': $location.search().token
         }
-      }).success(() => {
+      }).then(() => {
         Notification.info($translate.instant('ResetPasswordSuccess'));
         passwordNew.value = "";
         passwordConfirmation.value = "";
         $state.go('login');
-      }).error(data => Notification.error(data));
+      }).catch(data => Notification.error(data));
       //
     }
   });
@@ -175,7 +176,7 @@
         url : 'auth',
         data : $.param(user),
         headers : headerValues
-      }).success(handleSuccess).error(handleError);
+      }).then(handleSuccess).catch(handleError);
     };
 
     $scope.forgotPassword = function () {
@@ -196,14 +197,15 @@
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
-      }).success(() => {
+      }).then(() => {
         Notification.info($translate.instant('ForgotPasswordSent'));
         forgotPasswordEmail.value = "";
         $("#forgotPasswordModal").modal("hide");
-      }).error(data => Notification.error(data));
+      }).catch(data => Notification.error(data));
     };
 
     function handleSuccess(data, status, headers, config) {
+      data = getRequestData(data);
       // Store data response on session storage
       // The local storage will be cleaned when the browser window is closed
       if(typeof (Storage) !== "undefined") {
@@ -227,6 +229,8 @@
     }
 
     function handleError(data, status, headers, config) {
+      status = status || data.status;
+      data = getRequestData(data);
       let error;
       if (data !== null && data.message) {
         let message = JSON.parse(data.message);
@@ -330,9 +334,10 @@
         headers : {
           'Content-Type' : 'application/json'
         }
-      }).success(clean).error(clean);
+      }).then(clean).catch(clean);
 
       function clean(result) {
+        result = getRequestData(result);
         $rootScope.session = {};
         if(typeof (Storage) !== "undefined") {
           localStorage.removeItem("_u");
@@ -362,7 +367,7 @@
           headers : {
             'Content-Type' : 'application/x-www-form-urlencoded'
           }
-        }).success(changeSuccess).error(changeError);
+        }).then(changeSuccess).catch(changeError);
       }
 
       function changeSuccess(data, status, headers, config) {
@@ -371,6 +376,8 @@
       }
 
       function changeError(data, status, headers, config) {
+        status = status || data.status;
+        data = getRequestData(data);
         var error;
 
         if (status === 422) {
@@ -458,7 +465,7 @@
           headers : {
             'Content-Type' : 'application/x-www-form-urlencoded'
           }
-        }).success(changeSuccess).error(changeError);
+        }).then(changeSuccess).catch(changeError);
 
         function changeSuccess(data, status, headers, config) {
           $rootScope.session.theme = theme;
@@ -467,7 +474,7 @@
         }
 
         function changeError(data, status, headers, config) {
-          var error = data;
+          var error = getRequestData(data);
           Notification.error(error);
         }
       }
