@@ -30,6 +30,14 @@ var onloadCallback = function() {
   window.grecaptcha.reset();
 };
 
+var getRequestData = data => {
+  let result = data || {};
+  if (data.data && typeof data.data === 'object') {
+    result = data.data;
+  }
+  return result;
+};
+
 var app = (function() {
 
   return angular.module('MyApp', cronappModules)
@@ -41,6 +49,9 @@ var app = (function() {
         'preferredLocale': 'pt_br',
         'urlPrefix': ''
       })
+      .config(['$locationProvider', function($locationProvider) {
+        $locationProvider.hashPrefix('');
+      }])
       .config([
         '$httpProvider',
         function($httpProvider) {
@@ -127,6 +138,8 @@ var app = (function() {
 
         var locale = (window.navigator.userLanguage || window.navigator.language).replace('-', '_').toLowerCase();
         $translateProvider.use(locale);
+        $translateProvider.preferredLanguage(locale);
+        $translateProvider.fallbackLanguage('en_us');
 
         $translateProvider.useSanitizeValueStrategy('escaped');
 
@@ -246,7 +259,7 @@ var app = (function() {
 
       })
 
-      .run(function($rootScope, $state, $stateParams, $timeout) {
+      .run(function($rootScope, $state, $stateParams, $timeout, $transitions) {
         // It's very handy to add references to $state and $stateParams to the $rootScope
         // so that you can access them from any scope within your applications.For example,
         // <li ng-class="{ active: $state.includes('contacts.list') }"> will set the <li>
@@ -254,26 +267,27 @@ var app = (function() {
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
 
-        $rootScope.$on('$stateChangeError', function() {
-          if (arguments.length >= 6) {
-            var requestObj = arguments[5];
-            if (requestObj.status === 404 || requestObj.status === 403 || requestObj.status === 401) {
-              if (requestObj.status === 404) {
-                $state.go('404');
-              }
-              else if (requestObj.status === 403) {
-                $state.go('403');
-              }
-              else {
-                localStorage.removeItem('_u');
-                $state.go('loginReturnUrl', { "returnUrl" : window.location.hash });
-              }
+        const $stateChangeError = function(error) {
+          if (error) {
+            const errorMessage = error.toString();
+            if (errorMessage.includes('=404')) {
+              $state.go('404');
+            }
+            else if (errorMessage.includes('=403')) {
+              $state.go('403');
+            }
+            else if (errorMessage.includes('=401')) {
+              localStorage.removeItem('_u');
+              $state.go('loginReturnUrl', { "returnUrl" : window.location.hash });
+            } else {
+              $state.go('404');
             }
           } else {
             $state.go('404');
           }
-        });
-        $rootScope.$on('$stateChangeSuccess', function(event, currentRoute, previousRoute) {
+        };
+
+        const $stateChangeSuccess = function(currentRoute) {
           $timeout(() => {
             let systemName = $('#projectName').length ? $('#projectName').val() : $('h1:first').length && $('h1:first').text().trim().length ? $('h1:first').text().trim() : '';
 
@@ -320,7 +334,11 @@ var app = (function() {
 
             $rootScope.renderFinished = true;
           });
-        });
+        };
+
+        $transitions.onSuccess({}, (transition) => $stateChangeSuccess(transition.to()));
+        $state.defaultErrorHandler(error =>  $stateChangeError(error));
+
       });
 
 }(window));
@@ -419,9 +437,9 @@ app.factory('customTranslateLoader', function ($http, $q) {
         ].join(''),
         method: 'GET',
         params: ''
-      }, options.$http)).success(function (data) {
-        deferred.resolve(data);
-      }).error(function () {
+      }, options.$http)).then(function (data) {
+        deferred.resolve(getRequestData(data));
+      }).catch(function () {
         deferred.resolve({});
       });
 
