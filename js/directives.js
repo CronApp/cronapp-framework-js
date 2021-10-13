@@ -4106,7 +4106,7 @@
             if (attrs.ngRequired || attrs.required) {
               required = ' required ';
             }
-            $(parent).append('<input style="width: 100%;" ' + id + name + required + ' class="cronAutoComplete" ng-model="' + attrs.ngModel + '"/>');
+            $(parent).append('<input style="width: 100%;" ' + id + name + required + validationmessage + ' class="cronAutoComplete" ng-model="' + attrs.ngModel + '"/>');
             var $element = $(parent).find('input.cronAutoComplete');
             $(element).remove();
 
