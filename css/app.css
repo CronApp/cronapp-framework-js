@@ -355,6 +355,10 @@ fieldset[disabled] .btn-default:hover {
     display: block !important;
 }
 
+.nav.navbar-nav .dropdown-submenu:hover>ul.dropdown-menu{
+    display: block;
+}
+
 .nav.navbar-nav .dropdown-submenu>.dropdown-menu {
     margin-top: -31px;
     top: unset;
