@@ -57,8 +57,13 @@
         passwordNew.value = "";
         passwordConfirmation.value = "";
         $state.go('login');
-      }).catch(data => Notification.error(data));
-      //
+      }).catch(data =>  {
+        let errorMessage = $translate.instant('ResetPasswordDoesNotMatch');
+        if (data && data.data) {
+          errorMessage = data.data.message || data.data.error;
+        }
+        Notification.error(errorMessage);
+      });
     }
   });
 
