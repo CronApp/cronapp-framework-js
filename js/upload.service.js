@@ -98,14 +98,18 @@
                   console.log(complete);
                 });
               }.bind(this)
-            }).success(function(data, status, headers, config) {
+            }).then(function(data, status, headers, config) {
               pageScope.cronapi.evalInContext(JSON.stringify(data)).then((result) => {
                 $scope.uploaded = true;
                 $scope.uploading = false;
                 $scope.close();
               });
-            }.bind(this)).error(function(data, status, errorThrown) {
-              this.Notification.error(data.error);
+            }.bind(this)).catch(function(data, status, errorThrown) {
+              let error = data.error;
+              if (data && data.data) {
+                error = data.data.error;
+              }
+              this.Notification.error(error);
               $scope.uploading = false;
               $scope.close();
             }.bind(this));
