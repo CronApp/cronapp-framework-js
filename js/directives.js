@@ -4050,7 +4050,13 @@
             var parent = element.parent();
             var id = attrs.id ? ' id="' + attrs.id + '"' : '';
             var name = attrs.name ? ' name="' + attrs.name + '"' : '';
-            $(parent).append('<div style="width: 100%;"> <input style="width: 100%;"' + id + name + ' class="cronMultiSelect" ng-model="' + attrs.ngModel + '"/> </div>');
+
+            let required = attrs.ngRequired && eval(attrs.ngRequired) ? `required="required"`: '';
+            $(parent).append(`<div style="width: 100%;"> <input style="width: 100%;" ${id} ${name} ${required} class="cronMultiSelect" ng-model="${attrs.ngModel}"/> </div>`);
+            $(parent).find('label').attr('for',attrs.id);
+            let $inp = $(`${attrs.id}`);
+            $compile($inp)(scope);
+
             var $element = $(parent).find('input.cronMultiSelect');
             $(element).remove();
 
@@ -4177,6 +4183,16 @@
 
             scope.$watchCollection(function(){return ngModelCtrl.$modelValue}, function(value, old){
               var silent = $(combobox).data('silent');
+
+              if (value.length === 0) {
+                $(`#${attrs.id}`).addClass('ng-empty');
+                attrs.ngRequired && eval(attrs.ngRequired) && $(`#${attrs.id}`).attr('required', 'required');
+              }
+              else {
+                $(`#${attrs.id}`).removeClass('ng-empty');
+                $(`#${attrs.id}`).removeAttr('required');
+              }
+
               $(combobox).data('silent', false);
               if (!silent && (JSON.stringify(value) !== JSON.stringify(old))) {
                 if (relactionDS.relationDataSource && relactionDS.relationField) {
@@ -4220,7 +4236,7 @@
             if (attrs.ngRequired || attrs.required) {
               required = ' required ';
             }
-            $(parent).append('<input style="width: 100%;" ' + id + name + required + ' class="cronAutoComplete" ng-model="' + attrs.ngModel + '"/>');
+            $(parent).append('<input style="width: 100%;" ' + id + name + required + validationmessage + ' class="cronAutoComplete" ng-model="' + attrs.ngModel + '"/>');
             var $element = $(parent).find('input.cronAutoComplete');
             $(element).remove();
 
@@ -4988,12 +5004,11 @@
                         var data = $scope.ngModel;
     
                         if (value !== old) {
-    
+                            signaturePad.clear();
                             signature.fromDataURL("data:image/png;base64," + value, {
                                 ratio: 1
                             });
                             $scope.ngModel = value;
-                            signature.clear();
                         }
                     }, true);
     

@@ -3,6 +3,7 @@
 @import 'option-color.css';
 @import 'image.css';
 @import 'font-size.css';
+@import 'designtime.css';
 
 :root {
     --white: #ffffff;
