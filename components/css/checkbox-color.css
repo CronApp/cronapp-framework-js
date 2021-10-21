@@ -1,3 +1,19 @@
+/* theme */
+
+.checkbox-theme .k-checkbox:focus+.k-checkbox-label:before, .checkbox-theme .k-checkbox:hover+.k-checkbox-label:before, .checkbox-theme .k-radio:focus+.k-radio-label:before, .checkbox-theme .k-radio:hover+.k-radio-label:before {
+    box-shadow: 0 0 5px 0 var(--light-blue);
+    border-color: var(--light-blue);
+}
+
+.checkbox-theme .k-checkbox:checked+.k-checkbox-label:before, .checkbox-theme .k-checkbox:indeterminate+.k-checkbox-label:before {
+    border-color: var(--light-blue);
+    background-color: var(--light-blue);
+}
+
+.checkbox-theme .k-checkbox:checked+.k-checkbox-label:after, .checkbox-theme .k-checkbox:indeterminate+.k-checkbox-label:after {
+    background-color: var(--blue);
+    border-color: var(--light-blue);
+}
 
 /* white */
 

@@ -9,8 +9,11 @@
     "BUTTONS"
   ],
   "wrapper": false,
-  "autoWrapper": false,
-  "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/rating.template.html",
+  "forcedGroup": true,
+  "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/components/templates/rating.designtime.html",
+  "designTimeSelector": "cronapp-rating",
+  "designTimeDynamic": true,
+  "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/components/templates/rating.template.html",
   "properties": {
     "id": {
       "order": 1
@@ -52,6 +55,11 @@
       "type": "options",
       "target": "class",
       "values": [
+        {
+          "key": "color-theme",
+          "value_pt_BR": "Padrão do tema",
+          "value_en_US": "Theme pattern"
+        },
         {
           "key": "color-white",
           "value_pt_BR": "Branco",
@@ -183,27 +191,27 @@
     {
       "name": "icon-size",
       "type": "options",
-      "target": "style",
+      "target": "class",
       "values": [
         {
-          "key": "font-size: 20px;",
-          "value_pt_BR": "Padrão",
-          "value_en_US": "Default"
+          "key": "font-size-theme",
+          "value_pt_BR": "Padrão do tema",
+          "value_en_US": "Theme pattern"
         },
         {
-          "key": "font-size: 47px;",
-          "value_pt_BR": "Grande",
-          "value_en_US": "Big"
+          "key": "font-size-20",
+          "value_pt_BR": "Pequeno",
+          "value_en_US": "Small"
         },
         {
-          "key": "font-size: 30px;",
+          "key": "font-size-30",
           "value_pt_BR": "Médio",
           "value_en_US": "Medium"
         },
         {
-          "key": "font-size: 25px;",
-          "value_pt_BR": "Pequeno",
-          "value_en_US": "Small"
+          "key": "font-size-47",
+          "value_pt_BR": "Grande",
+          "value_en_US": "Big"
         }
       ]
     }
@@ -227,18 +235,6 @@
       "order": 2
     },
     {
-      "name": "icon-theme",
-      "selector": "i",
-      "displayName_pt_BR": "Cor do ícone",
-      "displayName_en_US": "Icon color"
-    },
-    {
-      "name": "icon-size",
-      "displayName_pt_BR": "Tamanho do ícone",
-      "displayName_en_US": "Icon size",
-      "selector": "i"
-    },
-    {
       "name": "icon-off",
       "selector": "cronapp-rating",
       "displayName_pt_BR": "Ícone Inativo",
@@ -247,10 +243,16 @@
       "order": 2
     },
     {
-      "name": "xattr-theme",
-      "selector": "div",
-      "type": "text",
-      "order": 3
+      "name": "data-theme",
+      "selector": "i",
+      "displayName_pt_BR": "Cor do ícone",
+      "displayName_en_US": "Icon color"
+    },
+    {
+      "name": "data-size",
+      "displayName_pt_BR": "Tamanho do ícone",
+      "displayName_en_US": "Icon size",
+      "selector": "i"
     },
     {
       "name": "xattr-default-value",
