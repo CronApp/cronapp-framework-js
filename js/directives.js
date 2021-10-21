@@ -4996,12 +4996,11 @@
                         var data = $scope.ngModel;
     
                         if (value !== old) {
-    
+                            signaturePad.clear();
                             signature.fromDataURL("data:image/png;base64," + value, {
                                 ratio: 1
                             });
                             $scope.ngModel = value;
-                            signature.clear();
                         }
                     }, true);
     
