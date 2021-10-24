@@ -29,11 +29,6 @@
       "target": "class",
       "values": [
         {
-          "key": "checkbox-theme",
-          "value_pt_BR": "Padrão do tema",
-          "value_en_US": "Theme pattern"
-        },
-        {
           "key": "checkbox-white",
           "value_pt_BR": "Branco",
           "value_en_US": "White",
