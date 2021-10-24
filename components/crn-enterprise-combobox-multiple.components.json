@@ -34,11 +34,6 @@
       "target": "class",
       "values": [
         {
-          "key": "combobox-theme",
-          "value_pt_BR": "Padrão do tema",
-          "value_en_US": "Theme pattern"
-        },
-        {
           "key": "combobox-gray",
           "value_pt_BR": "Cinza",
           "value_en_US": "Gray",
