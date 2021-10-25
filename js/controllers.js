@@ -291,6 +291,53 @@
       }
     }
 
+    var idleMonitor = function(timer){
+        let userIsIdle = false;
+        let userIdleTime = new Date().getTime();
+
+        var notifyIdle = function() {
+           if (!userIsIdle) {
+             userIsIdle = true;
+             console.log("User is Idle");
+             try {
+               $scope.logout();
+             } catch (e) {
+               console.log(e)
+             }
+           }
+         }
+
+         var resetIdleTimer = function() {
+           userIdleTime = new Date().getTime();
+           if (userIsIdle) {
+             console.log("User is Back");
+           }
+           userIsIdle = false;
+         }
+
+         var monitorIdleWindow = function(win) {
+           win.onload = resetIdleTimer;
+           win.onmousemove = resetIdleTimer;
+           win.onmousedown = resetIdleTimer;
+           win.ontouchstart = resetIdleTimer;
+           win.onclick = resetIdleTimer;
+           win.onkeypress = resetIdleTimer;
+           win.addEventListener('scroll', resetIdleTimer, true);
+           resetIdleTimer();
+         }
+
+         if(timer && timer > 0){
+           monitorIdleWindow(window);
+           setInterval(() => {
+             if (new Date().getTime() - userIdleTime > (60000 * timer)) {
+               notifyIdle();
+             }
+           }, 1000);
+         }
+     }
+    
+    cronapp.ioc.getInstance(cronapp.configuration.IConfigurationService).getValue("cronapp.framework.auth.idletime").then(idleMonitor); 
+
     $scope.message = {};
 
     $scope.selecionado = {
