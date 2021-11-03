@@ -668,3 +668,46 @@ img.user-avatar {
 .panel-group .heading-arrow.collapsed.panel-heading::after{
     content: "\f078";
 }
+
+.form-group div{
+    display: contents;
+}
+
+/* Form - Sub Form */
+.form .tool-bar,
+form .active-bar,
+form .tool-bar {
+    display: flex;
+    flex-direction: initial;
+    gap: 2px;
+}
+
+.form .tool-bar,
+.form .active-bar{
+    display: inline-flex;
+    flex-direction: initial;
+    gap: 2px;
+}
+
+.form .tool-bar > div,
+.form .active-bar > div,
+form .active-bar > div,
+form .tool-bar > div{
+    width: auto;
+}
+
+
+/* Entrada de texto com botão */
+.crn-textinputbutton{
+    display: flex;
+    align-items: center;
+}
+
+.crn-textinputbutton-button{
+    margin-top: 12px;
+}
+
+.crn-textinputbutton-button button{
+    margin: 0;
+    margin-left: 10px;
+}
