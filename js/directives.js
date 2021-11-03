@@ -4712,13 +4712,13 @@
   
               if (item.menuItems.length > 0) {
                 templateItens = templateItens + '\
-                        <li class="dropdown-submenu" ' + hide + '> \
+                        <li class="dropdown-submenu" ' + security + hide + '> \
                           <a  href="" ' + action + ' class="dropdown-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">' + iconClass + title + caret + ' </a> \
                             ' + populateSubitems(item) + '\
                         </li>';
               } else {
                 templateItens = templateItens + '\
-                        <li class="dropdown-submenu" ' + hide + '> \
+                        <li class="dropdown-submenu" ' + security + hide + '> \
                           <a  href="" ' + action + ' class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">' + iconClass + title + caret + ' </a> \
                         </li>';
               }
