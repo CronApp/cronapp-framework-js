@@ -58,6 +58,14 @@
       "mandatory": true
     },
     {
+      "name": "class",
+      "displayName_pt_BR": "Ícone",
+      "displayName_en_US": "Icon",
+      "selector": "button i",
+      "type": "icon",
+      "order": 2
+    },
+    {
       "name": "type",
       "selector": "input",
       "type": "type",

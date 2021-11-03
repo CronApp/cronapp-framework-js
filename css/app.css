@@ -420,3 +420,19 @@ form .active-bar > div,
 form .tool-bar > div{
     width: auto;
 }
+
+
+/* Entrada de texto com botão */
+.crn-textinputbutton{
+    display: flex;
+    align-items: center;
+}
+
+.crn-textinputbutton-button{
+    margin-top: 12px;
+}
+
+.crn-textinputbutton-button button{
+    margin: 0;
+    margin-left: 10px;
+}
