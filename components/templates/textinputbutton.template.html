@@ -1,9 +1,11 @@
-<label class="form-group" for="inputButton${RANDOM}">Label</label>
-<div class="form-inline form-group">
+<div class="form-inline form-group crn-textinputbutton">
+    <label class="form-group" for="inputButton-${RANDOM}">Label</label>
     <div class="input-group">
-        <input id="inputButton${RANDOM}" type="text" mask="" mask-placeholder="" ng-required="false" class="form-control k-textbox" ng-model="vars.input${RANDOM}" placeholder="Placeholder text">
+        <input id="inputButton-${RANDOM}" type="text" mask="" mask-placeholder="" ng-required="false" class="form-control k-textbox" ng-model="vars.input${RANDOM}" placeholder="Placeholder text">
     </div>
-    <div class="component-holder ng-scope crn-button-form-group" data-component="crn-button" id="crn-button-${RANDOM}">
-        <button class="btn k-button btn-default" type="submit" ng-click="" xattr-fullsize="" xattr-theme="btn-default" xattr-disabled=""><i class="" icon-theme="color-theme"></i> <span class="color-theme" text-theme="color-theme">Button</span></button>
+    <div class="component-holder ng-scope crn-textinputbutton-button" data-component="crn-button" id="crn-button-${RANDOM}">
+        <button class="btn k-button btn-default" ng-click="" xattr-fullsize="" xattr-theme="btn-default" xattr-disabled="">
+            <i class="color-white glyphicon glyphicon-search" icon-theme="color-white"></i>
+        </button>
     </div>
 </div>
