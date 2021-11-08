@@ -2722,11 +2722,16 @@
             };
 
             var compileListing = function(e) {
-              if (e.sender.tbody && e.sender.tbody.length && !$(e.sender.tbody).find('.k-grid-edit-row').length) {
+              if (e.sender.tbody && e.sender.tbody.length) {
 
                 var toCompile = e.sender.tbody;
-                if (toCompile.parent() && toCompile.parent().parent() && toCompile.parent().parent().parent() )
-                  toCompile = toCompile.parent().parent().parent();
+                if (!$(e.sender.tbody).find('.k-grid-edit-row').length) {
+                  if (toCompile.parent() && toCompile.parent().parent() && toCompile.parent().parent().parent() )
+                    toCompile = toCompile.parent().parent().parent();
+                }
+                else {
+                  toCompile = $(e.sender.tbody).find('tr:not(.k-grid-edit-row)');
+                }
 
                 scope.safeApply(function() {
                   var trs = $(toCompile);
