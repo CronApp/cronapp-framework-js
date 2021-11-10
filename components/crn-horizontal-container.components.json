@@ -37,17 +37,6 @@
             "removable": true,
             "type": "event"
         }
-    },
-    "forcedGroup": false,
-    "wrapper": false,
-    "autoWrapper": true,
-    "handleRules": {
-        "canIncrement": true,
-        "rules": [
-            {
-                "sourceHTML": "<div class=\"col-md-6\" data-container=\"true\" data-replace=\"true\">Content goes here</div> ",
-                "targetSelector": ":self"
-            }
-        ]
     }
+
 }
