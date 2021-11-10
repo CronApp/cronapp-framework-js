@@ -4292,6 +4292,11 @@
             config.slide = attrs.ngSlide ? function (){scope.$eval(attrs.ngSlide)}: undefined;
             var slider = $(element).kendoSlider(config).data("kendoSlider");
 
+            const resizeObserver = new ResizeObserver(entries => {
+              slider.resize();
+            });
+            resizeObserver.observe(slider.wrapper[0])
+
             if (attrs.ngRequired || attrs.required) {
               var id = attrs.id ? ' id="input' + app.common.generateId() + '"' : '';
               var name = attrs.name ? ' name="input' + app.common.generateId() + '"' : '';
