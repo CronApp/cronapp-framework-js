@@ -85,8 +85,8 @@
             "values": [
                 {
                     "key": "btn-default",
-                    "value_pt_BR": "Padrão do tema",
-                    "value_en_US": "Theme pattern"
+                    "value_pt_BR": "Padrão",
+                    "value_en_US": "Default"
                 },
                 {
                     "key": "btn-primary",
@@ -129,11 +129,6 @@
             "type": "options",
             "target": "class",
             "values": [
-                {
-                    "key": "color-theme",
-                    "value_pt_BR": "Padrão do tema",
-                    "value_en_US": "Theme pattern"
-                },
                 {
                     "key": "color-white",
                     "value_pt_BR": "Branco",
@@ -267,11 +262,6 @@
             "type": "options",
             "target": "class",
             "values": [
-                {
-                    "key": "color-theme",
-                    "value_pt_BR": "Padrão do tema",
-                    "value_en_US": "Theme pattern"
-                },
                 {
                     "key": "color-white",
                     "value_pt_BR": "Branco",

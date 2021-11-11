@@ -9,8 +9,8 @@
     "LAYOUTS"
   ],
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/icon.template.html",
-  "wrapper": true,
-  "forcedGroup": true,
+  "wrapper": false,
+  "autoWrapper": false,
   "properties": {
     "ng-init": {
       "removable": true,
@@ -49,22 +49,19 @@
       "selector": "i",
       "displayName_pt_BR": "Ícone",
       "displayName_en_US": "Icon",
-      "type": "icon",
-      "order": 1
+      "type": "icon"
     },
     {
       "name": "icon-theme",
       "displayName_pt_BR": "Cor do ícone",
       "displayName_en_US": "Icon color",
-      "selector": "i",
-      "order": 2
+      "selector": "i"
     },
     {
       "name": "icon-size",
       "displayName_pt_BR": "Tamanho do ícone",
       "displayName_en_US": "Icon size",
-      "selector": "i",
-      "order": 3
+      "selector": "i"
     }
   ],
   "attributesForPreview": [
@@ -73,11 +70,6 @@
       "type": "options",
       "target": "class",
       "values": [
-        {
-          "key": "color-theme",
-          "value_pt_BR": "Padrão do tema",
-          "value_en_US": "Theme pattern"
-        },
         {
           "key": "color-white",
           "value_pt_BR": "Branco",
@@ -209,25 +201,25 @@
     {
       "name": "icon-size",
       "type": "options",
-      "target": "class",
+      "target": "style",
       "values": [
         {
-          "key": "font-size-theme",
-          "value_pt_BR": "Padrão do tema",
-          "value_en_US": "Theme pattern"
+          "key": "",
+          "value_pt_BR": "Padrão",
+          "value_en_US": "Default"
         },
         {
-          "key": "font-size-47",
+          "key": "font-size: 47px;",
           "value_pt_BR": "Grande",
           "value_en_US": "Big"
         },
         {
-          "key": "font-size-30",
+          "key": "font-size: 30px;",
           "value_pt_BR": "Médio",
           "value_en_US": "Medium"
         },
         {
-          "key": "font-size-25",
+          "key": "font-size: 25px;",
           "value_pt_BR": "Pequeno",
           "value_en_US": "Small"
         }

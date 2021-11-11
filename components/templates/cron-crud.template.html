@@ -16,51 +16,15 @@
 <section class="form">
     <form crn-datasource="" data-component="crn-form">
         <div class="tool-bar" ng-hide="datasource.editing || datasource.inserting">
-            <div class="component-holder ng-scope" data-component="crn-button" id="crn-button-8499">
-                <button aria-label="{{'StartInserting' | translate}}" class="btn k-button btn-fab btn-default" ng-click="datasource.startInserting()" xattr-theme="btn-default" xattr-fullsize="">
-                    <span class="k-icon k-i-plus color-theme" icon-theme="color-theme" text-theme="color-theme"></span>
-                </button>
-            </div>
-
-            <div class="component-holder ng-scope" data-component="crn-button" id="crn-button-8499">
-                <button aria-label="{{'StartEditing' | translate}}" class="btn k-button btn-fab btn-default" ng-click="datasource.startEditing()" xattr-theme="btn-default" xattr-fullsize="">
-                    <span class="k-icon k-i-edit color-theme" icon-theme="color-theme" text-theme="color-theme"></span>
-                </button>
-            </div>
-
-            <div class="component-holder ng-scope" data-component="crn-button" id="crn-button-84681">
-                <button aria-label="{{'Before' | translate}}" class="btn k-button btn-fab btn-default disabled" ng-disabled="!datasource.hasPrevious()" ng-click="datasource.previous()" xattr-theme="btn-default" xattr-fullsize="">
-                    <span class="k-icon k-i-arrow-chevron-left color-theme" icon-theme="color-theme" text-theme="color-theme"></span>
-                </button>
-            </div>
-
-            <div class="component-holder ng-scope" data-component="crn-button" id="crn-button-8499">
-                <button aria-label="{{'Next' | translate}}" class="btn k-button btn-fab btn-default disabled" ng-disabled="!datasource.hasNext()" ng-click="datasource.next()" xattr-theme="btn-default" xattr-fullsize="">
-                    <span class="k-icon k-i-arrow-chevron-right color-theme" icon-theme="color-theme" text-theme="color-theme"></span>
-                </button>
-            </div>
-
-            <div class="component-holder ng-scope" data-component="crn-button" id="crn-button-8499">
-                <button aria-label="{{'Remove' | translate}}" class="btn k-button btn-fab btn-danger" ng-click="datasource.remove()" xattr-theme="btn-danger" xattr-fullsize="">
-                    <span class="k-icon k-i-close color-theme" icon-theme="color-theme" text-theme="color-theme"></span>
-                </button>
-            </div>
-
+            <button aria-label="{{'StartInserting' | translate}}" class="btn btn-primary btn-fab k-button" data-component="crn-button" ng-click="datasource.startInserting()"><span class="k-icon k-i-plus"></span></button>
+            <button aria-label="{{'StartEditing' | translate}}" class="btn btn-primary btn-fab k-button" data-component="crn-button" ng-click="datasource.startEditing()"><span class="k-icon k-i-edit"></span></button>
+            <button aria-label="{{'Before' | translate}}" class="btn btn-primary btn-fab k-button" data-component="crn-button" ng-disabled="!datasource.hasPrevious()" ng-click="datasource.previous()"><span class="k-icon k-i-arrow-chevron-left"></span></button>
+            <button aria-label="{{'Next' | translate}}" class="btn btn-primary btn-fab k-button" data-component="crn-button" ng-disabled="!datasource.hasNext()" ng-click="datasource.next()"><span class="k-icon k-i-arrow-chevron-right"></span></button>
+            <button aria-label="{{'Remove' | translate}}" class="btn btn-danger btn-fab k-button" data-component="crn-button" ng-click="datasource.remove()"><span class="k-icon k-i-close"></span></button>
         </div>
         <div class="active-bar" ng-hide="!datasource.editing &amp;&amp; !datasource.inserting">
-
-            <div class="component-holder ng-scope" data-component="crn-button" id="crn-button-8499">
-                <button aria-label="{{'SaveChanges' | translate}}" class="btn k-button btn-fab btn-success" ng-disabled="!datasource.hasNext()" ng-click="datasource.post()" xattr-theme="btn-success" id="btn_crud_post_8499" xattr-fullsize="">
-                    <span class="k-icon k-i-check color-theme" icon-theme="color-theme" text-theme="color-theme"></span>
-                </button>
-            </div>
-
-            <div class="component-holder ng-scope" data-component="crn-button" id="crn-button-8499">
-                <button aria-label="{{'CancelChanges' | translate}}" class="btn k-button btn-fab btn-danger" ng-click="datasource.cancel()" xattr-theme="btn-danger" id="btn_crud_cancel_8499" xattr-fullsize="">
-                    <span class="k-icon k-i-cancel color-theme" icon-theme="color-theme" text-theme="color-theme"></span>
-                </button>
-            </div>
-
+            <button aria-label="{{'SaveChanges' | translate}}" class="btn btn-success btn-fab k-button" id="btn_crud_post_${RANDOM}" data-component="crn-button" ng-click="datasource.post()"><span class="k-icon k-i-check"></span></button>
+            <button aria-label="{{'CancelChanges' | translate}}" class="btn btn-danger btn-fab k-button" id="btn_crud_cancel_${RANDOM}" data-component="crn-button" ng-click="datasource.cancel()"><span class="k-icon k-i-cancel"></span></button>
         </div>
         <br>
         <div class="component-holder ng-scope crn-fieldset" data-component="crn-horizontal-container" id="crn-horizontal-container-${RANDOM}" ng-disabled="!datasource.editing &amp;&amp; !datasource.inserting">
