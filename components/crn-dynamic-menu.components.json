@@ -12,6 +12,7 @@
   ],
   "order": 11,
   "wrapper": false,
+  "forcedGroup": true,
   "designTimeDynamic": true,
   "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-dynamic-menu.designtime.html",
   "designTimeSelector": ":self",
