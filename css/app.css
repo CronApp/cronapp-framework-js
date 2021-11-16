@@ -401,7 +401,7 @@ fieldset[disabled] .btn-default:hover {
 }
 
 .crn-textinputbutton-button{
-    margin-top: 12px;
+    display: inherit;
 }
 
 .crn-textinputbutton-button button{
