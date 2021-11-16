@@ -2256,7 +2256,8 @@
                   let waitRender = setInterval(function() {
                     let $myElement = $('#' + componentId);
                     if ($myElement.length > 0) {
-                      var x = angular.element($myElement);
+                      let $closeTdElemen = $myElement.closest('td');
+                      let x = angular.element($closeTdElemen || $myElement);
                       $compile(x)(scope);
                       clearInterval(waitRender);
                       resolve(componentId);
