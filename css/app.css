@@ -676,7 +676,7 @@ img.user-avatar {
 }
 
 .crn-textinputbutton-button{
-    margin-top: 12px;
+    display: inherit;
 }
 
 .crn-textinputbutton-button button{
