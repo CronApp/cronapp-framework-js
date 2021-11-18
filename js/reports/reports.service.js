@@ -156,6 +156,9 @@
         }
         var viewer = new Stimulsoft.Viewer.StiViewer(options, viewerId, false);
         viewer.report = report;
+        if(StiJsViewer.prototype.IsTouchDevice()) {
+          viewer.options.appearance.interfaceType = Stimulsoft.Viewer.StiInterfaceType.Touch;
+        }
         return viewer;
       };
     
