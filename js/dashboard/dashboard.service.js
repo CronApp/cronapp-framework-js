@@ -104,6 +104,9 @@
         }
         var viewer = new Stimulsoft.Viewer.StiViewer(options, viewerId, false);
         viewer.report = dashboard;
+        if(StiJsViewer.prototype.IsTouchDevice()) {
+          viewer.options.appearance.interfaceType = Stimulsoft.Viewer.StiInterfaceType.Touch;
+        }
         return viewer;
       };
     
