@@ -41,14 +41,14 @@
       "type": "event"
     }
   },
-  "forcedGroup": true,
   "wrapper": false,
-  "autoWrapper": true,
   "handleRules": {
+    "canOrder": true,
+    "canActivate": true,
     "canIncrement": true,
     "rules": [
       {
-        "sourceHTML": "<div class=\"col-md-12\" data-container=\"true\" data-replace=\"true\">Content goes here</div> ",
+        "sourceHTML": "<div data-container=\"true\" data-replace=\"true\">Content New</div> ",
         "targetSelector": ":self"
       }
     ]
