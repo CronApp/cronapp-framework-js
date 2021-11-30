@@ -3647,6 +3647,7 @@
             }
           },
           link: async function (scope, element, attrs, ngModelCtrl) {
+            await cronapi.internal.skipIterationLoop();
             var modelGetter = $parse(attrs['ngModel']);
             var modelSetter = modelGetter.assign;
             var select = {};
