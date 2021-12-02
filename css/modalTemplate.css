@@ -6,9 +6,13 @@
     margin: 0px;
 }
 
+#modalBodyConfirmDialog .title {
+    font-size: 20px;
+}
+
 #modalBodyConfirmDialog .subtitle {
     margin: 10px 0px;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 300;
 }
 
@@ -16,6 +20,7 @@
 #modalBodyConfirmDialog .title {
     color: #606060;
     line-height: 1;
+    white-space:pre-wrap
 }
 
 .k-dialog .k-dialog-buttongroup.k-dialog-button-layout-normal {
