@@ -97,7 +97,7 @@
     $scope.$http = $http;
     $scope.params = $stateParams;
     $scope.$state = $state;
-    app.registerEventsCronapi($scope, $translate);
+    app.registerEventsCronapi($scope, $translate, $location);
 
     $rootScope.http = $http;
     $rootScope.Notification = Notification;
@@ -111,12 +111,6 @@
       DashboardService.openDashboard(dashboardName, params, config);
     };
 
-    var queryStringParams = $location.search();
-    for (var key in queryStringParams) {
-      if (queryStringParams.hasOwnProperty(key)) {
-        $scope.params[key] = queryStringParams[key];
-      }
-    }
     $scope.redirectToLogin = function() {
       $scope.cronapi.social.ssoLogin();
     };
@@ -270,7 +264,7 @@
     $scope.$http = $http;
     $scope.params = $stateParams;
     $scope.$state = $state;
-    app.registerEventsCronapi($scope, $translate);
+    app.registerEventsCronapi($scope, $translate, $location);
 
     $rootScope.http = $http;
     $rootScope.Notification = Notification;
@@ -283,13 +277,6 @@
     $rootScope.getDashboard = function(dashboardName, params, config) {
       DashboardService.openDashboard(dashboardName, params, config);
     };
-
-    var queryStringParams = $location.search();
-    for (var key in queryStringParams) {
-      if (queryStringParams.hasOwnProperty(key)) {
-        $scope.params[key] = queryStringParams[key];
-      }
-    }
 
     var idleMonitor = function(timer){
         let userIsIdle = false;
@@ -335,8 +322,8 @@
            }, 1000);
          }
      }
-    
-    cronapp.ioc.getInstance(cronapp.configuration.IConfigurationService).getValue("cronapp.framework.auth.idletime").then(idleMonitor); 
+
+    cronapp.ioc.getInstance(cronapp.configuration.IConfigurationService).getValue("cronapp.framework.auth.idletime").then(idleMonitor);
 
     $scope.message = {};
 
