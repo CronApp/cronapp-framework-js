@@ -177,7 +177,7 @@
     {
       "selector": ".k-list-container .k-button.k-state-hover",
       "text_pt_BR": "Ao passar o mouse no botão de ação",
-      "text_en_US": "Mouse Hover the action button"
+      "text_en_US": "On mouse hover the action button"
     },
     {
       "selector": "#{id} .k-grid tbody .k-grid-edit",
