@@ -212,7 +212,7 @@ var app = (function() {
         $scope.UploadService = UploadService;
         $scope.$state = $state;
 
-        app.registerEventsCronapi($scope, $translate);
+        app.registerEventsCronapi($scope, $translate, $location);
 
         $("form").kendoValidator({
             errorTemplate: '<span class="k-widget k-tooltip-validation k-x-invalid-msg-block">#=message#</span>',
@@ -365,7 +365,23 @@ app.bindScope = function($scope, obj) {
   return newObj;
 };
 
-app.registerEventsCronapi = function($scope, $translate) {
+app.registerEventsCronapi = function($scope, $translate, $location) {
+
+  let $stateParams = $scope.params || {};
+  let queryStringParams = $location && $location.search() || {};
+  $scope.params = {};
+
+  let makeCopy = (from, to) => {
+      for (let key in from) {
+          if (from.hasOwnProperty(key)) {
+              to[key] = from[key];
+          }
+      }
+  };
+  makeCopy($stateParams, $scope.params);
+  makeCopy(queryStringParams, $scope.params);
+
+
   for (var x in app.userEvents)
     $scope[x] = app.userEvents[x].bind($scope);
 
