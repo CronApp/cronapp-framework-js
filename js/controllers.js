@@ -81,7 +81,7 @@
     $scope.$http = $http;
     $scope.params = $stateParams;
     $scope.$state = $state;
-    app.registerEventsCronapi($scope, $translate);
+    app.registerEventsCronapi($scope, $translate, $location);
 
     $rootScope.http = $http;
     $rootScope.Notification = Notification;
@@ -91,12 +91,6 @@
       ReportService.openReport(reportName, params, config);
     };
 
-    var queryStringParams = $location.search();
-    for (var key in queryStringParams) {
-      if (queryStringParams.hasOwnProperty(key)) {
-        $scope.params[key] = queryStringParams[key];
-      }
-    }
     $scope.redirectToLogin = function() {
       $scope.cronapi.social.ssoLogin();
     };
@@ -250,7 +244,7 @@
     $scope.$http = $http;
     $scope.params = $stateParams;
     $scope.$state = $state;
-    app.registerEventsCronapi($scope, $translate);
+    app.registerEventsCronapi($scope, $translate, $location);
 
     $rootScope.http = $http;
     $rootScope.Notification = Notification;
@@ -259,13 +253,6 @@
     $rootScope.getReport = function(reportName, params, config) {
       ReportService.openReport(reportName, params, config);
     };
-
-    var queryStringParams = $location.search();
-    for (var key in queryStringParams) {
-      if (queryStringParams.hasOwnProperty(key)) {
-        $scope.params[key] = queryStringParams[key];
-      }
-    }
 
     $scope.message = {};
 
