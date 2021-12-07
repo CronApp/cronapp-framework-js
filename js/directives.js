@@ -4711,14 +4711,22 @@
         return {
           restrict: 'A',
           require: 'ngModel',
-          link: function(scope, element, attrs, ngModelCtrl) {
+          link: async function(scope, element, attrs, ngModelCtrl) {
             if (attrs.ngInitialValue) {
               var modelGetter = $parse(attrs['ngModel']);
               var modelSetter = modelGetter.assign;
               var evaluated;
 
               try {
-                evaluated = scope.$eval(attrs.ngInitialValue);
+                if(attrs.ngInitialValue.indexOf("cronapi.client('js.") != -1){//cronapi caller?
+                    let shortVersion = attrs.ngInitialValue.replace("cronapi.client('js.", 'blockly.js.');
+                    let blocklyPackage = shortVersion.split("').names")[0];
+                    blocklyPackage = blocklyPackage.split("').attr()")[0];
+                    let blocklyParams = shortVersion.split('.run')[1];
+                    evaluated = await scope.$eval(blocklyPackage + blocklyParams); 
+                } else {
+                    evaluated = scope.$eval(attrs.ngInitialValue);
+                }
               } catch (e) {
                 evaluated = attrs.ngInitialValue;
               }
