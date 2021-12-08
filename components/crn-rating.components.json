@@ -15,10 +15,6 @@
     "id": {
       "order": 1
     },
-    "xattr-theme": {
-      "displayName_en_US": "Theme",
-      "displayName_pt_BR": "Tema"
-    },
     "class": {
       "order": 9999
     }
@@ -252,12 +248,6 @@
       "order": 2
     },
     {
-      "name": "xattr-theme",
-      "selector": "div",
-      "type": "text",
-      "order": 3
-    },
-    {
       "name": "xattr-default-value",
       "selector": "cronapp-rating",
       "displayName_pt_BR": "Valor Padrão",
@@ -265,12 +255,6 @@
       "type": "text",
       "order": 4
     },
-
-
-
-
-
-
     {
       "name": "ng-init",
       "selector": "cronapp-rating",
