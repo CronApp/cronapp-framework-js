@@ -4782,7 +4782,7 @@
               //Somente fica na vertical se for o menu principal da IDE (E estiver configurado para isso)
               let isVertical = element.closest('.crn-navigator-vertical').length;
   
-              var TEMPLATE_MAIN = '<ul  class="nav navbar-nav ' + (isVertical ? 'col-md-12 padding-0' : '') + ' " style="float:left"></ul>';
+              var TEMPLATE_MAIN = '<ul  class="nav navbar-nav ' + (isVertical ? 'col-md-12 padding-0' : '') + ' "></ul>';
               var options = {};
               try {
                 options = JSON.parse(attrs.options);

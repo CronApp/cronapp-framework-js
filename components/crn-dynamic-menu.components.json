@@ -11,7 +11,8 @@
     "LAYOUTS"
   ],
   "order": 11,
-  "wrapper": true,
+  "wrapper": false,
+  "autoWrapper": true,
   "designTimeDynamic": true,
   "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-dynamic-menu.designtime.html",
   "designTimeSelector": "cron-dynamic-menu",
