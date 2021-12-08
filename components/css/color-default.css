@@ -2,6 +2,7 @@
 @import 'combobox-color.css';
 @import 'option-color.css';
 @import 'designtime.css';
+@import 'font-size.css';
 
 :root {
     --white: #ffffff;
