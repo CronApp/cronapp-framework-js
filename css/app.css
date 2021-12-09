@@ -697,3 +697,7 @@ img.user-avatar {
     display: flex;
     gap: 6px;
 }
+
+.btn-fab{
+    margin: inherit;
+}
