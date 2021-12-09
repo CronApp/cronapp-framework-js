@@ -1,15 +1,15 @@
 <section class="form">
   <form crn-datasource="" data-component="crn-form">
     <div class="tool-bar" ng-hide="datasource.editing || datasource.inserting">
-      <button aria-label="{{'StartInserting' | translate}}" class="btn btn-primary btn-fab k-button"
+      <button aria-label="{{'StartInserting' | translate}}" class="btn btn-default btn-fab k-button"
         data-component="crn-button" ng-click="datasource.startInserting()"><span
           class="k-icon k-i-plus"></span></button>
-      <button aria-label="{{'StartEditing' | translate}}" class="btn btn-primary btn-fab k-button"
+      <button aria-label="{{'StartEditing' | translate}}" class="btn btn-default btn-fab k-button"
         data-component="crn-button" ng-click="datasource.startEditing()"><span class="k-icon k-i-edit"></span></button>
-      <button aria-label="{{'Before' | translate}}" class="btn btn-primary btn-fab k-button" data-component="crn-button"
+      <button aria-label="{{'Before' | translate}}" class="btn btn-default btn-fab k-button" data-component="crn-button"
         ng-disabled="!datasource.hasPrevious()" ng-click="datasource.previous()"><span
           class="k-icon k-i-arrow-chevron-left"></span></button>
-      <button aria-label="{{'Next' | translate}}" class="btn btn-primary btn-fab k-button" data-component="crn-button"
+      <button aria-label="{{'Next' | translate}}" class="btn btn-default btn-fab k-button" data-component="crn-button"
         ng-disabled="!datasource.hasNext()" ng-click="datasource.next()"><span
           class="k-icon k-i-arrow-chevron-right"></span></button>
       <button aria-label="{{'Remove' | translate}}" class="btn btn-danger btn-fab k-button" data-component="crn-button"
