@@ -1,0 +1,26 @@
+{
+    "name": "cron-breadcrumbs",
+    "text_pt_BR": "Breadcrumbs",
+    "text_en_US": "Breadcrumbs",
+    "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-horizontal-container.svg",
+    "description": "Breadcrumbs",
+    "description_en_US": "Breadcrumbs",
+    "category": [
+      "LAYOUTS", "COMBOS"
+    ],
+    "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-breadcrumbs.template.html",
+    "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-breadcrumbs.designtime.html",
+    "designTimeSelector": "cron-breadcrumbs",
+    "designTimeDynamic": true,
+    "wrapper": false,
+    "autoWrapper": true,
+    "forcedGroup": true,
+    "properties": {
+      "class": {
+        "order": 9999
+      },
+      "id": {
+        "order": 1
+      }
+    }    
+  }
