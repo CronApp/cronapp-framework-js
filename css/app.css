@@ -683,3 +683,10 @@ img.user-avatar {
     margin: 0;
     margin-left: 10px;
 }
+
+/* Breadcrumbs */
+#cron-breadcrumbs .k-breadcrumb-container,
+#cron-breadcrumbs .k-breadcrumb-root-item-container {
+    padding: 3px 10px;
+    position: relative;
+}
