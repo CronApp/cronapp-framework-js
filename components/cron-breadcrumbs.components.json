@@ -3,8 +3,8 @@
   "text_pt_BR": "Breadcrumbs",
   "text_en_US": "Breadcrumbs",
   "image": "/node_modules/cronapp-framework-js/img/cron-icon/cron-breadrumb.svg",
-  "description": "Breadcrumbs",
-  "description_en_US": "Breadcrumbs",
+  "description": "Breadcrumb",
+  "description_en_US": "Breadcrumb",
   "category": [
     "LAYOUTS",
     "COMBOS"
