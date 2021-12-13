@@ -4714,36 +4714,39 @@
               replace: true,
               link: function (scope, element, attrs) {
 
-                  let home = document.URL;
-                  let homeSplit = home.split('#/home/');
+                let home = document.URL;
+                let homeSplit = home.split('#/home/');
+
+                // criar json
+                let jsonItem = [
+                  {
+                    type: "rootitem",
+                    href: homeSplit[0] + '#/home',
+                    text: "Home",
+                    showText: true,
+                    icon: "home"
+                  }
+                ]
+
+                if (homeSplit[1]) {
                   let position = homeSplit[1].split('/');
 
-                  // criar json
-                  let jsonItem = [
-                      {
-                          type: "rootitem",
-                          href: homeSplit[0] + '#/home',
-                          text: "Home",
-                          showText: true,
-                          icon: "home"
-                      }
-                  ]
-
                   for (let i = 1; i < position.length; i++) {
-                      jsonItem.push({
-                          type: "item",
-                          href: homeSplit[0] + "#/home/" + position[0] + "/" + position[i],
-                          text: position[i],
-                          showText: true
-                      })
+                    jsonItem.push({
+                      type: "item",
+                      href: homeSplit[0] + "#/home/" + position[0] + "/" + position[i],
+                      text: position[i],
+                      showText: true
+                    })
                   }
+                }
 
-                  var breadcrumb = $("#navbreadcrumb").kendoBreadcrumb({
-                      items: jsonItem,
-                      navigational: true
-                  });
+                var breadcrumb = $("#navbreadcrumb").kendoBreadcrumb({
+                  items: jsonItem,
+                  navigational: true
+                });
 
-                  element.html(breadcrumb);
+                element.html(breadcrumb);
               }
           }
       })
