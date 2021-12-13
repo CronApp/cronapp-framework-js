@@ -2,7 +2,7 @@
   "name": "cron-breadcrumbs",
   "text_pt_BR": "Breadcrumbs",
   "text_en_US": "Breadcrumbs",
-  "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-horizontal-container.svg",
+  "image": "/node_modules/cronapp-framework-js/img/cron-icon/cron-breadrumb.svg",
   "description": "Breadcrumbs",
   "description_en_US": "Breadcrumbs",
   "category": [
