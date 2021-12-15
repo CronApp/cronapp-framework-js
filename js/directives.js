@@ -2036,6 +2036,8 @@
               var template;
               if (buttonType == 'save')
                 template = '<button id="#BUTTONID#" aria-label="#ARIALABELSAVE#" class="btn btn-primary btn-fab ng-binding grid-save-button-modal k-button" data-component="crn-button" ng-click="#FUNCTIONCALL#" onclick="(!#DATASOURCENAME#.missingRequiredField(true)?$(\'##MODALID#\').modal(\'hide\'):void(0))"><span class="k-icon k-i-check"></span></button>';
+              else if (buttonType == 'saveAdd')
+                template = '<button id="#BUTTONID#" aria-label="#ARIALABELSAVEADD#" class="btn btn-primary btn-fab ng-binding grid-save-add-button-modal k-button" data-component="crn-button" ng-click="#FUNCTIONCALL#"><span class="k-icon k-i-plus"></span></button>';
               else
                 template = '<button id="#BUTTONID#" aria-label="#ARIALABELCANCEL#" type="button" class="btn btn-default btn-fab ng-binding k-button" data-component="crn-button" data-dismiss="modal"><span class="k-icon k-i-cancel"></span></button>'
               template = template
@@ -2043,6 +2045,7 @@
                   .split('#FUNCTIONCALL#').join(functionToCall)
                   .split('#DATASOURCENAME#').join(datasourceName)
                   .split('#ARIALABELSAVE#').join($translate.instant('SaveChanges'))
+                  .split('#ARIALABELSAVEADD#').join($translate.instant('SaveAddChanges'))
                   .split('#ARIALABELCANCEL#').join($translate.instant('CancelChanges'))
                   .split('#MODALID#').join(modalId);
 
@@ -2061,12 +2064,18 @@
             buttonCall = compileTemplateAngular(buttonType, functionToCall, datasourceName, modalId);
             return buttonCall;
           },
-          addButtonsInModal: function(modal, datasourceName, scope) {
+          addButtonsInModal: function(modal, datasourceName, scope, saveAdd) {
             var $footerModal = $('#' + modal).find('.modal-footer');
             if (!$footerModal.find('.grid-save-button-modal').length) {
               var functionToCall = datasourceName + '.post();'
               var buttonSave = this.generateModalSaveOrCancelButtonCall('save', functionToCall, datasourceName, modal, scope);
               $footerModal.append(buttonSave);
+              
+              if (saveAdd) {
+                let buttonSaveAdd = this.generateModalSaveOrCancelButtonCall('saveAdd', functionToCall + datasourceName + '.startInserting();', datasourceName, modal, scope);
+                $footerModal.append(buttonSaveAdd);
+              }
+                            
               var buttonCancel = this.generateModalSaveOrCancelButtonCall('cancel', null, null, null, scope);
               $footerModal.append(buttonCancel);
             }
@@ -2361,7 +2370,7 @@
                     var cronappDatasource = this.dataSource.transport.options.cronappDatasource;
                     scope.safeApply(function() {
                       if (!options.hideModalButtons) {
-                        helperDirective.addButtonsInModal(options.popupEdit, cronappDatasource.name, scope);
+                        helperDirective.addButtonsInModal(options.popupEdit, cronappDatasource.name, scope, false);
                       }
 
                       var currentItem = cronappDatasource.goTo(item);
@@ -2701,7 +2710,7 @@
                     toolbar.push(button);
 
                     if (!options.hideModalButtons) {
-                      this.addButtonsInModal(popupInsert, datasourceName, scope);
+                      this.addButtonsInModal(popupInsert, datasourceName, scope, options.enableModalSaveAdd);
                     }
                   }
                   else {
