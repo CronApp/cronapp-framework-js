@@ -114,6 +114,7 @@
   "Upload.multipleFile": "Select or drop files",
   "Upload.errorValidation": "Invalid selection: Max size %s e Allowed types: %s",
   "Upload.camera": "Get image from device camera",
+  "SaveAddChanges": "Save changes and start inserting",
   "SaveChanges": "Save changes",
   "CancelChanges": "Cancel changes",
   "Edit": "Edit",
