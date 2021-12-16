@@ -4925,7 +4925,7 @@
                     viewValue = null;
                     el.prop('indeterminate', true);
                 }
-                ctrl.$setViewValue(viewValue);
+                setTimeout(() => ctrl.$setViewValue(viewValue));
               };
             } else if (attrs.crnAllowNullValues == 'false') {
               ctrl.$render = function () {
@@ -4935,7 +4935,7 @@
                   viewValue = false;
                 }
                 if (viewValue === falseValue) {
-                  let modelForEval = `${el.attr('ng-model')}=${viewValue}`;
+                  let modelForEval = `${el.attr('ng-model')}=${attrs.ngFalseValue}`;
                   scope.$eval(modelForEval);
                 }
                 el.data('checked', viewValue);
@@ -4952,7 +4952,7 @@
                     viewValue = falseValue;
                     break;
                 }
-                ctrl.$setViewValue(viewValue);
+                setTimeout(() => ctrl.$setViewValue(viewValue));
               };
             }
             el.bind('click', function () {
