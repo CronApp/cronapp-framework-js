@@ -9,8 +9,8 @@
     "LAYOUTS",
     "COMBOS"
   ],
-  "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-breadcrumbs.template.html",
-  "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-breadcrumbs.designtime.html",
+  "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/components/templates/cron-breadcrumbs.template.html",
+  "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/components/templates/cron-breadcrumbs.designtime.html",
   "designTimeSelector": "cron-breadcrumbs",
   "designTimeDynamic": true,
   "wrapper": true,
@@ -22,5 +22,14 @@
     "id": {
       "order": 1
     }
-  }
+  },
+  "childrenProperties": [
+    {
+      "name": "id-menu",
+      "selector": "cron-breadcrumbs",
+      "displayName_pt_BR": "Identificador do menu",
+      "displayName_en_US": "Menu id",
+      "type": "text"
+    }
+  ]
 }
