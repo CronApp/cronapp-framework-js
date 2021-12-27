@@ -8,7 +8,9 @@
   "description": "Campo que apresenta dados enquanto digita",
   "description_en_US": "Field that displays data as you type",
   "category": [
-    "COMBOS", "INPUTS", "FORMS"
+    "COMBOS",
+    "INPUTS",
+    "FORMS"
   ],
   "designTimeDynamic": true,
   "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-autocomplete.designtime.html",
@@ -48,33 +50,41 @@
       "displayName_pt_BR": "Título",
       "displayName_en_US": "Title",
       "order": 2
-    },    
-    {
-        "name": "auto-expand",
-        "selector": "cron-auto-complete",
-        "displayName_pt_BR": "Expandir automaticamente",
-        "displayName_en_US": "Auto expand",
-        "type": "logic",
-        "order": 4,
-        "mandatory": false
     },
     {
-        "name": "first-option-on-blur",
-        "selector": "cron-auto-complete",
-        "displayName_pt_BR": "Selecionar primeira opção ao sair",
-        "displayName_en_US": "Select first option on blur",
-        "type": "logic",
-        "order": 5,
-        "mandatory": false
+      "name": "auto-expand",
+      "selector": "cron-auto-complete",
+      "displayName_pt_BR": "Expandir automaticamente",
+      "displayName_en_US": "Auto expand",
+      "type": "logic",
+      "order": 4,
+      "mandatory": false
     },
     {
-        "name": "no-results-message",
-        "selector": "cron-auto-complete",
-        "displayName_pt_BR": "Texto quando não tem resultados",
-        "displayName_en_US": "Text when there are no results",
-        "type": "text",
-        "order": 6,
-        "mandatory": false
+      "name": "first-option-on-blur",
+      "selector": "cron-auto-complete",
+      "displayName_pt_BR": "Selecionar primeira opção ao sair",
+      "displayName_en_US": "Select first option on blur",
+      "type": "logic",
+      "order": 5,
+      "mandatory": false
+    },
+    {
+      "name": "no-results-message",
+      "selector": "cron-auto-complete",
+      "displayName_pt_BR": "Texto quando não tem resultados",
+      "displayName_en_US": "Text when there are no results",
+      "type": "text",
+      "order": 6,
+      "mandatory": false
+    },
+    {
+      "name": "cron-disabled",
+      "selector": "cron-auto-complete",
+      "displayName_en_US": "Disabled",
+      "displayName_pt_BR": "Desabilitado",
+      "type": "logic",
+      "order": 7
     },
     {
       "name": "ng-select",
