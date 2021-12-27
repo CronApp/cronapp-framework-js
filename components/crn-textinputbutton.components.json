@@ -78,6 +78,14 @@
       "order": 3
     },
     {
+      "name": "ng-disabled",
+      "selector": "input",
+      "displayName_en_US": "Disabled",
+      "displayName_pt_BR": "Desabilitado",
+      "type": "logic",
+      "order": 4
+    },
+    {
       "name": "ng-required",
       "selector": "input",
       "type": "logic"

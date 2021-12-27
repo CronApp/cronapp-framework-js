@@ -39,6 +39,14 @@
       "order": 2
     },
     {
+      "name": "ng-disabled",
+      "selector": "input",
+      "displayName_en_US": "Disabled",
+      "displayName_pt_BR": "Desabilitado",
+      "type": "logic",
+      "order": 3
+    },
+    {
       "name": "ng-click",
       "selector": "label[value]",
       "type": "event"
