@@ -4713,40 +4713,113 @@
               restrict: 'E',
               replace: true,
               link: function (scope, element, attrs) {
+                setTimeout(() => {
 
-                let home = document.URL;
-                let homeSplit = home.split('#/home/');
-
-                // criar json
-                let jsonItem = [
-                  {
-                    type: "rootitem",
-                    href: homeSplit[0] + '#/home',
-                    text: "Home",
-                    showText: true,
-                    icon: "home"
+                  let crnDelimiterIcon = attrs.crnDelimiterIcon;
+                  let idMenu = attrs.idMenu;
+      
+                  // Capturar o  json do menu
+                  let menuOptions = $(`#${idMenu}`)[0].children[0].attributes['options'];
+                  menuOptions = JSON.parse(menuOptions.value);
+                  let subMenuOptions = menuOptions.subMenuOptions;
+      
+                  // Capturar a url da pagina
+                  let page = document.location.hash;
+                  page = page.split("/");
+      
+                  let idBreadcrumb = attrs.id;
+      
+                  let breadcrumb = [];
+                  let arrayPaiBreadcrumb = [];
+      
+                  inicio(subMenuOptions);
+      
+                  function inicio(items) {
+                    let x = false;
+      
+                    for (let i in items) {
+      
+                      let action = items[i].action;
+                      if (action && action != "") {
+                        action = action.replace("cronapi.screen.changeView('", '');
+                        action = action.replace("', [])", '')
+                        action = action.split("/");
+                      } else {
+                        action = null
+                      }
+      
+                      if (items[i].level === 1 && !action) {
+                        arrayPaiBreadcrumb = []
+                        arrayPaiBreadcrumb.push({
+                          level: items[i].level,
+                          title: items[i].title,
+                          href: '#'
+                        });
+                      } else if (items[i].level === 1 && action) {
+                        arrayPaiBreadcrumb = []
+                        arrayPaiBreadcrumb.push({
+                          level: items[i].level,
+                          title: items[i].title,
+                          href: document.location.origin + '/' + action.join("/")
+                        });
+                      } else {
+                        arrayPaiBreadcrumb.push({
+                          level: items[i].level,
+                          title: items[i].title,
+                          href: document.location.origin + '/' + action.join("/")
+                        });
+                      }
+      
+                      if (items[i].menuItems.length > 0) {
+                        inicio(items[i].menuItems);
+      
+                      } else {
+                        if (action[action.length - 1] === page[page.length - 1]) {
+                          x = true
+                        }
+                      }
+      
+                      if (x) {
+                        for (let y in arrayPaiBreadcrumb) {
+      
+                          if (y == 0 && arrayPaiBreadcrumb[y].level == 1) {
+                            breadcrumb.push({
+                              type: "rootitem",
+                              href: arrayPaiBreadcrumb[y].href,
+                              text: arrayPaiBreadcrumb[y].title,
+                              showText: true,
+                              showIcon: false
+                            })
+                          } else if (y == 0 && arrayPaiBreadcrumb[y].level != 1) {
+                            breadcrumb.push({
+                              type: "rootitem",
+                              href: arrayPaiBreadcrumb[y].href,
+                              text: arrayPaiBreadcrumb[y].title,
+                              showText: true,
+                              showIcon: false
+                            })
+                          } else {
+                            breadcrumb.push({
+                              type: "item",
+                              href: arrayPaiBreadcrumb[y].href,
+                              text: arrayPaiBreadcrumb[y].title,
+                              showText: true
+                            })
+                          }
+                        }
+      
+                        return breadcrumb
+                      }
+                    }
                   }
-                ]
-
-                if (homeSplit[1]) {
-                  let position = homeSplit[1].split('/');
-
-                  for (let i = 1; i < position.length; i++) {
-                    jsonItem.push({
-                      type: "item",
-                      href: homeSplit[0] + "#/home/" + position[0] + "/" + position[i],
-                      text: position[i],
-                      showText: true
-                    })
-                  }
-                }
-
-                var breadcrumb = $("#navbreadcrumb").kendoBreadcrumb({
-                  items: jsonItem,
-                  navigational: true
-                });
-
-                element.html(breadcrumb);
+      
+                  $(`#${idBreadcrumb}`).kendoBreadcrumb({
+                    items: breadcrumb,
+                    delimiterIcon: crnDelimiterIcon,
+                    navigational: true
+                  });
+      
+                }, 800);
               }
           }
       })
