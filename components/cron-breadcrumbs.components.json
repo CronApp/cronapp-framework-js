@@ -23,50 +23,42 @@
       "order": 1
     },
     "crn-delimiter-icon": {
-      "displayName_pt_BR": "Tema do botão",
-      "displayName_en_US": "Button theme"
+      "displayName_pt_BR": "Ícone delimitador",
+      "displayName_en_US": "Delimiter icon"
     }
   },
   "attributesForPreview": [
     {
-        "name": "crn-delimiter-icon",
-        "type": "options",
-        "target": "class",
-        "values": [
-            {
-                "key": "arrow-chevron-right",
-                "value_pt_BR": "Seta",
-                "value_en_US": "Arrow"
-            },
-            {
-                "key": "line",
-                "value_pt_BR": "Linha",
-                "value_en_US": "Line"
-            }
-        ]
+      "name": "crn-delimiter-icon",
+      "type": "options",
+      "target": "class",
+      "values": [
+        {
+          "key": "arrow-chevron-right",
+          "value_pt_BR": "Seta",
+          "value_en_US": "Arrow"
+        },
+        {
+          "key": "line",
+          "value_pt_BR": "Linha",
+          "value_en_US": "Line"
+        }
+      ]
     }
-],
+  ],
   "childrenProperties": [
     {
       "name": "id-menu",
       "selector": "cron-breadcrumbs",
       "displayName_pt_BR": "Identificador do menu",
       "displayName_en_US": "Menu id",
-      "type": "text"
-    },
-    {
-      "name": "components",
-      "selector": "cron-breadcrumbs",
-      "displayName_pt_BR": "Teste",
-      "displayName_en_US": "Test",
-      "type": "componentsList"
+      "type": "componentsList",
+      "mandatory": true
     },
     {
       "name": "crn-delimiter-icon",
-      "selector": "cron-breadcrumbs",
-      "displayName_pt_BR": "Ícone delimitador",
-      "displayName_en_US": "Delimiter icon",
-      "order": 3
-  }
+      "selector": "cron-breadcrumbs",      
+      "mandatory": true
+    }
   ]
 }
