@@ -4878,21 +4878,16 @@
                   action = null
                 }
 
-                if (items[i].level === 1 && !action) {
+                if(items[i].level === 1){
                   arrayPaiBreadcrumb = []
+                }
+                if (!action) {
                   arrayPaiBreadcrumb.push({
                     level: items[i].level,
                     title: items[i].title,
                     href: '#'
                   });
-                } else if (items[i].level === 1 && action) {
-                  arrayPaiBreadcrumb = []
-                  arrayPaiBreadcrumb.push({
-                    level: items[i].level,
-                    title: items[i].title,
-                    href: document.location.origin + '/' + action.join("/")
-                  });
-                } else {
+                } else if (action) {
                   arrayPaiBreadcrumb.push({
                     level: items[i].level,
                     title: items[i].title,
@@ -4904,8 +4899,10 @@
                   inicio(items[i].menuItems);
 
                 } else {
-                  if (action[action.length - 1] === page[page.length - 1]) {
-                    x = true
+                  if(action){
+                    if (action[action.length - 1] === page[page.length - 1]) {
+                      x = true
+                    }
                   }
                 }
 
