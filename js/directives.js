@@ -4107,6 +4107,7 @@
             options.select = attrs.ngSelect ? function (){scope.$eval(attrs.ngSelect);}: undefined;
             var parent = element.parent();
             var id = attrs.id ? ' id="' + attrs.id + '"' : '';
+            var cronDisabled = attrs.cronDisabled ? attrs.cronDisabled : 'true';
             var name = attrs.name ? ' name="' + attrs.name + '"' : '';
             var validationmessage = attrs.validationmessage ? ' validationmessage="' + attrs.validationmessage + '"' : '';
             var required = '';
@@ -4138,7 +4139,12 @@
             }
 
             var autoComplete = $element.kendoAutoComplete(options).data('kendoAutoComplete');
-            autoComplete.enable(true);
+
+            if(cronDisabled){
+              autoComplete.enable(false);
+            } else {
+              autoComplete.enable(true);
+            }            
 
             if (ngModelCtrl) {
               ngModelCtrl.$formatters.push(function (value) {
