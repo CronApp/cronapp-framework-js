@@ -162,6 +162,13 @@
       "selector": "div.form-group"
     },
     {
+      "name": "cron-disabled",
+      "selector": "cron-select",
+      "displayName_en_US": "Disabled",
+      "displayName_pt_BR": "Desabilitado",
+      "type": "logic"
+    },
+    {
       "name": "ng-change",
       "selector": "cron-multi-select",
       "displayName_pt_BR": "Ao Alterar",
