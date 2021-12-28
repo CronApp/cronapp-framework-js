@@ -3565,7 +3565,7 @@
             if (cronDisabled) {
               combobox.enable(false);
             } else {
-                combobox.enable(true);
+              combobox.enable(true);
             }
 
             var _scope = scope;
