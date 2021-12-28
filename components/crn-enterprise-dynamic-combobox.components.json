@@ -8,7 +8,9 @@
   "description": "Campo de seleção com valores da fonte de dados",
   "description_en_US": "Selection field with data source values",
   "category": [
-    "INPUTS", "FORMS", "COMBOS"
+    "INPUTS",
+    "FORMS",
+    "COMBOS"
   ],
   "order": 3,
   "setRandomId": false,
@@ -31,6 +33,13 @@
       "displayName_pt_BR": "Texto quando não tem resultados",
       "displayName_en_US": "Text when there are no results",
       "type": "text"
+    },
+    {
+      "name": "cron-disabled",
+      "selector": "cron-auto-complete",
+      "displayName_en_US": "Disabled",
+      "displayName_pt_BR": "Desabilitado",
+      "type": "logic"
     },
     {
       "name": "ng-change",
