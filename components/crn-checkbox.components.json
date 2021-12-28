@@ -60,6 +60,14 @@
       "mandatory": true
     },
     {
+      "name": "crn-allow-null-values",
+      "selector": "input",
+      "displayName_pt_BR": "Permite Valores Nulos",
+      "displayName_en_US": "Allow Null Values",
+      "type": "logic",
+      "mandatory": true
+    },
+    {
       "name": "ng-false-value",
       "displayName_pt_BR": "Valor para falso",
       "displayName_en_US": "Value for false",
