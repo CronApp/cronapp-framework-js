@@ -68,6 +68,14 @@
             "mandatory": false
         },
         {
+            "name": "cron-disabled",
+            "selector": "cron-auto-complete",
+            "displayName_en_US": "Disabled",
+            "displayName_pt_BR": "Desabilitado",
+            "type": "logic",
+            "order": 6
+        },
+        {
             "name": "no-results-message",
             "selector": "cron-auto-complete",
             "displayName_pt_BR": "Texto quando não tem resultados",

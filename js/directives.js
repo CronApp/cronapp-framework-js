@@ -3373,7 +3373,7 @@
             var parent = element.parent();
             $(parent).append('<input style="width: 100%;" '+ id + name + ' class="cronSelect"/>');
             var $element = $(parent).find('input.cronSelect');
-
+            var cronDisabled = attrs.cronDisabled ? attrs.cronDisabled : 'true';
             var options = await app.kendoHelper.getConfigCombobox(select, scope);
             options.close = attrs.ngClose ? function (){scope.$eval(attrs.ngClose)}: undefined;
             options.dataBound = attrs.ngDataBound ? function (){scope.$eval(attrs.ngDataBound)}: undefined;
@@ -3423,7 +3423,11 @@
               }
             };
             initializeAttrAndEvents();
-            combobox.enable(true);
+            if (cronDisabled) {
+              combobox.enable(false);
+            } else {
+              combobox.enable(true);
+            }
 
             var _scope = scope;
             var _ngModelCtrl = ngModelCtrl;
@@ -3524,6 +3528,7 @@
             var self = this;
             var parentDS = {};
             var textField = null;
+            var cronDisabled = attrs.cronDisabled ? attrs.cronDisabled : 'true';
             try {
               select = JSON.parse(attrs.options);
               parentDS = this.getActive(attrs.ngModel);
@@ -3887,7 +3892,13 @@
             _compileAngular(scope, combobox.ul);
 
             $(element).remove();
-            combobox.enable(true);
+
+            if(cronDisabled){
+              combobox.enable(false);
+            } else {
+              combobox.enable(true);
+            }
+
             $("[aria-owns='" + `${attrs.id}_listbox` + "']").attr('aria-label', $translate.instant('template.crud.search'));
           }
         };
@@ -3901,6 +3912,7 @@
             var modelGetter = $parse(attrs['ngModel']);
             var modelSetter = modelGetter.assign;
             var model = attrs['ngModel'];
+            var cronDisabled = attrs.cronDisabled ? attrs.cronDisabled : 'true';
 
             var _self = this;
             var select = {};
@@ -4037,7 +4049,11 @@
             deselect = attrs.ngDeselect ? function (){_scope.$eval(attrs.ngDeselect)}: undefined;
 
             var combobox = $element.kendoMultiSelect(options).data('kendoMultiSelect');
-            combobox.enable(true);
+            if(cronDisabled){
+              combobox.enable(false);
+            }else {
+              combobox.enable(true);
+            }
             app.kendoHelper.receivePushData(combobox);
 
             $("[aria-describedby='" + `${attrs.id}_taglist` + "']").attr('id', `${attrs.id}-container`);
@@ -4107,6 +4123,7 @@
             options.select = attrs.ngSelect ? function (){scope.$eval(attrs.ngSelect);}: undefined;
             var parent = element.parent();
             var id = attrs.id ? ' id="' + attrs.id + '"' : '';
+            var cronDisabled = attrs.cronDisabled ? attrs.cronDisabled : 'true';
             var name = attrs.name ? ' name="' + attrs.name + '"' : '';
             var validationmessage = attrs.validationmessage ? ' validationmessage="' + attrs.validationmessage + '"' : '';
             var required = '';
@@ -4138,7 +4155,12 @@
             }
 
             var autoComplete = $element.kendoAutoComplete(options).data('kendoAutoComplete');
-            autoComplete.enable(true);
+
+            if(cronDisabled){
+              autoComplete.enable(false);
+            } else {
+              autoComplete.enable(true);
+            }            
 
             if (ngModelCtrl) {
               ngModelCtrl.$formatters.push(function (value) {

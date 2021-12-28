@@ -77,6 +77,14 @@
       "order": 2
     },
     {
+      "name": "ng-disabled",
+      "selector": "textarea",
+      "displayName_en_US": "Disabled",
+      "displayName_pt_BR": "Desabilitado",
+      "type": "logic",
+      "order": 8
+    },
+    {
       "name": "ng-init",
       "selector": "textarea",
       "type": "event"
