@@ -3524,6 +3524,7 @@
             var self = this;
             var parentDS = {};
             var textField = null;
+            var cronDisabled = attrs.cronDisabled ? attrs.cronDisabled : 'true';
             try {
               select = JSON.parse(attrs.options);
               parentDS = this.getActive(attrs.ngModel);
@@ -3887,7 +3888,13 @@
             _compileAngular(scope, combobox.ul);
 
             $(element).remove();
-            combobox.enable(true);
+
+            if(cronDisabled){
+              combobox.enable(false);
+            } else {
+              combobox.enable(true);
+            }
+
             $("[aria-owns='" + `${attrs.id}_listbox` + "']").attr('aria-label', $translate.instant('template.crud.search'));
           }
         };
