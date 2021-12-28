@@ -33,6 +33,13 @@
       "type": "event"
     },
     {
+      "name": "cron-disabled",
+      "selector": "cron-select",
+      "displayName_en_US": "Disabled",
+      "displayName_pt_BR": "Desabilitado",
+      "type": "logic"
+    },
+    {
       "name": "ng-select",
       "selector": "cron-select",
       "displayName_pt_BR": "Ao Selecionar",
