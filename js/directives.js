@@ -3512,7 +3512,7 @@
             var parent = element.parent();
             $(parent).append('<input style="width: 100%;" '+ id + name + ' class="cronSelect"/>');
             var $element = $(parent).find('input.cronSelect');
-
+            var cronDisabled = attrs.cronDisabled ? attrs.cronDisabled : 'true';
             var options = await app.kendoHelper.getConfigCombobox(select, scope);
             options.close = attrs.ngClose ? function (){scope.$eval(attrs.ngClose)}: undefined;
             options.dataBound = attrs.ngDataBound ? function (){scope.$eval(attrs.ngDataBound)}: undefined;
@@ -3562,7 +3562,11 @@
               }
             };
             initializeAttrAndEvents();
-            combobox.enable(true);
+            if (cronDisabled) {
+              combobox.enable(false);
+            } else {
+                combobox.enable(true);
+            }
 
             var _scope = scope;
             var _ngModelCtrl = ngModelCtrl;
@@ -4047,6 +4051,7 @@
             var modelGetter = $parse(attrs['ngModel']);
             var modelSetter = modelGetter.assign;
             var model = attrs['ngModel'];
+            var cronDisabled = attrs.cronDisabled ? attrs.cronDisabled : 'true';
 
             var _self = this;
             var select = {};
@@ -4183,7 +4188,11 @@
             deselect = attrs.ngDeselect ? function (){_scope.$eval(attrs.ngDeselect)}: undefined;
 
             var combobox = $element.kendoMultiSelect(options).data('kendoMultiSelect');
-            combobox.enable(true);
+            if(cronDisabled){
+              combobox.enable(false);
+            }else {
+              combobox.enable(true);
+            }
             app.kendoHelper.receivePushData(combobox);
 
             $("[aria-describedby='" + `${attrs.id}_taglist` + "']").attr('id', `${attrs.id}-container`);
