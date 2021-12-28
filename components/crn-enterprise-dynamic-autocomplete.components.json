@@ -8,9 +8,7 @@
   "description": "Campo que apresenta dados enquanto digita",
   "description_en_US": "Field that displays data as you type",
   "category": [
-    "COMBOS",
-    "INPUTS",
-    "FORMS"
+    "COMBOS", "INPUTS", "FORMS"
   ],
   "designTimeDynamic": true,
   "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-autocomplete.designtime.html",

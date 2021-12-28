@@ -8,9 +8,7 @@
   "description": "Campo de seleção com valores da fonte de dados",
   "description_en_US": "Selection field with data source values",
   "category": [
-    "INPUTS",
-    "FORMS",
-    "COMBOS"
+    "INPUTS", "FORMS", "COMBOS"
   ],
   "order": 3,
   "setRandomId": false,
