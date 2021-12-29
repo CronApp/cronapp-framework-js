@@ -4717,28 +4717,28 @@
 
                   let crnDelimiterIcon = attrs.crnDelimiterIcon;
                   let idMenu = attrs.idMenu;
-      
+
                   // Capturar o  json do menu
                   let menuOptions = $(`#${idMenu}`)[0].children[0].attributes['options'];
                   menuOptions = JSON.parse(menuOptions.value);
                   let subMenuOptions = menuOptions.subMenuOptions;
-      
+
                   // Capturar a url da pagina
                   let page = document.location.hash;
                   page = page.split("/");
-      
+
                   let idBreadcrumb = attrs.id;
-      
+
                   let breadcrumb = [];
                   let arrayPaiBreadcrumb = [];
-      
+
                   inicio(subMenuOptions);
-      
+
                   function inicio(items) {
                     let x = false;
-      
+
                     for (let i in items) {
-      
+
                       let action = items[i].action;
                       if (action && action != "") {
                         action = action.replace("cronapi.screen.changeView('", '');
@@ -4747,7 +4747,7 @@
                       } else {
                         action = null
                       }
-      
+
                       if(items[i].level === 1){
                         arrayPaiBreadcrumb = []
                       }
@@ -4764,10 +4764,10 @@
                           href: document.location.origin + '/' + action.join("/")
                         });
                       }
-      
+
                       if (items[i].menuItems.length > 0) {
                         inicio(items[i].menuItems);
-      
+
                       } else {
                         if(action){
                           if (action[action.length - 1] === page[page.length - 1]) {
@@ -4775,10 +4775,10 @@
                           }
                         }
                       }
-      
+
                       if (x) {
                         for (let y in arrayPaiBreadcrumb) {
-      
+
                           if (y == 0 && arrayPaiBreadcrumb[y].level == 1) {
                             breadcrumb.push({
                               type: "rootitem",
@@ -4804,18 +4804,18 @@
                             })
                           }
                         }
-      
+
                         return breadcrumb
                       }
                     }
                   }
-      
+
                   $(`#${idBreadcrumb}`).kendoBreadcrumb({
                     items: breadcrumb,
                     delimiterIcon: crnDelimiterIcon,
                     navigational: true
                   });
-      
+
                 }, 800);
               }
           }

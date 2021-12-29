@@ -6,8 +6,7 @@
   "description": "Breadcrumb",
   "description_en_US": "Breadcrumb",
   "category": [
-    "LAYOUTS",
-    "COMBOS"
+    "LAYOUTS", "COMBOS"
   ],
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-breadcrumbs.template.html",
   "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-breadcrumbs.designtime.html",
