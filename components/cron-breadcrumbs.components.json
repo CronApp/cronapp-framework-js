@@ -90,6 +90,14 @@
       "mandatory": true
     },
     {
+      "name": "breadcrumb-icon",
+      "selector": "cron-breadcrumbs",
+      "displayName_pt_BR": "Ícone principal",
+      "displayName_en_US": "Main icon",
+      "type": "icon",
+      "mandatory": true
+    },
+    {
       "name": "ng-init",
       "selector": "cron-breadcrumbs.idBloco",
       "type": "event"

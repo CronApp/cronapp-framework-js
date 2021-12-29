@@ -691,6 +691,10 @@ img.user-avatar {
     position: relative;
 }
 
+#cron-breadcrumbs .k-breadcrumb-item a .k-icon{
+    margin-right: 4px;
+}
+
 /* Form's button */
 .k-button.btn-fab i {
     margin-right: 0;
