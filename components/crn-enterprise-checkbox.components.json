@@ -182,7 +182,8 @@
       "displayName_pt_BR": "Permite Valores Nulos",
       "displayName_en_US": "Allow Null Values",
       "type": "logic",
-      "order": 4
+      "order": 4,
+      "mandatory": true
     },
     {
       "name": "ng-model",
