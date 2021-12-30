@@ -52,6 +52,7 @@
       "displayName_pt_BR": "Identificador do menu",
       "displayName_en_US": "Menu id",
       "type": "componentsList",
+      "component": "crn-dynamic-menu",
       "mandatory": true
     },
     {
