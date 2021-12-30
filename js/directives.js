@@ -4868,6 +4868,135 @@
         }
       }])
 
+      .directive('cronBreadcrumbs', function () {
+      'use strict';
+      return {
+        restrict: 'E',
+        replace: true,
+        link: function (scope, element, attrs) {
+          
+          let crnDelimiterIcon = attrs.crnDelimiterIcon;
+          let idMenu = attrs.idMenu ? attrs.idMenu : 'null';
+          let breadcrumb = [];
+          let actionBlockly = attrs.ngInit ? attrs.ngInit : 'null';
+
+          let idBreadcrumb = attrs.id;              
+          let arrayPaiBreadcrumb = [];
+
+          if(actionBlockly){
+
+            let shortVersion = actionBlockly.replace("cronapi.client('js.", 'blockly.js.');
+            actionBlockly = shortVersion.replace("').run()",'');
+            actionBlockly = scope.$eval(actionBlockly);
+            breadcrumb = await actionBlockly();
+            
+            $(`#${idBreadcrumb}`).kendoBreadcrumb({
+              items: breadcrumb,
+              delimiterIcon: crnDelimiterIcon,
+              navigational: true
+            });
+
+          } else {
+            setTimeout(() => {
+              // Capturar o  json do menu
+              let menuOptions = $(`#${idMenu}`)[0].children[0].attributes['options'];
+              menuOptions = JSON.parse(menuOptions.value);
+              let subMenuOptions = menuOptions.subMenuOptions;
+
+              // Capturar a url da pagina
+              let page = document.location.hash;
+              page = page.split("/");
+
+              inicio(subMenuOptions);
+
+              function inicio(items) {
+                let x = false;
+
+                for (let i in items) {
+
+                  let action = items[i].action;
+                  if (action && action != "") {
+                    action = action.replace("cronapi.screen.changeView('", '');
+                    action = action.replace("', [])", '')
+                    action = action.split("/");
+                  } else {
+                    action = null
+                  }
+
+                  if(items[i].level === 1){
+                    arrayPaiBreadcrumb = []
+                  }
+                  if (!action) {
+                    arrayPaiBreadcrumb.push({
+                      level: items[i].level,
+                      title: items[i].title,
+                      href: '#'
+                    });
+                  } else if (action) {
+                    arrayPaiBreadcrumb.push({
+                      level: items[i].level,
+                      title: items[i].title,
+                      href: document.location.origin + '/' + action.join("/")
+                    });
+                  }
+
+                  if (items[i].menuItems.length > 0) {
+                    inicio(items[i].menuItems);
+
+                  } else {
+                    if(action){
+                      if (action[action.length - 1] === page[page.length - 1]) {
+                        x = true
+                      }
+                    }
+                  }
+
+                  if (x) {
+                    for (let y in arrayPaiBreadcrumb) {
+
+                      if (y == 0 && arrayPaiBreadcrumb[y].level == 1) {
+                        breadcrumb.push({
+                          type: "rootitem",
+                          href: arrayPaiBreadcrumb[y].href,
+                          text: arrayPaiBreadcrumb[y].title,
+                          showText: true,
+                          showIcon: false
+                        })
+                      } else if (y == 0 && arrayPaiBreadcrumb[y].level != 1) {
+                        breadcrumb.push({
+                          type: "rootitem",
+                          href: arrayPaiBreadcrumb[y].href,
+                          text: arrayPaiBreadcrumb[y].title,
+                          showText: true,
+                          showIcon: false
+                        })
+                      } else {
+                        breadcrumb.push({
+                          type: "item",
+                          href: arrayPaiBreadcrumb[y].href,
+                          text: arrayPaiBreadcrumb[y].title,
+                          showText: true
+                        })
+                      }
+                    }
+
+                    return breadcrumb
+                  }
+                }
+              }
+
+              $(`#${idBreadcrumb}`).kendoBreadcrumb({
+                items: breadcrumb,
+                delimiterIcon: crnDelimiterIcon,
+                navigational: true
+              });
+
+            }, 800);
+          }
+        }
+      }
+    })
+
       .directive('ngInitialValue', function($parse) {
         return {
           restrict: 'A',

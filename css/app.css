@@ -684,6 +684,17 @@ img.user-avatar {
     margin-left: 10px;
 }
 
+/* Breadcrumbs */
+#cron-breadcrumbs .k-breadcrumb-container,
+#cron-breadcrumbs .k-breadcrumb-root-item-container {
+    padding: 3px 10px;
+    position: relative;
+}
+
+#cron-breadcrumbs .k-breadcrumb-item a .k-icon{
+    margin-right: 4px;
+}
+
 /* Form's button */
 .k-button.btn-fab i {
     margin-right: 0;
@@ -699,5 +710,5 @@ img.user-avatar {
 }
 
 .btn-fab{
-    margin: inherit;
+    margin: inherit;  
 }
