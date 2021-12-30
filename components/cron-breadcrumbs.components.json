@@ -77,7 +77,8 @@
       "selector": "cron-breadcrumbs.idMenu",
       "displayName_pt_BR": "Identificador do menu",
       "displayName_en_US": "Menu id",
-      "type": "componentsList"
+      "type": "componentsList",
+      "component": "crn-dynamic-menu"
     },
     {
       "name": "type-menu",
