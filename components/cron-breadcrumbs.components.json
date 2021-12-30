@@ -1,0 +1,64 @@
+{
+  "name": "cron-breadcrumbs",
+  "text_pt_BR": "Breadcrumbs",
+  "text_en_US": "Breadcrumbs",
+  "image": "/node_modules/cronapp-framework-js/img/cron-icon/cron-breadrumb.svg",
+  "description": "Breadcrumb",
+  "description_en_US": "Breadcrumb",
+  "category": [
+    "LAYOUTS", "COMBOS"
+  ],
+  "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-breadcrumbs.template.html",
+  "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-breadcrumbs.designtime.html",
+  "designTimeSelector": "cron-breadcrumbs",
+  "designTimeDynamic": true,
+  "wrapper": true,
+  "forcedGroup": true,
+  "properties": {
+    "class": {
+      "order": 9999
+    },
+    "id": {
+      "order": 1
+    },
+    "crn-delimiter-icon": {
+      "displayName_pt_BR": "Ícone delimitador",
+      "displayName_en_US": "Delimiter icon"
+    }
+  },
+  "attributesForPreview": [
+    {
+      "name": "crn-delimiter-icon",
+      "type": "options",
+      "target": "class",
+      "values": [
+        {
+          "key": "arrow-chevron-right",
+          "value_pt_BR": "Seta",
+          "value_en_US": "Arrow"
+        },
+        {
+          "key": "line",
+          "value_pt_BR": "Linha",
+          "value_en_US": "Line"
+        }
+      ]
+    }
+  ],
+  "childrenProperties": [
+    {
+      "name": "id-menu",
+      "selector": "cron-breadcrumbs",
+      "displayName_pt_BR": "Identificador do menu",
+      "displayName_en_US": "Menu id",
+      "type": "componentsList",
+      "component": "crn-dynamic-menu",
+      "mandatory": true
+    },
+    {
+      "name": "crn-delimiter-icon",
+      "selector": "cron-breadcrumbs",      
+      "mandatory": true
+    }
+  ]
+}
