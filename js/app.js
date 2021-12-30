@@ -233,18 +233,6 @@ var app = (function() {
           }
         }
 
-        //Components personalization jquery
-        $scope.registerComponentScripts = function() {
-          //carousel slider
-          $('.carousel-indicators li').on('click', function() {
-            var currentCarousel = '#' + $(this).parent().parent().parent().attr('id');
-            var index = $(currentCarousel + ' .carousel-indicators li').index(this);
-            $(currentCarousel + ' #carousel-example-generic').carousel(index);
-          });
-        };
-
-        $scope.registerComponentScripts();
-
         try {
           var contextAfterPageController = $controller('AfterPageController', { $scope: $scope });
           app.copyContext(contextAfterPageController, this, 'AfterPageController');
@@ -333,6 +321,7 @@ var app = (function() {
             }
 
             $rootScope.renderFinished = true;
+            registerComponentScripts();
           });
         };
 
@@ -537,3 +526,13 @@ const keyCodeFormActions = {
   13: (e) => e.preventDefault()
 };
 keyCodeFormActions.initialize();
+
+//Components personalization jquery
+var registerComponentScripts = function() {
+  //carousel slider
+  $('.carousel-indicators li').on('click', function() {
+    var currentCarousel = '#' + $(this).parent().parent().parent().attr('id');
+    var index = $(currentCarousel + ' .carousel-indicators li').index(this);
+    $(currentCarousel + ' > div').carousel(index);
+  });
+};
