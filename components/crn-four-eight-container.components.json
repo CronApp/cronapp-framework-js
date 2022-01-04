@@ -1,7 +1,7 @@
 {
     "name": "crn-four-eight-container",
-    "text_pt_BR": "4/8 Colunas",
-    "text_en_US": "4/8 Columns",
+    "text_pt_BR": "2 Colunas (4/8)",
+    "text_en_US": "2 Columns (4/8)",
     "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-four-eight-container.svg",
     "description": "Três recipiente ao lado para inserir componentes",
     "description_en_US": "Three container on the side for inserting components",
