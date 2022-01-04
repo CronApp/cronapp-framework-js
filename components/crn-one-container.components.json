@@ -1,7 +1,7 @@
 {
     "name": "crn-one-container",
-    "text_pt_BR": "1 Coluna",
-    "text_en_US": "1 Column",
+    "text_pt_BR": "1 Coluna (12)",
+    "text_en_US": "1 Column (12)",
     "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-one-container.svg",
     "description": "Um recipiente para inserir componentes",
     "description_en_US": "A container for inserting components",
