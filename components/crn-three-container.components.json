@@ -1,7 +1,7 @@
 {
     "name": "crn-three-container",
-    "text_pt_BR": "3 Colunas",
-    "text_en_US": "3 Columns",
+    "text_pt_BR": "3 Colunas (4/4/4)",
+    "text_en_US": "3 Columns (4/4/4)",
     "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-three-container.svg",
     "description": "Três recipiente ao lado para inserir componentes",
     "description_en_US": "Three container on the side for inserting components",
