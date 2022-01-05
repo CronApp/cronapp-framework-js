@@ -2,24 +2,32 @@
     "name": "crn-ordered-list",
     "text_pt_BR": "Lista ordenada",
     "text_en_US": "Ordered list",
-    "wrapper": true,
+    "wrapper": false,
     "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-ordered-list.svg",
     "description": "Lista em tópicos com indicadores numerados",
     "description_en_US": "List on topics with numbered indicators",
     "category": [
         "LISTS"
     ],
-    "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/crn-ordered-list.template.html",
+    "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/components/templates/crn-ordered-list.template.html",
     "properties": {
         "class": {
             "order": 9999
         },
         "id": {
-            "order": 2
+            "order": 1
         },
-        "type": {
-            "displayName_pt_BR": "Valor do atributo",
-            "displayName_en_US": "Attribute value"
+        "attribute-value": {
+            "displayName_pt_BR": "Valor do atributo numerado",
+            "displayName_en_US": "Numbered attribute value"
+        },
+        "list-type": {
+            "displayName_pt_BR": "Tipo de lista",
+            "displayName_en_US": "List type"
+        },
+        "ordered-attribute-value": {
+            "displayName_pt_BR": "Valor do atributo ordenado",
+            "displayName_en_US": "Ordered attribute value"
         }
     },
     "forcedGroup": true,
@@ -29,51 +37,101 @@
         "canIncrement": true,
         "rules": [
             {
-                "activeSelector": "ol.list li.active",
+                "activeSelector": "crn-list-ordered li.active",
                 "activeClass": "active",
-                "sourceHTML": "<li class=\"item-list\" data-component=\"crn-list-item\" data-replace=\"true\">Item</li>",
-                "targetSelector": "ol.list"
+                "sourceHTML": "<li class=\"item-list\" data-component=\"crn-list-item\" data-replace=\"true\">New item</li>",
+                "targetSelector": ":self"
             }
         ]
     },
     "attributesForPreview": [
         {
-            "name": "type",
+            "name": "attribute-value",
             "type": "options",
-            "target": "type",
+            "target": "attribute-value",
             "values": [
                 {
-                    "key": "1",
+                    "key": "decimal",
                     "value_pt_BR": "Numeração (1,2,3..)",
                     "value_en_US": "Numbering (1,2,3..)"
                 },
                 {
-                    "key": "a",
+                    "key": "lower-alpha",
                     "value_pt_BR": "Letra minúscula (a, b, c..)",
                     "value_en_US": "Lower case (a, b, c..)"
                 },
                 {
-                    "key": "A",
+                    "key": "upper-alpha",
                     "value_pt_BR": "Letra maiúscula (A, B, C..)",
                     "value_en_US": "Capital letter (A, B, C..)"
                 },
                 {
-                    "key": "I",
+                    "key": "lower-roman",
                     "value_pt_BR": "Números romanos (I, II, III..)",
                     "value_en_US": "Roman numbers"
                 },
                 {
-                    "key": "i",
+                    "key": "upper-roman",
                     "value_pt_BR": "Números romanos minúsculo (i, ii, iii..)",
                     "value_en_US": "Lowercase roman numbers (i, ii, iii..)"
+                }
+            ]
+        },
+        {
+            "name": "ordered-attribute-value",
+            "type": "options",
+            "target": "ordered-attribute-value",
+            "values": [
+                {
+                    "key": "circle",
+                    "value_pt_BR": "Círculo vazio",
+                    "value_en_US": "Circle"
+                },
+                {
+                    "key": "disc",
+                    "value_pt_BR": "Círculo preenchido",
+                    "value_en_US": "Disc"
+                },
+                {
+                    "key": "square",
+                    "value_pt_BR": "Quadrado",
+                    "value_en_US": "Square"
+                }
+            ]
+        },
+        {
+            "name": "list-type",
+            "type": "options",
+            "target": "class",
+            "values": [
+                {
+                    "key": "numbered-list",
+                    "value_pt_BR": "lista numerada",
+                    "value_en_US": "Numbered list"
+                },
+                {
+                    "key": "ordered-list",
+                    "value_pt_BR": "lista ordenada",
+                    "value_en_US": "Ordered list"
                 }
             ]
         }
     ],
     "childrenProperties": [
         {
-            "name": "type",
-            "selector": "ol.list"
+            "name": "attribute-value",
+            "selector": "crn-list-ordered.numbered-list",
+            "order": 3
+        },
+        {
+            "name": "ordered-attribute-value",
+            "selector": "crn-list-ordered.ordered-list",
+            "order": 3
+        },
+        {
+            "name": "list-type",
+            "selector": "crn-list-ordered",
+            "order": 2
         }
     ],
     "styles": [
