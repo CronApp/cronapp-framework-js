@@ -4995,7 +4995,7 @@
           }
         }
       }
-      })
+    })
 
       .directive('ngInitialValue', function($parse) {
         return {
@@ -5044,84 +5044,84 @@
         }
       })
 
-      .directive('crnAllowNullValues', [function () {
-          return {
-            restrict: 'A',
-            require: '?ngModel',
-            link: function (scope, el, attrs, ctrl) {
-              ctrl.$formatters = [];
-              ctrl.$parsers = [];
+          .directive('crnAllowNullValues', [function () {
+              return {
+                restrict: 'A',
+                require: '?ngModel',
+                link: function (scope, el, attrs, ctrl) {
+                  ctrl.$formatters = [];
+                  ctrl.$parsers = [];
 
-              let falseValue = attrs.ngFalseValue ? attrs.ngFalseValue.split("'").join("") : false;
-              let trueValue = attrs.ngTrueValue ? attrs.ngTrueValue.split("'").join("") : true;
+                  let falseValue = attrs.ngFalseValue ? attrs.ngFalseValue.split("'").join("") : false;
+                  let trueValue = attrs.ngTrueValue ? attrs.ngTrueValue.split("'").join("") : true;
 
-              if (attrs.crnAllowNullValues == 'false') {
-                ctrl.$render = function () {
-                  let viewValue = ctrl.$viewValue;
-                  if (ctrl.$viewValue === undefined || ctrl.$viewValue === null) {
-                    ctrl.$setViewValue(false);
-                    viewValue = false;
+                  if (attrs.crnAllowNullValues == 'false') {
+                    ctrl.$render = function () {
+                      let viewValue = ctrl.$viewValue;
+                      if (ctrl.$viewValue === undefined || ctrl.$viewValue === null) {
+                        ctrl.$setViewValue(false);
+                        viewValue = false;
+                      }
+                      if (viewValue === falseValue) {
+                        let modelForEval = `${el.attr('ng-model')}=${attrs.ngFalseValue}`;
+                        scope.$eval(modelForEval);
+                      }
+                      el.data('checked', viewValue);
+                      switch (viewValue) {
+                        case true:
+                        case trueValue:
+                          el.prop('indeterminate', false);
+                          el.prop('checked', true);
+                          viewValue = trueValue;
+                          break;
+                        default:
+                          el.prop('indeterminate', false);
+                          el.prop('checked', false);
+                          viewValue = falseValue;
+                          break;
+                      }
+                      setTimeout(() => ctrl.$setViewValue(viewValue));
+                    };
+                  } else { // true é padrão
+                    ctrl.$render = function () {
+                      let viewValue = ctrl.$viewValue;
+                      el.data('checked', viewValue);
+                      switch (viewValue) {
+                        case true:
+                        case trueValue:
+                          el.prop('indeterminate', false);
+                          el.prop('checked', true);
+                          viewValue = trueValue;
+                          break;
+                        case false:
+                        case falseValue:
+                          el.prop('indeterminate', false);
+                          el.prop('checked', false);
+                          viewValue = falseValue;
+                          break;
+                        default:
+                          viewValue = null;
+                          el.prop('indeterminate', true);
+                      }
+                      setTimeout(() => ctrl.$setViewValue(viewValue));
+                    };
                   }
-                  if (viewValue === falseValue) {
-                    let modelForEval = `${el.attr('ng-model')}=${attrs.ngFalseValue}`;
-                    scope.$eval(modelForEval);
-                  }
-                  el.data('checked', viewValue);
-                  switch (viewValue) {
-                    case true:
-                    case trueValue:
-                      el.prop('indeterminate', false);
-                      el.prop('checked', true);
-                      viewValue = trueValue;
-                      break;
-                    default:
-                      el.prop('indeterminate', false);
-                      el.prop('checked', false);
-                      viewValue = falseValue;
-                      break;
-                  }
-                  setTimeout(() => ctrl.$setViewValue(viewValue));
-                };
-              } else { // true é padrão
-                ctrl.$render = function () {
-                  let viewValue = ctrl.$viewValue;
-                  el.data('checked', viewValue);
-                  switch (viewValue) {
-                    case true:
-                    case trueValue:
-                      el.prop('indeterminate', false);
-                      el.prop('checked', true);
-                      viewValue = trueValue;
-                      break;
-                    case false:
-                    case falseValue:
-                      el.prop('indeterminate', false);
-                      el.prop('checked', false);
-                      viewValue = falseValue;
-                      break;
-                    default:
-                      viewValue = null;
-                      el.prop('indeterminate', true);
-                  }
-                  setTimeout(() => ctrl.$setViewValue(viewValue));
-                };
-              }
-              el.bind('click', function () {
-                let checked;
-                switch (el.data('checked')) {
-                  case false:
-                  case falseValue:
-                    checked = attrs.ngTrueValue ? trueValue : true;
-                    break;
-                  default:
-                    checked = attrs.ngFalseValue ? falseValue : false;
+                  el.bind('click', function () {
+                    let checked;
+                    switch (el.data('checked')) {
+                      case false:
+                      case falseValue:
+                        checked = attrs.ngTrueValue ? trueValue : true;
+                        break;
+                      default:
+                        checked = attrs.ngFalseValue ? falseValue : false;
+                    }
+                    ctrl.$setViewValue(checked);
+                    scope.$apply(ctrl.$render);
+                  });
                 }
-                ctrl.$setViewValue(checked);
-                scope.$apply(ctrl.$render);
-              });
-            }
-          };
-      }])
+              };
+            }])
 
       .directive('signaturePad', function($compile, $window) {
         'use strict';
@@ -5215,7 +5215,7 @@
                 $compile(element)(element.scope());                  
             }
         };
-      })
+    })
 
       .directive('cronChat',  ['$compile', '$translate', function($compile, $translate) {
         return {
@@ -5345,32 +5345,6 @@
                 call && call(value);
               }
             });
-          }
-        }
-      })
-
-      .directive('crnListOrdered', function ($compile, $sce, $parse) {
-        'use strict';
-        return {
-          restrict: 'EA',
-          link: function (scope, element, attrs, ngModelCtrl) {
-            let attributeValue = attrs.attributeValue;
-            let orderedAttributeValue = attrs.orderedAttributeValue
-            let listType = attrs.listType;
-            let content = element[0].innerHTML;
-            let templateDyn = '';
-
-            switch (listType) {
-              case 'numbered-list':
-                templateDyn = `<ol style="list-style-type: ${attributeValue}">${content}</ol>`
-                break
-
-              case 'ordered-list':
-                templateDyn = `<ul style="list-style-type: ${orderedAttributeValue}">${content}</ul>`
-                break
-            }
-            element.html(templateDyn);
-            $compile(templateDyn)(element.scope());    
           }
         }
       })
