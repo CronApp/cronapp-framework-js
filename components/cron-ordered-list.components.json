@@ -85,17 +85,20 @@
                 {
                     "key": "circle",
                     "value_pt_BR": "Círculo vazio",
-                    "value_en_US": "Circle"
+                    "value_en_US": "Circle",
+                    "icon": "mdi mdi-checkbox-blank-circle-outline"
                 },
                 {
                     "key": "disc",
                     "value_pt_BR": "Círculo preenchido",
-                    "value_en_US": "Disc"
+                    "value_en_US": "Disc",
+                    "icon": "mdi mdi-checkbox-blank-circle"
                 },
                 {
                     "key": "square",
                     "value_pt_BR": "Quadrado",
-                    "value_en_US": "Square"
+                    "value_en_US": "Square",
+                    "icon": "mdi mdi-checkbox-blank"
                 }
             ]
         },
