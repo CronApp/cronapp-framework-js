@@ -5072,7 +5072,7 @@
         }
       })
 
-      .directive('crnOrderedList', function ($compile, $sce, $parse) {
+      .directive('cronOrderedList', function ($compile, $sce, $parse) {
         'use strict';
         return {
           restrict: 'EA',
