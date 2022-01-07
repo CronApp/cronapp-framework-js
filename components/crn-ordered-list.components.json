@@ -6,6 +6,7 @@
     "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-ordered-list.svg",
     "description": "Lista em tópicos com indicadores numerados",
     "description_en_US": "List on topics with numbered indicators",
+    "pallete": false,
     "category": [
         "LISTS"
     ],

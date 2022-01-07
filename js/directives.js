@@ -5072,6 +5072,42 @@
         }
       })
 
+      .directive('cronOrderedList', function ($compile, $sce, $parse) {
+        'use strict';
+        return {
+          restrict: 'EA',
+          replace: true,
+          link: function (scope, element, attrs, ngModelCtrl) {
+  
+            let attributeValue = attrs.attributeValue;
+            let orderedAttributeValue = attrs.orderedAttributeValue
+            let listType = attrs.listType;
+            let content = element[0].children[0].children;
+            content = $(content);
+            let templateDyn = '';
+            let contentUL = '';
+  
+            $.each(content, function (i, item) {
+              contentUL = contentUL + item.outerHTML;
+            });
+  
+            switch (listType) {
+              case 'numbered-list':
+                templateDyn = `<ol style="list-style-type: ${attributeValue}">${contentUL}</ol>`
+                break
+  
+              case 'ordered-list':
+                templateDyn = `<ul style="list-style-type: ${orderedAttributeValue}">${contentUL}</ul>`
+                break
+            }
+  
+            templateDyn = $(templateDyn);
+            $(element).replaceWith(templateDyn);
+            $compile(templateDyn)(scope);
+          }
+        }
+      })
+
 }(app));
 
 function maskDirectiveAsDate($compile, $translate, $parse) {

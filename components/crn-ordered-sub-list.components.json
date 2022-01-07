@@ -6,6 +6,7 @@
     "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-ordered-sub-list.svg",
     "description": "Sublista de segundo grau com indicadores numerados",
     "description_en_US": "Second degree sublist with numbered indicators",
+    "pallete": false,
     "category": [
         "LISTS"
     ],
