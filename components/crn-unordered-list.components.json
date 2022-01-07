@@ -5,6 +5,7 @@
     "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-unordered-list.svg",
     "description": "Lista em tópicos com indicadores redondos",
     "description_en_US": "List on topics with round indicators",
+    "pallete": false,
     "category": [
         "LISTS"
     ],
