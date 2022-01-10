@@ -3512,7 +3512,7 @@
             var parent = element.parent();
             $(parent).append('<input style="width: 100%;" '+ id + name + ' class="cronSelect"/>');
             var $element = $(parent).find('input.cronSelect');
-            var cronDisabled = attrs.cronDisabled ? attrs.cronDisabled : 'true';
+            var cronDisabled = attrs.cronDisabled;
             var options = await app.kendoHelper.getConfigCombobox(select, scope);
             options.close = attrs.ngClose ? function (){scope.$eval(attrs.ngClose)}: undefined;
             options.dataBound = attrs.ngDataBound ? function (){scope.$eval(attrs.ngDataBound)}: undefined;
@@ -3667,7 +3667,7 @@
             var self = this;
             var parentDS = {};
             var textField = null;
-            var cronDisabled = attrs.cronDisabled ? attrs.cronDisabled : 'true';
+            var cronDisabled = attrs.cronDisabled;
             try {
               select = JSON.parse(attrs.options);
               parentDS = this.getActive(attrs.ngModel);
@@ -4051,7 +4051,7 @@
             var modelGetter = $parse(attrs['ngModel']);
             var modelSetter = modelGetter.assign;
             var model = attrs['ngModel'];
-            var cronDisabled = attrs.cronDisabled ? attrs.cronDisabled : 'true';
+            var cronDisabled = attrs.cronDisabled;
 
             var _self = this;
             var select = {};
@@ -4262,7 +4262,7 @@
             options.select = attrs.ngSelect ? function (){scope.$eval(attrs.ngSelect);}: undefined;
             var parent = element.parent();
             var id = attrs.id ? ' id="' + attrs.id + '"' : '';
-            var cronDisabled = attrs.cronDisabled ? attrs.cronDisabled : 'true';
+            var cronDisabled = attrs.cronDisabled;
             var name = attrs.name ? ' name="' + attrs.name + '"' : '';
             var validationmessage = attrs.validationmessage ? ' validationmessage="' + attrs.validationmessage + '"' : '';
             var required = '';
