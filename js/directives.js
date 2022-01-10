@@ -4874,27 +4874,31 @@
         restrict: 'E',
         replace: true,
         link: function (scope, element, attrs) {
-          
           let crnDelimiterIcon = attrs.crnDelimiterIcon;
-          let idMenu = attrs.idMenu ? attrs.idMenu : 'null';
+          let crnTypeMenu = attrs.typeMenu;
+          let idMenu = attrs.idMenu ? attrs.idMenu : null;
           let breadcrumb = [];
-          let actionBlockly = attrs.ngInit ? attrs.ngInit : 'null';
-
-          let idBreadcrumb = attrs.id;              
+          let actionBlockly = attrs.ngInit ? attrs.ngInit : null;
+          let idBreadcrumb = attrs.id;
           let arrayPaiBreadcrumb = [];
 
-          if(actionBlockly){
+          let iconRoot = attrs.breadcrumbIcon ? attrs.breadcrumbIcon : null;
 
+          async function functionActionBlockly() {
             let shortVersion = actionBlockly.replace("cronapi.client('js.", 'blockly.js.');
-            actionBlockly = shortVersion.replace("').run()",'');
+            actionBlockly = shortVersion.replace("').run()", '');
             actionBlockly = scope.$eval(actionBlockly);
             breadcrumb = await actionBlockly();
-            
+
             $(`#${idBreadcrumb}`).kendoBreadcrumb({
               items: breadcrumb,
               delimiterIcon: crnDelimiterIcon,
               navigational: true
             });
+          }
+
+          if (actionBlockly && crnTypeMenu === "idBloco") {
+            functionActionBlockly()
 
           } else {
             setTimeout(() => {
@@ -4923,7 +4927,7 @@
                     action = null
                   }
 
-                  if(items[i].level === 1){
+                  if (items[i].level === 1) {
                     arrayPaiBreadcrumb = []
                   }
                   if (!action) {
@@ -4944,7 +4948,7 @@
                     inicio(items[i].menuItems);
 
                   } else {
-                    if(action){
+                    if (action) {
                       if (action[action.length - 1] === page[page.length - 1]) {
                         x = true
                       }
@@ -4975,7 +4979,8 @@
                           type: "item",
                           href: arrayPaiBreadcrumb[y].href,
                           text: arrayPaiBreadcrumb[y].title,
-                          showText: true
+                          showText: true,
+                          showIcon: false
                         })
                       }
                     }
