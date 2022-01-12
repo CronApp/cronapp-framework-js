@@ -10,9 +10,9 @@
   ],
   "templateURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-breadcrumbs.template.html",
   "designTimeHTMLURL": "src/main/webapp/node_modules/cronapp-framework-js/dist/components/templates/cron-breadcrumbs.designtime.html",
-  "designTimeSelector": "cron-breadcrumbs",
+  "designTimeSelector": ":self",
   "designTimeDynamic": true,
-  "wrapper": true,
+  "wrapper": false,
   "forcedGroup": true,
   "properties": {
     "class": {
