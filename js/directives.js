@@ -4758,9 +4758,9 @@
 
                   function inicio(items) {
                     let x = false;
-
+    
                     for (let i in items) {
-
+    
                       let action = items[i].action;
                       if (action && action != "") {
                         action = action.replace("cronapi.screen.changeView('", '');
@@ -4769,38 +4769,58 @@
                       } else {
                         action = null
                       }
-
-                      if(items[i].level === 1){
-                        arrayPaiBreadcrumb = []
+    
+                      if (items[i].level === 1) {
+                        arrayPaiBreadcrumb = [];
                       }
-                      if (!action) {
-                        arrayPaiBreadcrumb.push({
-                          level: items[i].level,
-                          title: items[i].title,
-                          href: '#'
-                        });
-                      } else if (action) {
-                        arrayPaiBreadcrumb.push({
-                          level: items[i].level,
-                          title: items[i].title,
-                          href: document.location.origin + '/' + action.join("/")
-                        });
+    
+                      if (arrayPaiBreadcrumb.length != 0 && items[i].level === arrayPaiBreadcrumb[arrayPaiBreadcrumb.length - 1].level) {
+                        if (!action) {
+                          arrayPaiBreadcrumb[arrayPaiBreadcrumb.length - 1] = {
+                            level: items[i].level,
+                            title: items[i].title,
+                            href: '#'
+                          };
+    
+                        } else if (action) {
+                          arrayPaiBreadcrumb[arrayPaiBreadcrumb.length - 1] = {
+                            level: items[i].level,
+                            title: items[i].title,
+                            href: document.location.origin + '/' + action.join("/")
+                          };
+    
+                        }
+    
+                      } else {
+                        if (!action) {
+                          arrayPaiBreadcrumb.push({
+                            level: items[i].level,
+                            title: items[i].title,
+                            href: '#'
+                          });
+                        } else if (action) {
+                          arrayPaiBreadcrumb.push({
+                            level: items[i].level,
+                            title: items[i].title,
+                            href: document.location.origin + '/' + action.join("/")
+                          });
+                        }
                       }
-
+    
                       if (items[i].menuItems.length > 0) {
                         inicio(items[i].menuItems);
-
+    
                       } else {
-                        if(action){
+                        if (action) {
                           if (action[action.length - 1] === page[page.length - 1]) {
-                            x = true
+                            x = true;
                           }
                         }
                       }
-
+    
                       if (x) {
                         for (let y in arrayPaiBreadcrumb) {
-
+    
                           if (y == 0 && arrayPaiBreadcrumb[y].level == 1) {
                             breadcrumb.push({
                               type: "rootitem",
@@ -4822,11 +4842,12 @@
                               type: "item",
                               href: arrayPaiBreadcrumb[y].href,
                               text: arrayPaiBreadcrumb[y].title,
-                              showText: true
+                              showText: true,
+                              showIcon: false
                             })
                           }
                         }
-
+    
                         return breadcrumb
                       }
                     }
