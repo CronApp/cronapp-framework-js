@@ -4928,20 +4928,40 @@
                   }
 
                   if (items[i].level === 1) {
-                    arrayPaiBreadcrumb = []
+                    arrayPaiBreadcrumb = [];
                   }
-                  if (!action) {
-                    arrayPaiBreadcrumb.push({
-                      level: items[i].level,
-                      title: items[i].title,
-                      href: '#'
-                    });
-                  } else if (action) {
-                    arrayPaiBreadcrumb.push({
-                      level: items[i].level,
-                      title: items[i].title,
-                      href: document.location.origin + '/' + action.join("/")
-                    });
+
+                  if (arrayPaiBreadcrumb.length != 0 && items[i].level === arrayPaiBreadcrumb[arrayPaiBreadcrumb.length - 1].level) {
+                    if (!action) {
+                      arrayPaiBreadcrumb[arrayPaiBreadcrumb.length - 1] = {
+                        level: items[i].level,
+                        title: items[i].title,
+                        href: '#'
+                      };
+
+                    } else if (action) {
+                      arrayPaiBreadcrumb[arrayPaiBreadcrumb.length - 1] = {
+                        level: items[i].level,
+                        title: items[i].title,
+                        href: document.location.origin + '/' + action.join("/")
+                      };
+
+                    }
+
+                  } else {
+                    if (!action) {
+                      arrayPaiBreadcrumb.push({
+                        level: items[i].level,
+                        title: items[i].title,
+                        href: '#'
+                      });
+                    } else if (action) {
+                      arrayPaiBreadcrumb.push({
+                        level: items[i].level,
+                        title: items[i].title,
+                        href: document.location.origin + '/' + action.join("/")
+                      });
+                    }
                   }
 
                   if (items[i].menuItems.length > 0) {
@@ -4950,7 +4970,7 @@
                   } else {
                     if (action) {
                       if (action[action.length - 1] === page[page.length - 1]) {
-                        x = true
+                        x = true;
                       }
                     }
                   }
