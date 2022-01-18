@@ -34,7 +34,7 @@
     },
     {
       "name": "cron-disabled",
-      "selector": "cron-auto-complete",
+      "selector": "cron-dynamic-select",
       "displayName_en_US": "Disabled",
       "displayName_pt_BR": "Desabilitado",
       "type": "logic"
