@@ -58,11 +58,6 @@
     },
     {
       "file": "index.html",
-      "script": "js/dataSourceMap.js",
-      "type": "script"
-    },
-    {
-      "file": "index.html",
       "script": "node_modules/cronapp-common-js/dist/js/parser.js",
       "type": "script"
     },
