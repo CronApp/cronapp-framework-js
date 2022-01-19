@@ -4741,7 +4741,7 @@
                   let idMenu = attrs.idMenu;
 
                   // Capturar o  json do menu
-                  let menuOptions = $(`#${idMenu}`)[0].children[0].attributes['options'];
+                  let menuOptions = $(`#${idMenu}`)[0].parentElement.attributes['options'];
                   menuOptions = JSON.parse(menuOptions.value);
                   let subMenuOptions = menuOptions.subMenuOptions;
 
