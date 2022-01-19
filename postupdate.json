@@ -287,6 +287,11 @@
       "file": "index.html",
       "script": "node_modules/angular-justgage/ng-justgage.js",
       "type": "script"
+    },
+    {
+      "file": "index.html",
+      "script": "plugins/angular-justgage/ng-justgage.js",
+      "type": "script"
     }
   ],
   "replaces": [
@@ -412,7 +417,11 @@
     },
     {
       "old" : "plugins/raphael/raphael-min.js",
-      "new" : "node_modules/raphael/raphael-min.js"
+      "new" : "node_modules/raphael/raphael.min.js"
+    },
+    {
+      "old" : "node_modules/raphael/raphael-min.js",
+      "new" : "node_modules/raphael/raphael.min.js"
     },
     {
       "old" : "plugins/justgage/justgage.js",
