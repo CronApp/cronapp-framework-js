@@ -250,7 +250,7 @@ h6 {
 }
 
 .fill .bg.ng-scope .container-full .container-fluid > .component-holder .login-view {
-    flex-direction: column-reverse;
+    flex-direction: column;
     background: var(--colorNeutral00);
     border-radius: var(--borderRadiusExtraSmall);
     padding: var(--distanceSmall);
