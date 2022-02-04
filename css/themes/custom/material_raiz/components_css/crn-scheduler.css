@@ -61,7 +61,7 @@ cron-scheduler a.k-link {
 }
 
 .k-scheduler-views * {
-    background-color: #3b448e;
+     background-color: #3b448e !important;
 }
 
 .k-scheduler-views .k-current-view {
