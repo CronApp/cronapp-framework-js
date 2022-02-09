@@ -4460,7 +4460,7 @@
             });
             resizeObserver.observe(slider.wrapper[0])
 
-            if ((attrs.ngRequired === 'true' || attrs.required) {
+            if (attrs.ngRequired === 'true' || attrs.required) {
               var id = attrs.id ? ' id="input' + app.common.generateId() + '"' : '';
               var name = attrs.name ? ' name="input' + app.common.generateId() + '"' : '';
               var parent = element.parent();
