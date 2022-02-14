@@ -3725,6 +3725,9 @@
                           _combobox.isEvaluating = false;
                         } else {
                           _dataSource.findObj([options.value], false, function(data) {
+                            if (Array.isArray(data)) {
+                              data = data[0];
+                            }
                             options.success(data);
                             _combobox.isEvaluating = false;
 
@@ -3834,9 +3837,16 @@
                     var found = _goTo(_scope, combobox, combobox.dataItem());
 
                     if (!found) {
-                      dataItem = objectClone(combobox.dataItem(), combobox.dataSource.options.schema.model.fields);
-                      dataSourceScreen.data.push(dataItem);
-                      _goTo(_scope, combobox, dataItem);
+                      dataSourceScreen.findObj([value], false, (dataresult) => {
+                        if (Array.isArray(dataresult)) {
+                          dataresult = dataresult[0];
+                        }
+                        if (dataresult) {
+                          dataSourceScreen.data.push(dataresult);
+                          _goTo(_scope, combobox, dataresult);
+                          modelSetter(_scope, value);
+                        }
+                      });
                     }
                   }
                 }
