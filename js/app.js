@@ -227,7 +227,7 @@ var app = (function() {
         };
 
         $rootScope.getDashboard = function(dashboardName, params, config) {
-          DashboardService.getDashboard(dashboardName, params, config);
+          DashboardService.openDashboard(dashboardName, params, config);
         };
 
         // Query string params

@@ -49,15 +49,15 @@
         var m = $('#reportView .modal-body');
         if(m.get(0)) {
           m.html(frame);
-          $('#reportViewContext .modal-dialog').css('width', '95%');
+          $('#dashboardViewContext .modal-dialog').css('width', '95%');
           setTimeout(function() {
-            console.log('open[#reportViewContext]');
+            console.log('open[#dashboardViewContext]');
             $('body').append(context);
             $('#reportView').modal();
           }, 100);
         }
         else {
-          console.log('wait[#reportViewContext]');
+          console.log('wait[#dashboardViewContext]');
           setTimeout(include, 200);
         }
       }
@@ -75,12 +75,11 @@
       }
     }
   
-    this.openStimulsoftReport = function(json, parameters, config) {
+    this.openStimulsoftDashboard = function(json, parameters, datasourcesInBand, config) {
 
       var context = $('#dashboardViewContext');
       if(!context.get(0)) {
-        body.append('<div id="dashboardViewContext" ng-include="\'node_modules/cronapp-framework-js/components/dashboard/dashboard.view.html\'"></div>');
-        $compile(body)(scope);
+        body.append('<div id="dashboardViewContext"></div>');
         context = $('#dashboardViewContext');
       }
       
@@ -109,11 +108,10 @@
         }
         return viewer;
       };
-    
+
       if (config && config.$element) {
         getViewer(config).renderHtml(config.$element[0]);
       } else {
-      
         function observeFullScreen() {
           var $contentReport;
           var $modalBody;
@@ -262,7 +260,7 @@
                 this.initializeStimulsoft($translate.use());
                 this.getContentAsString(result.data).then(
                     function (content) {
-                    this.openStimulsoftReport(content.data, result.data.parameters, result.data.datasourcesInBand, config);
+                      this.openStimulsoftDashboard(content.data, result.data.parameters, result.data.datasourcesInBand, config);
                     }.bind(this),
                     function (data) {
                       var message = cronapi.internal.getErrorMessage(data, data.statusText);
