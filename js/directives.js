@@ -796,7 +796,7 @@
               if (o.length >= 10 && o.match(ISO_PATTERN)) {
                 return "datetimeoffset'" + o + "'";
               } else {
-                return "'" + o + "'";
+                return "'" + o.replaceAll("'", "''") + "'";
               }
             }
           } else {
