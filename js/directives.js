@@ -796,7 +796,7 @@
               if (o.length >= 10 && o.match(ISO_PATTERN)) {
                 return "datetimeoffset'" + o + "'";
               } else {
-                return "'" + o + "'";
+                return "'" + o.replaceAll("'", "''") + "'";
               }
             }
           } else {
@@ -4170,7 +4170,7 @@
               autoComplete.enable(false);
             } else {
               autoComplete.enable(true);
-            }            
+            }
 
             if (ngModelCtrl) {
               ngModelCtrl.$formatters.push(function (value) {
@@ -4574,7 +4574,7 @@
         const populateSubitems = (item) => {
           var subitem = item.menuItems;
           var templateSubitens = '';
-  
+
           subitem.forEach((subitem) => {
             var securitySubitem = (subitem.security && subitem.security != null) ? ' cronapp-security="' + subitem.security + '" ' : '';
             var actionSubitem = (subitem.action && subitem.action != null) ? ' ng-click="' + subitem.action + '" ' : '';
@@ -4582,48 +4582,48 @@
             var iconClassSubitem = (subitem.iconClass && subitem.iconClass != null) ? '<i class="' + subitem.iconClass + '"></i>&nbsp;' : '';
             var titleSubitem = '<span></span>';
             var caretSubitem = (subitem.menuItems && Array.isArray(subitem.menuItems) && (subitem.menuItems.length > 0)) ? '<span class="caret submenu"></span>' : '';
-  
+
             if (subitem.title) {
               titleSubitem = '<span>' + $translate.instant(subitem.title) + '</span>';
             }
-  
+
             if (subitem.menuItems.length > 0) {
               templateSubitens = templateSubitens + '<li class="dropdown-submenu">\
                       <a class="dropdown-item dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" href=""' + securitySubitem + actionSubitem + '>' + iconClassSubitem + titleSubitem + caretSubitem + '</a>\
                       ' + populateItems(subitem.menuItems) + '\
                     </li>';
-  
+
             } else {
               templateSubitens = templateSubitens + '<li class="dropdown-submenu">\
                       <a  role="button" aria-haspopup="true" aria-expanded="false" href=""' + securitySubitem + actionSubitem + '>' + iconClassSubitem + titleSubitem + caretSubitem + '</a>\
                     </li>';
             }
           });
-  
+
           if (templateSubitens != '') {
             templateSubitens = '<ul class="dropdown-menu">' + templateSubitens + '</ul>';
           }
-  
+
           return templateSubitens;
         };
-  
+
         const populateItems = (items) => {
           var templateItens = '';
-  
+
           if (items && items.length > 0 && Array.isArray(items)) {
             items.forEach(function (item) {
-  
+
               var security = (item.security && item.security != null) ? ' cronapp-security="' + item.security + '" ' : '';
               var action = (item.action && item.action != null) ? ' ng-click="' + item.action + '" ' : '';
               var hide = (item.hide && item.hide != null) ? ' ng-hide="' + item.hide + '" ' : '';
               var iconClass = (item.iconClass && item.iconClass != null) ? '<i class="' + item.iconClass + '"></i>&nbsp;' : '';
               var title = '<span></span>';
               var caret = (item.menuItems && Array.isArray(item.menuItems) && (item.menuItems.length > 0)) ? '<span class="caret submenu"></span>' : '';
-  
+
               if (item.title) {
                 title = '<span>' + $translate.instant(item.title) + '</span>';
               }
-  
+
               if (item.menuItems.length > 0) {
                 templateItens = templateItens + '\
                         <li class="dropdown-submenu" ' + security + hide + '> \
@@ -4636,36 +4636,36 @@
                           <a  href="" ' + action + ' class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">' + iconClass + title + caret + ' </a> \
                         </li>';
               }
-  
+
             });
-  
+
             if (templateItens != '') {
               templateItens = '<ul class="dropdown-menu">' + templateItens + '</ul>';
             }
           }
-  
+
           return templateItens;
         }
         return {
           restrict: 'EA',
           populateMenu: function (menuOptions, isVertical) {
             var template = '';
-  
+
             if (menuOptions && menuOptions != null && menuOptions.subMenuOptions && menuOptions.subMenuOptions != null && Array.isArray(menuOptions.subMenuOptions)) {
-  
+
               menuOptions.subMenuOptions.forEach(function (menu) {
-  
+
                 var security = (menu.security && menu.security != null) ? ' cronapp-security="' + menu.security + '" ' : '';
                 var action = (menu.action && menu.action != null) ? ' ng-click="' + menu.action + '" ' : '';
                 var caret = (menu.menuItems && Array.isArray(menu.menuItems) && (menu.menuItems.length > 0)) ? '<span class="caret"></span>' : '';
                 var hide = (menu.hide && menu.hide != null) ? ' ng-hide="' + menu.hide + '" ' : '';
                 var iconClass = (menu.iconClass && menu.iconClass != null) ? '<i class="' + menu.iconClass + '"></i>&nbsp;' : '';
                 var title = '<span></span>'
-  
+
                 if (menu.title) {
                   title = '<span>' + $translate.instant(menu.title) + '</span>';
                 }
-  
+
                 template = template + '\
                       <li class="dropdown nav-item '+ (isVertical ? 'col-md-12 padding-0' : '') + '"' + security + hide + '>\
                         <a href="" ' + action + ' class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">\
@@ -4673,17 +4673,17 @@
                         </a> \
                         ' + populateItems(menu.menuItems) + '\
                       </li>';
-  
+
               })
             }
-  
+
             return template;
           },
           link: function (scope, element, attrs) {
             $translate.onReady(() => {
               //Somente fica na vertical se for o menu principal da IDE (E estiver configurado para isso)
               let isVertical = element.closest('.crn-navigator-vertical').length;
-  
+
               var TEMPLATE_MAIN = '<ul  class="nav navbar-nav ' + (isVertical ? 'col-md-12 padding-0' : '') + ' " style="float:left"></ul>';
               var options = {};
               try {
@@ -4691,30 +4691,30 @@
               } catch (e) {
                 console.log('CronDynamicMenu: Invalid configuration!')
               }
-  
+
               var main = $(TEMPLATE_MAIN);
               main.attr('id', attrs.id);
-  
+
               var menus = this.populateMenu(options, isVertical);
               main.append(menus);
               if (isVertical) {
                 main.append($('#navbar2 li:first').addClass('col-md-12 padding-0'));
               }
-  
+
               var newElement = angular.element(main);
               element.html('');
               element.append(main);
               element.attr('id', null);
               $compile(newElement)(scope);
-  
+
               var multilevelAction = attrs.multilevelAction;
-  
+
               if (multilevelAction === 'hover') {
                 $('.dropdown-menu .dropdown-submenu').on('mouseover', function () {
                   var subMenu = $(this).children('ul.dropdown-menu');
                   subMenu.addClass('displayBlock');
                 });
-  
+
                 $('.dropdown-menu .dropdown-submenu').on('mouseout', function () {
                   var subMenu = $(this).children('ul.dropdown-menu');
                   subMenu.removeClass('displayBlock');
@@ -4733,7 +4733,7 @@
                   return false;
                 });
               }
-  
+
             });
           }
         }
@@ -4768,9 +4768,9 @@
 
                   function inicio(items) {
                     let x = false;
-    
+
                     for (let i in items) {
-    
+
                       let action = items[i].action;
                       if (action && action != "") {
                         action = action.replace("cronapi.screen.changeView('", '');
@@ -4779,11 +4779,11 @@
                       } else {
                         action = null
                       }
-    
+
                       if (items[i].level === 1) {
                         arrayPaiBreadcrumb = [];
                       }
-    
+
                       if (arrayPaiBreadcrumb.length != 0 && items[i].level === arrayPaiBreadcrumb[arrayPaiBreadcrumb.length - 1].level) {
                         if (!action) {
                           arrayPaiBreadcrumb[arrayPaiBreadcrumb.length - 1] = {
@@ -4791,16 +4791,16 @@
                             title: items[i].title,
                             href: '#'
                           };
-    
+
                         } else if (action) {
                           arrayPaiBreadcrumb[arrayPaiBreadcrumb.length - 1] = {
                             level: items[i].level,
                             title: items[i].title,
                             href: document.location.origin + '/' + action.join("/")
                           };
-    
+
                         }
-    
+
                       } else {
                         if (!action) {
                           arrayPaiBreadcrumb.push({
@@ -4816,10 +4816,10 @@
                           });
                         }
                       }
-    
+
                       if (items[i].menuItems.length > 0) {
                         inicio(items[i].menuItems);
-    
+
                       } else {
                         if (action) {
                           if (action[action.length - 1] === page[page.length - 1]) {
@@ -4827,10 +4827,10 @@
                           }
                         }
                       }
-    
+
                       if (x) {
                         for (let y in arrayPaiBreadcrumb) {
-    
+
                           if (y == 0 && arrayPaiBreadcrumb[y].level == 1) {
                             breadcrumb.push({
                               type: "rootitem",
@@ -4857,7 +4857,7 @@
                             })
                           }
                         }
-    
+
                         return breadcrumb
                       }
                     }
@@ -4890,7 +4890,7 @@
                     let blocklyPackage = shortVersion.split("').names")[0];
                     blocklyPackage = blocklyPackage.split("').attr()")[0];
                     let blocklyParams = shortVersion.split('.run')[1];
-                    evaluated = await scope.$eval(blocklyPackage + blocklyParams); 
+                    evaluated = await scope.$eval(blocklyPackage + blocklyParams);
                 } else {
                     evaluated = scope.$eval(attrs.ngInitialValue);
                 }
@@ -5109,7 +5109,7 @@
           restrict: 'EA',
           replace: true,
           link: function (scope, element, attrs, ngModelCtrl) {
-  
+
             let attributeValue = attrs.attributeValue;
             let orderedAttributeValue = attrs.orderedAttributeValue
             let listType = attrs.listType;
@@ -5117,21 +5117,21 @@
             content = $(content);
             let templateDyn = '';
             let contentUL = '';
-  
+
             $.each(content, function (i, item) {
               contentUL = contentUL + item.outerHTML;
             });
-  
+
             switch (listType) {
               case 'numbered-list':
                 templateDyn = `<ol style="list-style-type: ${attributeValue}">${contentUL}</ol>`
                 break
-  
+
               case 'ordered-list':
                 templateDyn = `<ul style="list-style-type: ${orderedAttributeValue}">${contentUL}</ul>`
                 break
             }
-  
+
             templateDyn = $(templateDyn);
             $(element).replaceWith(templateDyn);
             $compile(templateDyn)(scope);
