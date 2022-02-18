@@ -1447,7 +1447,7 @@
       })
       .directive('cronTimeline', ['$compile', '$parse', function($compile, $parse){
         'use strict';
-    
+
        var defaultAdvancedTemplate = "<ul class=\"timeline\">\r\n   <timeline-event side=\"\" class=\"ng-scope\" ng-repeat=\"rowData in datasource\">\r\n      <li class=\"timeline-event {{rowData[options.fields.field4] == '2' ? 'timeline-inverted' : ''}}\">\r\n         <timeline-badge class=\"{{$odd ? 'info' : 'warning'}} bounce-in\">\r\n            <div class=\"timeline-badge\">\r\n               <i class=\"glyphicon {{rowData[options.fields.field3] ? rowData[options.fields.field3] : 'glyphicon-check'}}\"><\/i>\r\n            <\/div>\r\n         <\/timeline-badge>\r\n         <timeline-panel class=\"info bounce-in\">\r\n            <div class=\"timeline-panel\">\r\n               <timeline-heading class=\"ng-scope\">\r\n                  <div class=\"timeline-heading\">\r\n                     <h4 class=\"ng-binding ng-scope\">{{rowData[options.fields.field0]}}<\/h4>\r\n                     <p class=\"ng-scope\">\r\n                        <small class=\"text-muted ng-binding\"><i class=\"glyphicon glyphicon-time\"><\/i>{{rowData[options.fields.field1]|mask:options.fields.mask2:options.fields.type1}}<\/small>\r\n                     <\/p>\r\n                  <\/div>\r\n               <\/timeline-heading>\r\n               <p ng-if=\"rowData[options.fields.field2]\" class=\"ng-binding ng-scope\">{{rowData[options.fields.field2]}}<\/p>\r\n            <\/div>\r\n         <\/timeline-panel>\r\n      <\/li>\r\n   <\/timeline-event>\r\n<\/ul>";
 
         var getExpression = function(dataSourceName) {
@@ -1465,14 +1465,14 @@
             scope.hasValue = value => value !== null && value !== undefined;
             var optionsList = {};
             var dataSourceName = '';
-    
+
             try {
               optionsList = JSON.parse(attrs.options);
               dataSourceName = optionsList.dataSourceScreen.name;
               var dataSource = eval(optionsList.dataSourceScreen.name);
 
               scope.options = optionsList;
-    
+
               if(attrs['ngModel']){
                 scope.changeRowDataField = function(rowData){
                   rowData = dataSource.getKeyValues(rowData);
@@ -1489,7 +1489,7 @@
               scope.options.randomModel = Math.floor(Math.random() * (9000)) + 1000;
 
               var visibleColumns = [];
-    
+
               for (var i = 0; i < optionsList.columns.length; i++) {
                 var column = optionsList.columns[i];
                 if (column.visible) {
@@ -1509,7 +1509,7 @@
             } catch(err) {
               console.log('CronTimeline invalid configuration! ' + err);
             }
-    
+
             if(scope.options.fields.image && scope.options.imageType != 'do-not-show'){
               scope.options.imageClassPosition = "item-" + scope.options.imageType + '-' + scope.options.imagePosition;
             }
@@ -1517,9 +1517,9 @@
             if(!scope.options.advancedTemplate){
               scope.options.advancedTemplate = defaultAdvancedTemplate;
             }
-           
+
             var templateDyn = scope.options.advancedTemplate;
-    
+
             for (let index = 0; index < visibleColumns.length; index++) {
               let column = visibleColumns[index];
               if (column.field && column.dataType === 'Database' && scope.options.fields[`security${index}`]) {
@@ -1529,7 +1529,7 @@
               }
             }
             templateDyn = $(templateDyn);
-    
+
             scope.options.xattrTextPosition = attrs.xattrTextPosition;
 
             $(element).replaceWith(templateDyn);
@@ -1539,7 +1539,7 @@
             if($(eventItem).attr('ng-repeat') === "rowData in datasource"){
                 eventItem.attr('ng-repeat', getExpression(dataSourceName));
             }
-    
+
             $compile(templateDyn, null, 9999998)(scope);
           }
         }
@@ -2070,12 +2070,12 @@
               var functionToCall = datasourceName + '.post();'
               var buttonSave = this.generateModalSaveOrCancelButtonCall('save', functionToCall, datasourceName, modal, scope);
               $footerModal.append(buttonSave);
-              
+
               if (saveAdd) {
                 let buttonSaveAdd = this.generateModalSaveOrCancelButtonCall('saveAdd', functionToCall + datasourceName + '.startInserting();', datasourceName, modal, scope);
                 $footerModal.append(buttonSaveAdd);
               }
-                            
+
               var buttonCancel = this.generateModalSaveOrCancelButtonCall('cancel', null, null, null, scope);
               $footerModal.append(buttonCancel);
             }
@@ -4309,7 +4309,7 @@
               autoComplete.enable(false);
             } else {
               autoComplete.enable(true);
-            }            
+            }
 
             if (ngModelCtrl) {
               ngModelCtrl.$formatters.push(function (value) {
@@ -4713,7 +4713,7 @@
         const populateSubitems = (item) => {
           var subitem = item.menuItems;
           var templateSubitens = '';
-  
+
           subitem.forEach((subitem) => {
             var securitySubitem = (subitem.security && subitem.security != null) ? ' cronapp-security="' + subitem.security + '" ' : '';
             var actionSubitem = (subitem.action && subitem.action != null) ? ' ng-click="' + subitem.action + '" ' : '';
@@ -4721,48 +4721,48 @@
             var iconClassSubitem = (subitem.iconClass && subitem.iconClass != null) ? '<i class="' + subitem.iconClass + '"></i>&nbsp;' : '';
             var titleSubitem = '<span></span>';
             var caretSubitem = (subitem.menuItems && Array.isArray(subitem.menuItems) && (subitem.menuItems.length > 0)) ? '<span class="caret submenu"></span>' : '';
-  
+
             if (subitem.title) {
               titleSubitem = '<span>' + $translate.instant(subitem.title) + '</span>';
             }
-  
+
             if (subitem.menuItems.length > 0) {
               templateSubitens = templateSubitens + '<li class="dropdown-submenu">\
                       <a class="dropdown-item dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" href=""' + securitySubitem + actionSubitem + '>' + iconClassSubitem + titleSubitem + caretSubitem + '</a>\
                       ' + populateItems(subitem.menuItems) + '\
                     </li>';
-  
+
             } else {
               templateSubitens = templateSubitens + '<li class="dropdown-submenu">\
                       <a  role="button" aria-haspopup="true" aria-expanded="false" href=""' + securitySubitem + actionSubitem + '>' + iconClassSubitem + titleSubitem + caretSubitem + '</a>\
                     </li>';
             }
           });
-  
+
           if (templateSubitens != '') {
             templateSubitens = '<ul class="dropdown-menu">' + templateSubitens + '</ul>';
           }
-  
+
           return templateSubitens;
         };
-  
+
         const populateItems = (items) => {
           var templateItens = '';
-  
+
           if (items && items.length > 0 && Array.isArray(items)) {
             items.forEach(function (item) {
-  
+
               var security = (item.security && item.security != null) ? ' cronapp-security="' + item.security + '" ' : '';
               var action = (item.action && item.action != null) ? ' ng-click="' + item.action + '" ' : '';
               var hide = (item.hide && item.hide != null) ? ' ng-hide="' + item.hide + '" ' : '';
               var iconClass = (item.iconClass && item.iconClass != null) ? '<i class="' + item.iconClass + '"></i>&nbsp;' : '';
               var title = '<span></span>';
               var caret = (item.menuItems && Array.isArray(item.menuItems) && (item.menuItems.length > 0)) ? '<span class="caret submenu"></span>' : '';
-  
+
               if (item.title) {
                 title = '<span>' + $translate.instant(item.title) + '</span>';
               }
-  
+
               if (item.menuItems.length > 0) {
                 templateItens = templateItens + '\
                         <li class="dropdown-submenu" ' + security + hide + '> \
@@ -4775,36 +4775,36 @@
                           <a  href="" ' + action + ' class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">' + iconClass + title + caret + ' </a> \
                         </li>';
               }
-  
+
             });
-  
+
             if (templateItens != '') {
               templateItens = '<ul class="dropdown-menu">' + templateItens + '</ul>';
             }
           }
-  
+
           return templateItens;
         }
         return {
           restrict: 'EA',
           populateMenu: function (menuOptions, isVertical) {
             var template = '';
-  
+
             if (menuOptions && menuOptions != null && menuOptions.subMenuOptions && menuOptions.subMenuOptions != null && Array.isArray(menuOptions.subMenuOptions)) {
-  
+
               menuOptions.subMenuOptions.forEach(function (menu) {
-  
+
                 var security = (menu.security && menu.security != null) ? ' cronapp-security="' + menu.security + '" ' : '';
                 var action = (menu.action && menu.action != null) ? ' ng-click="' + menu.action + '" ' : '';
                 var caret = (menu.menuItems && Array.isArray(menu.menuItems) && (menu.menuItems.length > 0)) ? '<span class="caret"></span>' : '';
                 var hide = (menu.hide && menu.hide != null) ? ' ng-hide="' + menu.hide + '" ' : '';
                 var iconClass = (menu.iconClass && menu.iconClass != null) ? '<i class="' + menu.iconClass + '"></i>&nbsp;' : '';
                 var title = '<span></span>'
-  
+
                 if (menu.title) {
                   title = '<span>' + $translate.instant(menu.title) + '</span>';
                 }
-  
+
                 template = template + '\
                       <li class="dropdown nav-item '+ (isVertical ? 'col-md-12 padding-0' : '') + '"' + security + hide + '>\
                         <a href="" ' + action + ' class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">\
@@ -4812,17 +4812,17 @@
                         </a> \
                         ' + populateItems(menu.menuItems) + '\
                       </li>';
-  
+
               })
             }
-  
+
             return template;
           },
           link: function (scope, element, attrs) {
             $translate.onReady(() => {
               //Somente fica na vertical se for o menu principal da IDE (E estiver configurado para isso)
               let isVertical = element.closest('.crn-navigator-vertical').length;
-  
+
               var TEMPLATE_MAIN = '<ul  class="nav navbar-nav ' + (isVertical ? 'col-md-12 padding-0' : '') + ' "></ul>';
               var options = {};
               try {
@@ -4830,30 +4830,30 @@
               } catch (e) {
                 console.log('CronDynamicMenu: Invalid configuration!')
               }
-  
+
               var main = $(TEMPLATE_MAIN);
               main.attr('id', attrs.id);
-  
+
               var menus = this.populateMenu(options, isVertical);
               main.append(menus);
               if (isVertical) {
                 main.append($('#navbar2 li:first').addClass('col-md-12 padding-0'));
               }
-  
+
               var newElement = angular.element(main);
               element.html('');
               element.append(main);
               element.attr('id', null);
               $compile(newElement)(scope);
-  
+
               var multilevelAction = attrs.multilevelAction;
-  
+
               if (multilevelAction === 'hover') {
                 $('.dropdown-menu .dropdown-submenu').on('mouseover', function () {
                   var subMenu = $(this).children('ul.dropdown-menu');
                   subMenu.addClass('displayBlock');
                 });
-  
+
                 $('.dropdown-menu .dropdown-submenu').on('mouseout', function () {
                   var subMenu = $(this).children('ul.dropdown-menu');
                   subMenu.removeClass('displayBlock');
@@ -4872,7 +4872,7 @@
                   return false;
                 });
               }
-  
+
             });
           }
         }
@@ -5048,7 +5048,7 @@
                     let blocklyPackage = shortVersion.split("').names")[0];
                     blocklyPackage = blocklyPackage.split("').attr()")[0];
                     let blocklyParams = shortVersion.split('.run')[1];
-                    evaluated = await scope.$eval(blocklyPackage + blocklyParams); 
+                    evaluated = await scope.$eval(blocklyPackage + blocklyParams);
                 } else {
                     evaluated = scope.$eval(attrs.ngInitialValue);
                 }
@@ -5165,7 +5165,7 @@
 
       .directive('signaturePad', function($compile, $window) {
         'use strict';
-    
+
         var signaturePad, canvas, element, EMPTY_IMAGE = null;
         return {
             restrict: 'E',
@@ -5189,32 +5189,32 @@
             controller: [
                 '$scope',
                 function($scope) {
-    
+
                     $scope.mouseup = function() {
-    
+
                         var signature = {};
-    
+
                         if (!$scope.signaturePad.isEmpty()) {
                             signature.dataUrl = $scope.signaturePad.toDataURL();
                             signature.isEmpty = false;
-    
+
                         } else {
                             signature.dataUrl = EMPTY_IMAGE;
                             signature.isEmpty = true;
                         }
-    
+
                         if (signature.dataUrl == null) {
                             return;
                         }
                         var binary = signature.dataUrl.split(',')[1];
                         $scope.ngModel = binary;
                     };
-    
+
                     $scope.$watch('ngModel', function(value, old) {
-    
+
                         var signature = $scope.signaturePad;
                         var data = $scope.ngModel;
-    
+
                         if (value !== old) {
                             signaturePad.clear();
                             signature.fromDataURL("data:image/png;base64," + value, {
@@ -5223,36 +5223,36 @@
                             $scope.ngModel = value;
                         }
                     }, true);
-    
+
                     $scope.clear = function() {
                         $scope.signaturePad.clear();
                         $scope.ngModel = null;
                     };
-    
+
                 }
             ],
             link: function(scope, element, attrs, ngModelCtrl) {
-    
+
                 canvas = element.find('canvas')[0];
-    
+
                 scope.onResize = function() {
-    
+
                     var canvas = element.find('canvas')[0];
                     var ratio = Math.max($window.devicePixelRatio || 1, 1);
                     canvas.width = canvas.offsetWidth * ratio;
                     canvas.height = canvas.offsetHeight * ratio;
                     canvas.getContext("2d").scale(ratio, ratio);
                 }
-    
+
                 scope.onResize();
-    
+
                 scope.signaturePad = new SignaturePad(canvas);
-    
+
                 angular.element($window).bind('resize', function() {
                     scope.onResize();
                 });
-    
-                $compile(element)(element.scope());                  
+
+                $compile(element)(element.scope());
             }
         };
     })
@@ -5395,7 +5395,7 @@
           restrict: 'EA',
           replace: true,
           link: function (scope, element, attrs, ngModelCtrl) {
-  
+
             let attributeValue = attrs.attributeValue;
             let orderedAttributeValue = attrs.orderedAttributeValue
             let listType = attrs.listType;
@@ -5403,21 +5403,21 @@
             content = $(content);
             let templateDyn = '';
             let contentUL = '';
-  
+
             $.each(content, function (i, item) {
               contentUL = contentUL + item.outerHTML;
             });
-  
+
             switch (listType) {
               case 'numbered-list':
                 templateDyn = `<ol style="list-style-type: ${attributeValue}">${contentUL}</ol>`
                 break
-  
+
               case 'ordered-list':
                 templateDyn = `<ul style="list-style-type: ${orderedAttributeValue}">${contentUL}</ul>`
                 break
             }
-  
+
             templateDyn = $(templateDyn);
             $(element).replaceWith(templateDyn);
             $compile(templateDyn)(scope);
