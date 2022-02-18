@@ -19,16 +19,16 @@
             "order": 1
         },
         "attribute-value": {
-            "displayName_pt_BR": "Valor do atributo numerado",
-            "displayName_en_US": "Numbered attribute value"
+            "displayName_pt_BR": "Valor do atributo ordenado",
+            "displayName_en_US": "Ordered attribute value"
         },
         "list-type": {
             "displayName_pt_BR": "Tipo de lista",
             "displayName_en_US": "List type"
         },
         "ordered-attribute-value": {
-            "displayName_pt_BR": "Valor do atributo ordenado",
-            "displayName_en_US": "Ordered attribute value"
+            "displayName_pt_BR": "Valor do atributo não ordenado",
+            "displayName_en_US": "Unordered attribute value"
         }
     },
     "handleRules": {
@@ -109,13 +109,13 @@
             "values": [
                 {
                     "key": "numbered-list",
-                    "value_pt_BR": "lista numerada",
-                    "value_en_US": "Numbered list"
+                    "value_pt_BR": "Lista ordenada",
+                    "value_en_US": "Ordered list"
                 },
                 {
                     "key": "ordered-list",
-                    "value_pt_BR": "lista ordenada",
-                    "value_en_US": "Ordered list"
+                    "value_pt_BR": "Lista não ordenada",
+                    "value_en_US": "Unordered list"
                 }
             ]
         }
