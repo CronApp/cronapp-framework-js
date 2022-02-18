@@ -4932,7 +4932,12 @@
             let falseValue = attrs.ngFalseValue ? attrs.ngFalseValue.split("'").join("") : false;
             let trueValue = attrs.ngTrueValue ? attrs.ngTrueValue.split("'").join("") : true;
 
-            if (attrs.crnAllowNullValues == 'true') {
+            let isAllowNullValues = (value) => {
+                return value === 'true' || value === undefined
+                    || value === null || value.length == 0;
+            };
+
+            if (isAllowNullValues(attrs.crnAllowNullValues)) {
               ctrl.$render = function () {
                 let viewValue = ctrl.$viewValue;
                 el.data('checked', viewValue);
@@ -4955,7 +4960,7 @@
                 }
                 setTimeout(() => ctrl.$setViewValue(viewValue));
               };
-            } else if (attrs.crnAllowNullValues == 'false') {
+            } else {
               ctrl.$render = function () {
                 let viewValue = ctrl.$viewValue;
                 if (ctrl.$viewValue === undefined || ctrl.$viewValue === null) {
@@ -4963,7 +4968,7 @@
                   viewValue = false;
                 }
                 if (viewValue === falseValue) {
-                  let modelForEval = `${el.attr('ng-model')}=${attrs.ngFalseValue}`;
+                  let modelForEval = attrs.ngFalseValue ? `${el.attr('ng-model')}=${attrs.ngFalseValue}` : `${el.attr('ng-model')}=${falseValue}`;
                   scope.$eval(modelForEval);
                 }
                 el.data('checked', viewValue);
