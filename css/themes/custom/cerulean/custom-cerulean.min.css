@@ -3144,10 +3144,6 @@ table.table tbody tr:nth-child(even) {
     overflow: hidden;
 }
 
-.carousel .carousel-inner {
-    background-color: var(--colorDefault10);
-}
-
 .carousel .carousel-control {
     filter: alpha(opacity=100);
     opacity: 1;
