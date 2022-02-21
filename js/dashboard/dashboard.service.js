@@ -79,10 +79,12 @@
 
       var context = $('#dashboardViewContext');
       if(!context.get(0)) {
-        body.append('<div id="dashboardViewContext"></div>');
+        var htmlViewer = $('<div id="dashboardViewContext" ng-include="\'node_modules/cronapp-framework-js/components/dashboard/dashboard.view.html\'"></div>');
+        $(body).append(htmlViewer);
+        $compile(htmlViewer)(scope);
         context = $('#dashboardViewContext');
       }
-      
+
       var h = parseInt($(window).height());
       var heightRepo = (h - 200) + "px";
       var viewerId = "StiViewer" + app.common.generateId();
