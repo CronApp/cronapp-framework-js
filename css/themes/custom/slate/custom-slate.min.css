@@ -1,6 +1,3 @@
-/* ==== FONTS ====*/
-@import url("font/fonts.css");
-
 /* ==== VARIABLES ==== */
 :root {
 
@@ -2323,7 +2320,6 @@ div[id^="crn-accordion"] .panel.panel-default .panel-heading {
 
 #main-view .nav.navbar-nav > li > .dropdown-menu {
     border-radius: 0 0 2px 2px;
-    border: 1px solid var(--colorDefault70);
     padding: 0;
     overflow: hidden;
     box-shadow: none;
@@ -2363,9 +2359,8 @@ div[id^="crn-accordion"] .panel.panel-default .panel-heading {
 
 /* Navigation Bar */
 #main-view *[id^="crn-navbar"] .navbar {
-    background-color: var(--colorNeutral10);
-    background-image: linear-gradient(var(--colorNeutral00), var(--colorNeutral20));
-    border: 1px solid var(--colorNeutral30);
+    background-image: linear-gradient(var(--colorDefault40), var(--colorDefault50));
+    border: 1px solid var(--colorDefault70);
     border-radius: 3px;
     box-shadow: 0 1px 10px rgb(0 0 0 / 10%);
 }
@@ -2435,7 +2430,7 @@ div[id^="crn-accordion"] .panel.panel-default .panel-heading {
 }
 
 #main-view *[id^="crn-navbar"] *[id^=crn-dynamic-menu] .nav.navbar-nav > li > a {
-    color: var(--colorNeutral100);
+    color: var(--colorNeutral40);
 }
 
 #main-view *[id^="crn-navbar"] *[id^=crn-dynamic-menu] .nav.navbar-nav > li > a:focus,
@@ -2443,16 +2438,20 @@ div[id^="crn-accordion"] .panel.panel-default .panel-heading {
     background-color: transparent;
 }
 
+#main-view *[id^="crn-navbar"] *[id^=crn-dynamic-menu] .nav.navbar-nav > li.open > a {
+    background-color: var(--colorDefault60);
+}
+
 #main-view *[id^="crn-navbar"] *[id^=crn-dynamic-menu] .nav.navbar-nav > li > a:hover {
-    background-color: transparent;
+    background-color: var(--colorDefault70);
 }
 
 #main-view *[id^="crn-navbar"] *[id^=crn-dynamic-menu] .nav.navbar-nav > li > a:hover span {
-    color: var(--colorPrimary40);
+    color: var(--colorNeutral40);
 }
 
 #main-view *[id^="crn-navbar"] *[id^="crn-dynamic-menu"] .nav.navbar-nav > li > a span.caret {
-    background: url(img/arrow-gray.svg) no-repeat center;
+    background: url(img/arrow-white.svg) no-repeat center;
 }
 
 /* Drag File Upload */
@@ -2502,7 +2501,7 @@ div[id^="crn-accordion"] .panel.panel-default .panel-heading {
 /* Banner */
 .container .jumbotron,
 .container-fluid .jumbotron {
-    background-color: var(--colorNeutral10);
+    background-color: var(--colorDefault70);
     border-radius: var(--borderRadiusSmallest);
     overflow: hidden;
     padding: var(--distanceMedium);
@@ -2511,7 +2510,7 @@ div[id^="crn-accordion"] .panel.panel-default .panel-heading {
 .container .jumbotron h1,
 .container-fluid .jumbotron h1 {
     font-weight: normal;
-    color: var(--colorNeutral140);
+    color: var(--colorNeutral40);
 }
 
 /* Rich Text Editor */
