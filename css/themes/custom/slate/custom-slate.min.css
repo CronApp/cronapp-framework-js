@@ -2429,6 +2429,11 @@ div[id^="crn-accordion"] .panel.panel-default .panel-heading {
 
 }
 
+#main-view *[id^="crn-navbar"] *[id^=crn-dynamic-menu] .nav.navbar-nav > li {
+    border-left: 1px solid rgba(255,255,255,0.1);
+    border-right: 1px solid rgba(0,0,0,0.1);
+}
+
 #main-view *[id^="crn-navbar"] *[id^=crn-dynamic-menu] .nav.navbar-nav > li > a {
     color: var(--colorNeutral40);
 }
