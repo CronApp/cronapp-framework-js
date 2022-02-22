@@ -1,0 +1,5 @@
+.k-grid table .k-button {
+    border-radius: var(--borderRadiusFull);
+    min-width: auto;
+    padding: 6px;
+}
