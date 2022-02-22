@@ -147,7 +147,7 @@ h6,
 .dynamic-image-container .btn.ng-binding {
     white-space: normal;
     text-align: center;
-    background-color: var(--colorNeutral20);
+    background-color: var(--colorNeutral20, #E3E3E3);
 }
 
 .dynamic-image-container .btn.btn-info span {

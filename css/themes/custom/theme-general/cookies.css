@@ -8,7 +8,7 @@
 
 .modal+div .alert {
     margin-bottom: 0;
-    padding: var(--distanceSmallest);
+    padding: var(--distanceSmallest, 5px);
 }
 
 .modal+div .alert .cookiealert-container {

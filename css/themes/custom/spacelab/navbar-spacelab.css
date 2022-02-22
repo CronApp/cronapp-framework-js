@@ -1,6 +1,6 @@
 .navbar {
     background-image: linear-gradient(var(--colorLight10, #f2f2f2), var(--colorLight40, #eeeeee) 50%, var(--colorLight40 , #aeaeae));
-    border-bottom: 1px solid var(--colorLight50);
+    border-bottom: 1px solid var(--colorLight50, #d0d0d0);
 }
 
 .navbar-inverse {

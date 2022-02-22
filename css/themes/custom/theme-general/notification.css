@@ -1,6 +1,6 @@
 .ui-notification {
-    border-radius: var(--borderRadiusExtraSmall);
-    padding: var(--distanceMedium);
+    border-radius: var(--borderRadiusExtraSmall, 10px);
+    padding: var(--distanceMedium, 20px);
     box-shadow: none;
     background-color: var(--colorDefault40, #474949);
 }
@@ -20,7 +20,6 @@
 .ui-notification.info {
     background-color: var(--colorCalm40, #3399f3);
 }
-
 
 .ui-notification .message {
     margin: 0;

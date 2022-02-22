@@ -1,16 +1,16 @@
 .ctn-tab {
-    border-radius: var(--borderRadiusNone);
+    border-radius: var(--borderRadiusNone, 0);
     padding: 0;
     margin-bottom: 20px;
 }
 
 .ctn-tab .nav-tabs {
-    border-bottom: 1px solid var(--colorNeutral30);
+    border-bottom: 1px solid var(--colorNeutral30, #D5D5D5);
 }
 
 .ctn-tab .nav-tabs li {
     background: transparent;
-    border-radius: var(--borderRadiusNone);
+    border-radius: var(--borderRadiusNone, 0);
     border: 0;
     overflow: hidden;
     margin-left: 0;
@@ -20,8 +20,8 @@
 
 .ctn-tab .nav-tabs li.active {
     background: transparent;
-    border: 1px solid var(--colorNeutral30);
-    border-bottom: 1px solid var(--colorNeutral00);
+    border: 1px solid var(--colorNeutral30, #D5D5D5);
+    border-bottom: 1px solid var(--colorNeutral00, #FFFFFF);
     bottom: 1px;
     border-radius: 4px 4px 0 0;
 }
@@ -30,14 +30,14 @@
     background: transparent;
     border: 0;
     margin: 0;
-    border-radius: var(--borderRadiusNone);
+    border-radius: var(--borderRadiusNone, 0);
     padding: var(--distanceExtraSmall) var(--distanceSmall);
     font-size: 14px;
     color: var(--colorPrimary40, #446e9b);
 }
 
 .ctn-tab .nav-tabs li a:hover {
-    background-color: var(--colorNeutral10);
+    background-color: var(--colorNeutral10, #F1F1F1);
     color: var(--colorPrimary50, #3c6088);
     border: 0;
 }
@@ -45,5 +45,5 @@
 .ctn-tab .nav-tabs li.active a,
 .ctn-tab .nav-tabs li.active a:hover {
     background: transparent;
-    color: var(--colorNeutral140);
+    color: var(--colorNeutral140, #4A4A4A);
 }
